@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Java — HTTP 状态代码及其定义 &middot; 尹枭凌
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/naringu.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/form.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="shortcut icon" href="./public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="Mozilla RSS" href="feed.category.xml">
+  </head>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-48740529-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+<body class="theme-6dd">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+      <img width="200" height="180" alt="A photo of ariestiyansyah" src="/images/head.jpeg">
+    <p align="center">If I know what love is, <br />it is because of you.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">首页</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about/">关于我</a>
+        
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/categories/">分类</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/contact/">联系方式</a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+
+    <a class="sidebar-nav-item" href="https://github.com/yinxiaoling">GitHub project</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">尹枭凌</a>
+            <small>—因为有了因为，所以有了所以，既然已成既然，何必再问何必。</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">Java — HTTP 状态代码及其定义</h1>
+  <span class="post-date">30 Jul 2015</span>
+  <p>2xx  成功</p>
+
+<p>200  正常；请求已完成。  </p>
+
+<p>201  正常；紧接 POST 命令。  </p>
+
+<p>202  正常；已接受用于处理，但处理尚未完成。  </p>
+
+<p>203  正常；部分信息 — 返回的信息只是一部分。  </p>
+
+<p>204  正常；无响应 — 已接收请求，但不存在要回送的信息。  </p>
+
+<hr>
+
+<p>3xx  重定向  </p>
+
+<p>301  已移动 — 请求的数据具有新的位置且更改是永久的。  </p>
+
+<p>302  已找到 — 请求的数据临时具有不同 URI。  </p>
+
+<p>303  请参阅其它 — 可在另一 URI 下找到对请求的响应，且应使用 GET 方法检索此响应。  </p>
+
+<p>304  未修改 — 未按预期修改文档。  </p>
+
+<p>305  使用代理 — 必须通过位置字段中提供的代理来访问请求的资源。  </p>
+
+<p>306  未使用 — 不再使用；保留此代码以便将来使用。  </p>
+
+<hr>
+
+<p>4xx  客户机中出现的错误  </p>
+
+<p>400  错误请求 — 请求中有语法问题，或不能满足请求。  </p>
+
+<p>401  未授权 — 未授权客户机访问数据。  </p>
+
+<p>402  需要付款 — 表示计费系统已有效。  </p>
+
+<p>403  禁止 — 即使有授权也不需要访问。  </p>
+
+<p>404  找不到 — 服务器找不到给定的资源；文档不存在。  </p>
+
+<p>407  代理认证请求 — 客户机首先必须使用代理认证自身。  </p>
+
+<p>415  介质类型不受支持 — 服务器拒绝服务请求，因为不支持请求实体的格式。  </p>
+
+<hr>
+
+<p>5xx  服务器中出现的错误  </p>
+
+<p>500  内部错误 — 因为意外情况，服务器不能完成请求。  </p>
+
+<p>501  未执行 — 服务器不支持请求的工具。  </p>
+
+<p>502  错误网关 — 服务器接收到来自上游服务器的无效响应。</p>
+
+<p>503  无法获得服务 — 由于临时过载或维护，服务器无法处理请求。</p>
+
+<hr>
+
+<p>HTTP 400 - 请求无效 </p>
+
+<p>HTTP 401.1 - 未授权：登录失败 </p>
+
+<p>HTTP 401.2 - 未授权：服务器配置问题导致登录失败 </p>
+
+<p>HTTP 401.3 - ACL 禁止访问资源 </p>
+
+<p>HTTP 401.4 - 未授权：授权被筛选器拒绝 </p>
+
+<p>HTTP 401.5 - 未授权：ISAPI 或 CGI 授权失败  </p>
+
+<p>HTTP 403 - 禁止访问 </p>
+
+<p>HTTP 403 - 对 Internet 服务管理器 (HTML) 的访问仅限于 Localhost </p>
+
+<p>HTTP 403.1 禁止访问：禁止可执行访问 </p>
+
+<p>HTTP 403.2 - 禁止访问：禁止读访问 </p>
+
+<p>HTTP 403.3 - 禁止访问：禁止写访问 </p>
+
+<p>HTTP 403.4 - 禁止访问：要求 SSL </p>
+
+<p>HTTP 403.5 - 禁止访问：要求 SSL 128 </p>
+
+<p>HTTP 403.6 - 禁止访问：IP 地址被拒绝 </p>
+
+<p>HTTP 403.7 - 禁止访问：要求客户证书 </p>
+
+<p>HTTP 403.8 - 禁止访问：禁止站点访问 </p>
+
+<p>HTTP 403.9 - 禁止访问：连接的用户过多 </p>
+
+<p>HTTP 403.10 - 禁止访问：配置无效 </p>
+
+<p>HTTP 403.11 - 禁止访问：密码更改 </p>
+
+<p>HTTP 403.12 - 禁止访问：映射器拒绝访问 </p>
+
+<p>HTTP 403.13 - 禁止访问：客户证书已被吊销 </p>
+
+<p>HTTP 403.15 - 禁止访问：客户访问许可过多 </p>
+
+<p>HTTP 403.16 - 禁止访问：客户证书不可信或者无效 </p>
+
+<p>HTTP 403.17 - 禁止访问：客户证书已经到期或者尚未生效 </p>
+
+<p>HTTP 404.1 - 无法找到 Web 站点 </p>
+
+<p>HTTP 404 - 无法找到文件 </p>
+
+<p>HTTP 405 - 资源被禁止 </p>
+
+<p>HTTP 406 - 无法接受 </p>
+
+<p>HTTP 407 - 要求代理身份验证 </p>
+
+<p>HTTP 410 - 永远不可用 </p>
+
+<p>HTTP 412 - 先决条件失败 </p>
+
+<p>HTTP 414 - 请求 - URI 太长 </p>
+
+<p>HTTP 500 - 内部服务器错误 </p>
+
+<p>HTTP 500.100 - 内部服务器错误 - ASP 错误 </p>
+
+<p>HTTP 500-11 服务器关闭 </p>
+
+<p>HTTP 500-12 应用程序重新启动 </p>
+
+<p>HTTP 500-13 - 服务器太忙 </p>
+
+<p>HTTP 500-14 - 应用程序无效 </p>
+
+<p>HTTP 500-15 - 不允许请求 global.asa </p>
+
+<p>Error 501 - 未实现 </p>
+
+<p>HTTP 502 - 网关错误</p>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/others/2015/08/01/other-qizongzui/">
+            Others — 让你此生难成大器的七宗罪
+            <small>01 Aug 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/java/2015/08/01/other-PG-10jineng/">
+            Java — Java程序员应该掌握的十项技能
+            <small>01 Aug 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/jquery/2015/08/01/jQuery-caozuo-select/">
+            jQuery — jQuery操作select
+            <small>01 Aug 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+<div class="comments">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'testnaringu';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'testnaringu';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
+</div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+    <div align="center" class="footer">
+        Copyright © 2015 <br>
+    </div>
+  </body>
+</html>
+

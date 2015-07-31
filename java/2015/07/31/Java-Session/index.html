@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Java — Session深度解析 &middot; 尹枭凌
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/naringu.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/form.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="shortcut icon" href="./public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="Mozilla RSS" href="feed.category.xml">
+  </head>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-48740529-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+<body class="theme-6dd">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+      <img width="200" height="180" alt="A photo of ariestiyansyah" src="/images/head.jpeg">
+    <p align="center">If I know what love is, <br />it is because of you.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">首页</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about/">关于我</a>
+        
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/categories/">分类</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/contact/">联系方式</a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+
+    <a class="sidebar-nav-item" href="https://github.com/yinxiaoling">GitHub project</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">尹枭凌</a>
+            <small>—因为有了因为，所以有了所以，既然已成既然，何必再问何必。</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">Java — Session深度解析</h1>
+  <span class="post-date">31 Jul 2015</span>
+  <h5>一、简介</h5>
+
+<h6>1.广义的session</h6>
+
+<p>中文名：会话，http客户端和http服务端开始通信，即产生会话，会话过程是可以连续的，也可以是时断时续的，它会有一个时间范围，表现就是比如你登陆一个网站，如果长时间未操作，网站会提醒你，这就是对session的一种应用。</p>
+
+<h6>2.J2EE中的session</h6>
+
+<p>J2EE规范中，session被定义为一个具体的接口，java.servlet.http.HttpSession,这个接口最终由符合J2EE规范的应用服务器来实现，例如我们常用的tomcat、weblogic、websphere等，session通常是存储在服务器内存中的（也有其他存储方式），换句话说session是服务器创建的，而不是浏览器创建的。</p>
+
+<h5>二、生命周期</h5>
+
+<h6>1.session的创建</h6>
+
+<p>session是服务器创建的对象，存储在服务器的内存中，以tomcat为例：</p>
+
+<p>当浏览器访问一个JSP时，tomcat会先根据JSP生成java文件，编译成class文件，最后运行，并输出内容到浏览器，浏览器解析展示结果给用户。java和class文件会存放在tomcat的work目录下，此时进入你项目中某个jsp所在文件夹会看到xxx<em>jsp.java文件。打开这个java文件我们找到`</em>jspService`方法，会看到声明了一些我们常说的jsp内置对象：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">PageContext pageContext = null;
+
+HttpSession session = null;
+
+ServletContext application = null;
+
+JspWriter out = null;
+</code></pre></div>
+<p>再往下看，会看到有一句session = pageContext.getSession();，这里生成了session对象，也就是说，访问jsp时，服务器自动生成了session对象(可以在jsp的page声明中加入session=&quot;false&quot;，禁用session)。</p>
+
+<p>启动一个应用，初次访问服务器上的一个jsp，服务器在响应头中设置了临时cookie，并加上了一JSESSIONID。</p>
+
+<p>再次访问此jsp页面，浏览器将存储JSESSIONID的cookie随着请求一起发送到服务器，服务器通过JSESSIONID到内存中找到上次生成的session对象，从而实现客户端(浏览器)共享session。</p>
+
+<p>JSESSIONID也可以拼在url上，如</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">http:///localhost:8080/test/test.jsp;JSESSIONID=XXXXXXXXXXXX?param1=value1，
+</code></pre></div>
+<p>JSESSIONID可以通过</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">request.getSession().getId()
+</code></pre></div>
+<p>得到，url中如果有JSESSIONID，服务器就不会从cookie中取了。</p>
+
+<p>注：浏览器多个tab之间(同一域下)共享session，实际上就是临时cookie都一样，JSESSIONID都是一个。而多个窗口之间使用不同的cookie不一样，所以不能共享session。</p>
+
+<h6>2. session的销毁</h6>
+
+<p>服务器被强制关闭，如Tomcat正常关闭(使用shutdown，而不是X掉)的话，是会对session序列化到硬盘上的，重新启动后，会读取，原有的session依然存在。</p>
+
+<p>程序中调用session.invalidate()，销毁当前session方法。</p>
+
+<p>session超时，超时指的是服务器连续一段时间内(超出了应用中设置的最低时限)没有接收到session所在客户端的请求，服务器从内存中移除该session对象。</p>
+
+<p>浏览器窗口关闭，session会消失吗？</p>
+
+<p>浏览器关闭后，只是对应服务器session的JSESSIONID消失了，而服务器再也用不到这个session，导致超时，服务器会自动销毁。
+注：文中讨论的session只是存储在服务器内存的情况，如其它放在Cache中、分布式存储、持久化等暂不讨论。</p>
+
+<ul>
+<li><p>session是消耗服务器内存的，要合理使用session。</p></li>
+<li><p>session是服务器创建的，跟浏览器没关系，浏览器只是拿到一个JSESSIONID。</p></li>
+</ul>
+
+<p>文章转自：<a href="http://blog.csdn.net/ghsau/article/details/13023425">高爽|Coder</a></p>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/others/2015/08/01/other-qizongzui/">
+            Others — 让你此生难成大器的七宗罪
+            <small>01 Aug 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/java/2015/08/01/other-PG-10jineng/">
+            Java — Java程序员应该掌握的十项技能
+            <small>01 Aug 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/jquery/2015/08/01/jQuery-caozuo-select/">
+            jQuery — jQuery操作select
+            <small>01 Aug 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+<div class="comments">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'testnaringu';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'testnaringu';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
+</div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+    <div align="center" class="footer">
+        Copyright © 2015 <br>
+    </div>
+  </body>
+</html>
+

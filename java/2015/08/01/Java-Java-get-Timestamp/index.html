@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Java — 获取取得Timestamp类型的当前系统时间 &middot; 尹枭凌
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/naringu.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/form.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="shortcut icon" href="./public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="Mozilla RSS" href="feed.category.xml">
+  </head>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-48740529-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+<body class="theme-6dd">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+      <img width="200" height="180" alt="A photo of ariestiyansyah" src="/images/head.jpeg">
+    <p align="center">If I know what love is, <br />it is because of you.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">首页</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about/">关于我</a>
+        
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/categories/">分类</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/contact/">联系方式</a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+
+    <a class="sidebar-nav-item" href="https://github.com/yinxiaoling">GitHub project</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">尹枭凌</a>
+            <small>—因为有了因为，所以有了所以，既然已成既然，何必再问何必。</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">Java — 获取取得Timestamp类型的当前系统时间</h1>
+  <span class="post-date">01 Aug 2015</span>
+  <p>java获取取得Timestamp类型的当前系统时间 格式：2010-11-04 16:19:42 </p>
+
+<p>方法1： </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">Timestamp d = new Timestamp(System.currentTimeMillis()); 
+</code></pre></div>
+<p>方法2： </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">Date date = new Date();       
+Timestamp nousedate = new Timestamp(date.getTime());
+</code></pre></div>
+<hr>
+
+<p>下为相关内容整合</p>
+
+<p>Java中Date及Timestamp时间相关内容 博客分类： Java编程
+JavaSQLDAO.java.util.date java.sql.date java.sql.timestamp </p>
+
+<p>整理一： </p>
+
+<p>java.sql.Date 只存储日期数据不存储时间数据 </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">// 会丢失时间数据
+preparedStatement.setDate(1, new java.sql.Date(date.getTime())); 
+
+//可以这样来处理 
+
+preparedStatement.setTimestamp(1, new java.sql.Timestamp(new java.util.Date().getTime())); 
+
+
+//想要得到完整的数据，包括日期和时间，可以这样 
+
+java.util.Date d = resultSet.getTimestamp(1); 
+
+//这样处理更合适一些，可以避免一些潜在Timestamp 问题 
+
+java.util.Date d = new java.util.Date(resultSet.getTimestamp(1).getTime()); 
+</code></pre></div>
+<p>自己补的话 </p>
+
+<p>这样的话： </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">    往数据库存储的时候可以接收 java.util.Date类型 再用getTime()方法得到代表那个Date对象的long值，再以这个long值 构造一个Timestamp对象 存进数据库中。 
+
+   从存数据库里取的时候，可以先得到Timestamp用他的getTime()方法得到long值，再以这个long值构造一个 java.util.Date对象，这样就可以对这个Date对象操作了。不如说 new SimpleTimeFormat(&quot;yyyyy-MM-dd HH:mm:ss&quot;).format()等等 
+</code></pre></div>
+<p>整理二： </p>
+
+<p>用Timestamp来记录日期时间还是很方便的，但有时候显示的时候是不需要小数位后面的毫秒的，这样就需要在转换为String时重新定义格式。 </p>
+
+<p>Timestamp转化为String: </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">SimpleDateFormat df = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);
+//定义格式，不显示毫秒 
+Timestamp now = new Timestamp(System.currentTimeMillis());
+//获取系统当前时间 
+String str = df.format(now);        
+</code></pre></div>
+<p>String转化为Timestamp: </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">SimpleDateFormat df = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);
+String time = df.format(new Date()); Timestamp ts = Timestamp.valueOf(time);     
+</code></pre></div>
+<p>整理三：   在 ResultSet中我们经常使用的setDate或getDate的数据类型是java.sql.Date，而在平时java程序中我们一般习惯使用 java.util.Date。在DAO层我们经常会碰到这俩种数据类型的相互转换：</p>
+
+<p>两者的关系</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">java.lang.Object
+    |
+    +---java.util.Date
+        |
+        +----java.sql.Date 
+</code></pre></div>
+<p>从这个图中我们可以知道java.sql.Date是从java.util.Date继承过来的。</p>
+
+<p>相互转换 
+1. 使用getTime()函数
+这两个类都提供了getTime()函数，用于返回对应的毫秒数（long类型）。利用这个函数可以实现转换：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">java.util.Date utilDate = new java.util.Date(sqlDate.getTime());   // sql -&gt; util
+java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());   // util -&gt; sql
+</code></pre></div>
+<ol>
+<li><p>使用SimpleDateFormat类实现转换
+SimpleDateFormat 是一个以国别敏感的方式格式化和分析数据的具体类。 它允许格式化 (date -&gt; text)、语法分析 (text -&gt; date)和标准化。</p>
+
+<p>SimpleDateFormat dateFormat = new SimpleDateFormate(&quot;yyyy-MM-dd HH:mm:ss&quot;);
+java.util.Date utilDate = dateFormat.parse(sqlDate.toString());</p></li>
+<li><p>直接转换
+由于java.sql.Date是从java.util.Date中继承过来的，所以可以直接用：</p>
+
+<p>utilDate = sqlDate;</p></li>
+<li><p>另类获得日期的方法：
+SimpleDateFormat sy=new SimpleDateFormat(&quot;yyyy&quot;);
+SimpleDateFormat sm=new SimpleDateFormat(&quot;MM&quot;);
+SimpleDateFormat sd=new SimpleDateFormat(&quot;dd&quot;);
+String syear=sy.format(date);
+String smon=sm.format(date);
+String sday=sd.format(date);</p></li>
+</ol>
+
+<p>ps： java.util.Date类中的getYear()要加上1900才可得到实际值，getMonth()则要加上1。</p>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/others/2015/08/01/other-qizongzui/">
+            Others — 让你此生难成大器的七宗罪
+            <small>01 Aug 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/java/2015/08/01/other-PG-10jineng/">
+            Java — Java程序员应该掌握的十项技能
+            <small>01 Aug 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/jquery/2015/08/01/jQuery-caozuo-select/">
+            jQuery — jQuery操作select
+            <small>01 Aug 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+<div class="comments">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'testnaringu';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'testnaringu';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
+</div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+    <div align="center" class="footer">
+        Copyright © 2015 <br>
+    </div>
+  </body>
+</html>
+

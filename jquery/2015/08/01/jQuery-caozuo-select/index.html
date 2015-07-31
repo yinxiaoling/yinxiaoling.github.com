@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      jQuery — jQuery操作select &middot; 尹枭凌
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/naringu.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/form.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="shortcut icon" href="./public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="Mozilla RSS" href="feed.category.xml">
+  </head>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-48740529-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+<body class="theme-6dd">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+      <img width="200" height="180" alt="A photo of ariestiyansyah" src="/images/head.jpeg">
+    <p align="center">If I know what love is, <br />it is because of you.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">首页</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about/">关于我</a>
+        
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/categories/">分类</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/contact/">联系方式</a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+
+    <a class="sidebar-nav-item" href="https://github.com/yinxiaoling">GitHub project</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">尹枭凌</a>
+            <small>—因为有了因为，所以有了所以，既然已成既然，何必再问何必。</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">jQuery — jQuery操作select</h1>
+  <span class="post-date">01 Aug 2015</span>
+  <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">jQuery</span><span class="err">获取</span><span class="nx">Select</span><span class="err">选择的</span><span class="nx">Text</span><span class="err">和</span><span class="nx">Value</span><span class="o">:</span>
+
+<span class="err">语法解释：</span>
+
+<span class="mi">1</span><span class="p">.</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#select_id&quot;</span><span class="p">).</span><span class="nx">change</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span><span class="c1">//code...});   //为Select添加事件，当选择其中一项时触发</span>
+<span class="mi">2</span><span class="p">.</span> <span class="kd">var</span> <span class="nx">checkText</span><span class="o">=</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#select_id&quot;</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s2">&quot;option:selected&quot;</span><span class="p">).</span><span class="nx">text</span><span class="p">();</span>  <span class="c1">//获取Select选择的Text</span>
+<span class="mi">3</span><span class="p">.</span> <span class="kd">var</span> <span class="nx">checkValue</span><span class="o">=</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#select_id&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span>  <span class="c1">//获取Select选择的Value</span>
+<span class="mi">4</span><span class="p">.</span> <span class="kd">var</span> <span class="nx">checkIndex</span><span class="o">=</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#select_id &quot;</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">selectedIndex</span><span class="p">;</span>  <span class="c1">//获取Select选择的索引值</span>
+<span class="mi">5</span><span class="p">.</span> <span class="kd">var</span> <span class="nx">maxIndex</span><span class="o">=</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#select_id option:last&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;index&quot;</span><span class="p">);</span>  <span class="c1">//获取Select最大的索引值</span>
+</code></pre></div><div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">jQuery</span><span class="err">设置</span><span class="nx">Select</span><span class="err">选择的</span> <span class="nx">Text</span><span class="err">和</span><span class="nx">Value</span><span class="o">:</span>
+
+<span class="err">语法解释：</span>
+
+    <span class="mi">1</span><span class="p">.</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#select_id &quot;</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">selectedIndex</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>  <span class="c1">//设置Select索引值为1的项选中</span>
+    <span class="mi">2</span><span class="p">.</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#select_id &quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>   <span class="c1">// 设置Select的Value值为4的项选中</span>
+    <span class="mi">3</span><span class="p">.</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#select_id option[text=&#39;jQuery&#39;]&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;selected&quot;</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>   <span class="c1">//设置Select的Text值为jQuery的项选中</span>
+</code></pre></div><div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">jQuery</span><span class="err">添加</span><span class="o">/</span><span class="err">删除</span><span class="nx">Select</span><span class="err">的</span><span class="nx">Option</span><span class="err">项：</span>
+
+<span class="err">语法解释：</span>
+
+    <span class="mi">1</span><span class="p">.</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#select_id&quot;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;&lt;option value=&#39;Value&#39;&gt;Text&lt;/option&gt;&quot;</span><span class="p">);</span>  <span class="c1">//为Select追加一个Option(下拉项)</span>
+    <span class="mi">2</span><span class="p">.</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#select_id&quot;</span><span class="p">).</span><span class="nx">prepend</span><span class="p">(</span><span class="s2">&quot;&lt;option value=&#39;0&#39;&gt;请选择&lt;/option&gt;&quot;</span><span class="p">);</span>  <span class="c1">//为Select插入一个Option(第一个位置)</span>
+    <span class="mi">3</span><span class="p">.</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#select_id option:last&quot;</span><span class="p">).</span><span class="nx">remove</span><span class="p">();</span>  <span class="c1">//删除Select中索引值最大Option(最后一个)</span>
+    <span class="mi">4</span><span class="p">.</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#select_id option[index=&#39;0&#39;]&quot;</span><span class="p">).</span><span class="nx">remove</span><span class="p">();</span>  <span class="c1">//删除Select中索引值为0的Option(第一个)</span>
+    <span class="mi">5</span><span class="p">.</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#select_id option[value=&#39;3&#39;]&quot;</span><span class="p">).</span><span class="nx">remove</span><span class="p">();</span>  <span class="c1">//删除Select中Value=&#39;3&#39;的Option</span>
+    <span class="mi">5</span><span class="p">.</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#select_id option[text=&#39;4&#39;]&quot;</span><span class="p">).</span><span class="nx">remove</span><span class="p">();</span>  <span class="c1">//删除Select中Text=&#39;4&#39;的Option</span>
+</code></pre></div><div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">jquery</span> <span class="nx">radio</span><span class="err">取值，</span><span class="nx">checkbox</span><span class="err">取值，</span><span class="nx">select</span><span class="err">取值，</span><span class="nx">radio</span><span class="err">选中，</span><span class="nx">checkbox</span><span class="err">选中，</span><span class="nx">select</span><span class="err">选中，及其相关获取一组</span><span class="nx">radio</span><span class="err">被选中项的值</span> 
+
+    <span class="kd">var</span> <span class="nx">item</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;input[name=items][checked]&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span>
+
+<span class="err">获</span> <span class="err">取</span><span class="nx">select</span><span class="err">被选中项的文本</span> 
+
+    <span class="kd">var</span> <span class="nx">item</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;select[name=items] option[selected]&quot;</span><span class="p">).</span><span class="nx">text</span><span class="p">();</span> 
+
+<span class="nx">select</span><span class="err">下拉框的第二个元素为当前选中值</span> 
+
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#select_id&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">selectedIndex</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> 
+
+<span class="nx">radio</span><span class="err">单选组的第二个元素为当前选中值</span> 
+
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;input[name=items]&#39;</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nx">checked</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span> 
+
+
+<span class="err">获取值：</span> 
+
+    <span class="err">文本框，文本区域：</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#txt&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">)</span><span class="err">；</span> 
+    <span class="err">多选框</span> <span class="nx">checkbox</span><span class="err">：</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#checkbox_id&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">)</span><span class="err">；</span> 
+    <span class="err">单选组</span><span class="nx">radio</span><span class="err">：</span>   <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;input[type=radio][checked]&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span> 
+    <span class="err">下拉框</span><span class="nx">select</span><span class="err">：</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#sel&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span>
+
+<span class="err">控制表单元素：</span> 
+
+    <span class="err">文本框，文本区域：</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#txt&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">);</span><span class="c1">//清空内容 </span>
+    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#txt&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">,</span><span class="s1">&#39;11&#39;</span><span class="p">);</span><span class="c1">//填充内容 </span>
+    <span class="err">多选框</span><span class="nx">checkbox</span><span class="err">：</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#chk1&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;checked&quot;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">);</span><span class="c1">//不打勾 </span>
+    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#chk2&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;checked&quot;</span><span class="p">,</span><span class="kc">true</span><span class="p">);</span><span class="c1">//打勾 </span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#chk1&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;checked&#39;</span><span class="p">)</span><span class="o">==</span><span class="kc">undefined</span><span class="p">)</span> <span class="c1">//判断是否已经打勾 </span>
+    <span class="err">单选组</span> <span class="nx">radio</span><span class="err">：</span>    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;input[type=radio]&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;checked&quot;</span><span class="p">,</span><span class="s1">&#39;2&#39;</span><span class="p">);</span><span class="c1">//设置value=2的项目为当前选中项 </span>
+    <span class="err">下拉框</span> <span class="nx">select</span><span class="err">：</span>   <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#sel&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">,</span><span class="s1">&#39;-sel3&#39;</span><span class="p">);</span><span class="c1">//设置value=-sel3的项目为当前选中项 </span>
+    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;&lt;option value=&#39;1&#39;&gt;1111&lt;/option&gt;&lt;option value=&#39;2&#39;&gt;2222&lt;/option&gt;&quot;</span><span class="p">).</span><span class="nx">appendTo</span><span class="p">(</span><span class="s2">&quot;#sel&quot;</span><span class="p">)</span><span class="c1">//添加下拉框的option </span>
+    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#sel&quot;</span><span class="p">).</span><span class="nx">empty</span><span class="p">()</span><span class="err">；</span><span class="c1">//清空下拉框</span>
+</code></pre></div>
+<hr>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="c1">//遍历option和添加、移除option</span>
+    <span class="kd">function</span> <span class="nx">changeShipMethod</span><span class="p">(</span><span class="nx">shipping</span><span class="p">){</span>
+        <span class="kd">var</span> <span class="nx">len</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;select[name=ISHIPTYPE] option&quot;</span><span class="p">).</span><span class="nx">length</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">shipping</span><span class="p">.</span><span class="nx">value</span> <span class="o">!=</span> <span class="s2">&quot;CA&quot;</span><span class="p">){</span>
+            <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;select[name=ISHIPTYPE] option&quot;</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+                <span class="k">if</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">val</span><span class="p">()</span> <span class="o">==</span> <span class="mi">111</span><span class="p">){</span>
+                    <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">remove</span><span class="p">();</span>
+                <span class="p">}</span>
+            <span class="p">});</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+            <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;&lt;option value=&#39;111&#39;&gt;UPS Ground&lt;/option&gt;&quot;</span><span class="p">).</span><span class="nx">appendTo</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;select[name=ISHIPTYPE]&quot;</span><span class="p">));</span><span class="err">`</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre></div><div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">//取得下拉選單的選取值</span>
+
+    <span class="nx">$</span><span class="p">(</span><span class="err">#</span><span class="nx">testSelect</span> <span class="nx">option</span><span class="o">:</span><span class="nx">selected</span><span class="s1">&#39;).text();</span>
+<span class="s1">或</span>
+<span class="s1">    $(&quot;#testSelect&quot;).find(&#39;</span><span class="nx">option</span><span class="o">:</span><span class="nx">selected</span><span class="s1">&#39;).text();</span>
+<span class="s1">或</span>
+<span class="s1">    $(&quot;#testSelect&quot;).val();</span>
+
+<span class="s1">1,下拉框:</span>
+
+<span class="s1">    var cc1 = $(&quot;.formc select[name=&#39;</span><span class="nx">country</span><span class="s1">&#39;] option[selected]&quot;).text(); //得到下拉菜单的选中项的文本(注意中间有空格)</span>
+<span class="s1">    var cc2 = $(&#39;</span><span class="p">.</span><span class="nx">formc</span> <span class="nx">select</span><span class="p">[</span><span class="nx">name</span><span class="o">=</span><span class="s2">&quot;country&quot;</span><span class="p">]</span><span class="s1">&#39;).val(); //得到下拉菜单的选中项的值</span>
+<span class="s1">    var cc3 = $(&#39;</span><span class="p">.</span><span class="nx">formc</span> <span class="nx">select</span><span class="p">[</span><span class="nx">name</span><span class="o">=</span><span class="s2">&quot;country&quot;</span><span class="p">]</span><span class="s1">&#39;).attr(&quot;id&quot;); //得到下拉菜单的选中项的ID属性值</span>
+<span class="s1">    $(&quot;#select&quot;).empty();//清空下拉框 //$(&quot;#select&quot;).html(&#39;&#39;);</span>
+<span class="s1">    $(&quot;&lt;option value=&#39;</span><span class="mi">1</span><span class="s1">&#39;&gt;1111&lt;/option&gt;&quot;).appendTo(&quot;#select&quot;)//添加下拉框的option</span>
+
+<span class="s1">解释:</span>
+<span class="s1">    1.select[name=&#39;</span><span class="nx">country</span><span class="s1">&#39;] option[selected] 表示具有name 属性，</span>
+<span class="s1">    并 且该属性值为&#39;</span><span class="nx">country</span><span class="s1">&#39; 的select元素 里面的具有selected 属性的option 元素；</span>
+
+<span class="s1">2,单选框:</span>
+<span class="s1">    $(&quot;input[@type=radio][@checked]&quot;).val(); //得到单选框的 选中项的值(注意中间没有空格)</span>
+<span class="s1">    $(&quot;input[@type=radio][@value=2]&quot;).attr(&quot;checked&quot;,&#39;</span><span class="nx">checked</span><span class="s1">&#39;); //设置单选框value=2的为选中状态.(注意中间没有空格)</span>
+
+<span class="s1">3,复选框:</span>
+<span class="s1">    $(&quot;input[@type=checkbox][@checked]&quot;).val(); //得到复选框的选中的第一项的值</span>
+<span class="s1">    $(&quot;input[@type=checkbox][@checked]&quot;).each(function() { //由于复选框一般选中的是多个,所以可以循环输出</span>
+<span class="s1">        alert($(this).val());</span>
+<span class="s1">    });</span>
+
+<span class="s1">    $(&quot;#chk1&quot;).attr(&quot;checked&quot;,&#39;&#39;);//不打勾</span>
+<span class="s1">    $(&quot;#chk2&quot;).attr(&quot;checked&quot;,true);// 打勾</span>
+<span class="s1">    if($(&quot;#chk1&quot;).attr(&#39;</span><span class="nx">checked</span><span class="err">&#39;</span><span class="p">)</span><span class="o">==</span><span class="kc">undefined</span><span class="p">){}</span> <span class="c1">//判断是否已经打勾</span>
+</code></pre></div><div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="err">当然</span><span class="nx">jquery</span><span class="err">的选择器是强大的</span><span class="p">.</span> <span class="err">还有很多方法</span><span class="p">.</span>
+
+    <span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&quot;jquery-1.2.1.js&quot;</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
+    <span class="o">&lt;</span><span class="nx">script</span> <span class="nx">language</span><span class="o">=</span><span class="s2">&quot;javascript&quot;</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span><span class="o">&gt;</span>
+        <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+            <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#selectTest&quot;</span><span class="p">).</span><span class="nx">change</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+                <span class="c1">//alert(&quot;Hello&quot;);</span>
+                <span class="c1">//alert($(&quot;#selectTest&quot;).attr(&quot;name&quot;));</span>
+                <span class="c1">//$(&quot;a&quot;).attr(&quot;href&quot;,&quot;xx.html&quot;);</span>
+                <span class="c1">//window.location.href=&quot;xx.html&quot;;</span>
+                <span class="c1">//alert($(&quot;#selectTest&quot;).val());</span>
+                <span class="nx">alert</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#selectTest option[@selected]&quot;</span><span class="p">).</span><span class="nx">text</span><span class="p">());</span>
+                <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#selectTest&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">);</span>
+            <span class="p">});</span>
+        <span class="p">});</span>
+    <span class="o">&lt;</span><span class="err">/script&gt;`</span>
+
+    <span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s2">&quot;#&quot;</span><span class="o">&gt;</span><span class="nx">aaass</span><span class="o">&lt;</span><span class="err">/a&gt;</span>
+
+<span class="c">&lt;!--</span><span class="err">下拉框</span><span class="o">--&gt;</span>
+    <span class="o">&lt;</span><span class="nx">select</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&quot;selectTest&quot;</span> <span class="nx">name</span><span class="o">=</span><span class="s2">&quot;selectTest&quot;</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">option</span> <span class="nx">value</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="o">&gt;</span><span class="mi">11</span><span class="o">&lt;</span><span class="err">/option&gt;</span>
+        <span class="o">&lt;</span><span class="nx">option</span> <span class="nx">value</span><span class="o">=</span><span class="s2">&quot;2&quot;</span><span class="o">&gt;</span><span class="mi">22</span><span class="o">&lt;</span><span class="err">/option&gt;</span>
+        <span class="o">&lt;</span><span class="nx">option</span> <span class="nx">value</span><span class="o">=</span><span class="s2">&quot;3&quot;</span><span class="o">&gt;</span><span class="mi">33</span><span class="o">&lt;</span><span class="err">/option&gt;</span>
+        <span class="o">&lt;</span><span class="nx">option</span> <span class="nx">value</span><span class="o">=</span><span class="s2">&quot;4&quot;</span><span class="o">&gt;</span><span class="mi">44</span><span class="o">&lt;</span><span class="err">/option&gt;</span>
+        <span class="o">&lt;</span><span class="nx">option</span> <span class="nx">value</span><span class="o">=</span><span class="s2">&quot;5&quot;</span><span class="o">&gt;</span><span class="mi">55</span><span class="o">&lt;</span><span class="err">/option&gt;</span>
+        <span class="o">&lt;</span><span class="nx">option</span> <span class="nx">value</span><span class="o">=</span><span class="s2">&quot;6&quot;</span><span class="o">&gt;</span><span class="mi">66</span><span class="o">&lt;</span><span class="err">/option&gt;</span>
+    <span class="o">&lt;</span><span class="err">/select&gt;</span>
+</code></pre></div><div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">jquery</span> <span class="nx">radio</span><span class="err">取值，</span><span class="nx">checkbox</span><span class="err">取值，</span><span class="nx">select</span><span class="err">取值，</span><span class="nx">radio</span><span class="err">选中，</span><span class="nx">checkbox</span><span class="err">选中，</span><span class="nx">select</span><span class="err">选中，及其相关获取一组</span><span class="nx">radio</span><span class="err">被选中项的值</span>
+
+    <span class="kd">var</span> <span class="nx">item</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;input[@name=items][@checked]&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span>
+
+<span class="err">获取</span><span class="nx">select</span><span class="err">被选</span> <span class="err">中项的文本</span>
+
+    <span class="kd">var</span> <span class="nx">item</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;select[@name=items] option[@selected]&quot;</span><span class="p">).</span><span class="nx">text</span><span class="p">();</span>
+
+<span class="nx">select</span> <span class="err">下拉框的第二个元素为当前选中值</span>
+
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#select_id&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">selectedIndex</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="nx">radio</span><span class="err">单选组的第二个</span> <span class="err">元素为当前选中值</span>
+
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;input[@name=items]&#39;</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nx">checked</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+<span class="err">获取值：</span>
+
+    <span class="err">文本</span> <span class="err">框，文本区域：</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#txt&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">)</span><span class="err">；</span>
+    <span class="err">多选框</span> <span class="nx">checkbox</span><span class="err">：</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#checkbox_id&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">)</span><span class="err">；</span>
+    <span class="err">单选组</span><span class="nx">radio</span><span class="err">：</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;input[@type=radio][@checked]&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span>
+    <span class="err">下拉框</span><span class="nx">select</span><span class="err">：</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#sel&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span>
+
+<span class="err">控</span> <span class="err">制表单元素：</span>
+
+    <span class="err">文本框，文本区域：</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#txt&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">);</span><span class="c1">//清空内容</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#txt&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">,</span><span class="s1">&#39;11&#39;</span><span class="p">);</span><span class="c1">// 填充内容</span>
+    <span class="err">多选框</span><span class="nx">checkbox</span><span class="err">：</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#chk1&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;checked&quot;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">);</span><span class="c1">//不打勾</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#chk2&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;checked&quot;</span><span class="p">,</span><span class="kc">true</span><span class="p">);</span><span class="c1">// 打勾</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#chk1&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;checked&#39;</span><span class="p">)</span><span class="o">==</span><span class="kc">undefined</span><span class="p">)</span> <span class="c1">//判断是否已经打勾</span>
+    <span class="err">单选组</span><span class="nx">radio</span><span class="err">：</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;input[@type=radio]&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;checked&quot;</span><span class="p">,</span><span class="s1">&#39;2&#39;</span><span class="p">);</span><span class="c1">//设置value=2的项目为当前选中项</span>
+    <span class="err">下拉框</span> <span class="nx">select</span><span class="err">：</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#sel&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">,</span><span class="s1">&#39;-sel3&#39;</span><span class="p">);</span><span class="c1">//设置value=-sel3的项目为当前选中项</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;&lt;optionvalue=&#39;1&#39;&amp; gt;1111&lt;/option&gt;&lt;optionvalue=&#39;2&#39;&gt;2222&lt;/option&amp; gt;&quot;</span><span class="p">).</span><span class="nx">appendTo</span><span class="p">(</span><span class="s2">&quot;#sel&quot;</span><span class="p">)</span><span class="c1">//添加下拉框的option</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#sel&quot;</span><span class="p">).</span><span class="nx">empty</span><span class="p">()</span><span class="err">；</span><span class="c1">// 清空下拉框</span>
+
+<span class="err">获取一组</span><span class="nx">radio</span><span class="err">被选中项的值</span>
+
+    <span class="kd">var</span> <span class="nx">item</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;input[@name=items][@checked]&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span>
+
+<span class="err">获取</span><span class="nx">select</span><span class="err">被选中项的文本</span>
+
+    <span class="kd">var</span> <span class="nx">item</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;select[@name=items] option[@selected]&quot;</span><span class="p">).</span><span class="nx">text</span><span class="p">();</span>
+
+<span class="nx">select</span><span class="err">下拉框的第二个元素为当</span> <span class="err">前选中值</span>
+
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#select_id&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">selectedIndex</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="nx">radio</span><span class="err">单选组的第二个元素为当前选中值</span>
+
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;input[@name=items]&#39;</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nx">checked</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+<span class="err">获取值：</span>
+
+    <span class="err">文本框，文本区域：</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#txt&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">)</span><span class="err">；</span>
+    <span class="err">多选框</span> <span class="nx">checkbox</span><span class="err">：</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#checkbox_id&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">)</span><span class="err">；</span>
+    <span class="err">单选组</span><span class="nx">radio</span><span class="err">：</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;input[@type=radio][@checked]&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span>
+    <span class="err">下拉框</span><span class="nx">select</span><span class="err">：</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#sel&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span>
+
+<span class="err">控</span> <span class="err">制表单元素：</span>
+
+    <span class="err">文本框，文本区域：</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#txt&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">);</span><span class="c1">//清空内容</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#txt&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">,</span><span class="s1">&#39;11&#39;</span><span class="p">);</span><span class="c1">// 填充内容</span>
+    <span class="err">多选框</span><span class="nx">checkbox</span><span class="err">：</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#chk1&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;checked&quot;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">);</span><span class="c1">//不打勾</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#chk2&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;checked&quot;</span><span class="p">,</span><span class="kc">true</span><span class="p">);</span><span class="c1">// 打勾</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#chk1&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;checked&#39;</span><span class="p">)</span><span class="o">==</span><span class="kc">undefined</span><span class="p">)</span> <span class="c1">//判断是否已经打勾</span>
+    <span class="err">单选组</span><span class="nx">radio</span><span class="err">：</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;input[@type=radio]&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;checked&quot;</span><span class="p">,</span><span class="s1">&#39;2&#39;</span><span class="p">);</span><span class="c1">//设置value=2的项目为当前选中项</span>
+    <span class="err">下拉框</span> <span class="nx">select</span><span class="err">：</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#sel&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">,</span><span class="s1">&#39;-sel3&#39;</span><span class="p">);</span><span class="c1">//设置value=-sel3的项目为当前选中项</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;&lt;option value=&#39;1&#39;&gt;1111&lt;/option&gt;&lt;option value=&#39;2&#39;&gt;2222&lt;/option&gt;&quot;</span><span class="p">).</span><span class="nx">appendTo</span><span class="p">(</span><span class="s2">&quot;#sel&quot;</span><span class="p">)</span><span class="c1">//添加下拉框的option</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#sel&quot;</span><span class="p">).</span><span class="nx">empty</span><span class="p">()</span><span class="err">；</span><span class="c1">// 清空下拉框</span>
+</code></pre></div>
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/others/2015/08/01/other-qizongzui/">
+            Others — 让你此生难成大器的七宗罪
+            <small>01 Aug 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/java/2015/08/01/other-PG-10jineng/">
+            Java — Java程序员应该掌握的十项技能
+            <small>01 Aug 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/sql/2015/08/01/SQL-SQL-Performance-Optimization/">
+            SQL — SQL性能优化
+            <small>01 Aug 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+<div class="comments">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'testnaringu';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'testnaringu';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
+</div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+    <div align="center" class="footer">
+        Copyright © 2015 <br>
+    </div>
+  </body>
+</html>
+

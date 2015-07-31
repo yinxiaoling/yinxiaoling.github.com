@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Java — FileUtils介绍 &middot; 尹枭凌
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/naringu.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/form.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="shortcut icon" href="./public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="Mozilla RSS" href="feed.category.xml">
+  </head>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-48740529-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+<body class="theme-6dd">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+      <img width="200" height="180" alt="A photo of ariestiyansyah" src="/images/head.jpeg">
+    <p align="center">If I know what love is, <br />it is because of you.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">首页</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about/">关于我</a>
+        
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/categories/">分类</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/contact/">联系方式</a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+
+    <a class="sidebar-nav-item" href="https://github.com/yinxiaoling">GitHub project</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">尹枭凌</a>
+            <small>—因为有了因为，所以有了所以，既然已成既然，何必再问何必。</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">Java — FileUtils介绍</h1>
+  <span class="post-date">31 Jul 2015</span>
+  <p>Java的文件操作太基础，缺乏很多实用工具，比如对目录的操作，支持就非常的差了。如果你经常用Java操作文件或文件夹，你会觉得反复编写这些代码是令人沮丧的问题，而且要大量用到递归。
+    下面是的一个解决方案，借助Apache Commons IO工具包（commons-io-1.1.jar）来简单实现文件（夹）的复制、移动、删除、获取大小等操作。</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">import org.apache.commons.io.FileUtils; 
+import org.apache.commons.io.filefilter.*; 
+import org.apache.commons.logging.Log; 
+import org.apache.commons.logging.LogFactory;
+
+import java.io.*;
+
+/** 
+* 文件工具箱 
+* 
+* @author leizhimin 2008-12-15 13:59:16 
+*/ 
+public final class FileToolkit { 
+    private static final Log log = LogFactory.getLog(FileToolkit.class);
+
+    /** 
+     * 复制文件或者目录,复制前后文件完全一样。 
+     * 
+     * @param resFilePath 源文件路径 
+     * @param distFolder    目标文件夹 
+     * @IOException 当操作发生异常时抛出 
+     */ 
+    public static void copyFile(String resFilePath, String distFolder) throws IOException { 
+            File resFile = new File(resFilePath); 
+            File distFile = new File(distFolder); 
+            if (resFile.isDirectory()) { 
+                    FileUtils.copyDirectoryToDirectory(resFile, distFile); 
+            } else if (resFile.isFile()) { 
+                    FileUtils.copyFileToDirectory(resFile, distFile, true); 
+            } 
+    }
+
+    /** 
+     * 删除一个文件或者目录 
+     * 
+     * @param targetPath 文件或者目录路径 
+     * @IOException 当操作发生异常时抛出 
+     */ 
+    public static void deleteFile(String targetPath) throws IOException { 
+            File targetFile = new File(targetPath); 
+            if (targetFile.isDirectory()) { 
+                    FileUtils.deleteDirectory(targetFile); 
+            } else if (targetFile.isFile()) { 
+                    targetFile.delete(); 
+            } 
+    }
+
+    /** 
+     * 移动文件或者目录,移动前后文件完全一样,如果目标文件夹不存在则创建。 
+     * 
+     * @param resFilePath 源文件路径 
+     * @param distFolder    目标文件夹 
+     * @IOException 当操作发生异常时抛出 
+     */ 
+    public static void moveFile(String resFilePath, String distFolder) throws IOException { 
+            File resFile = new File(resFilePath); 
+            File distFile = new File(distFolder); 
+            if (resFile.isDirectory()) { 
+                    FileUtils.moveDirectoryToDirectory(resFile, distFile, true); 
+            } else if (resFile.isFile()) { 
+                    FileUtils.moveFileToDirectory(resFile, distFile, true); 
+            } 
+    }
+
+
+    /** 
+     * 重命名文件或文件夹 
+     * 
+     * @param resFilePath 源文件路径 
+     * @param newFileName 重命名 
+     * @return 操作成功标识 
+     */ 
+    public static boolean renameFile(String resFilePath, String newFileName) { 
+            String newFilePath = StringToolkit.formatPath(StringToolkit.getParentPath(resFilePath) + &quot;/&quot; + newFileName); 
+            File resFile = new File(resFilePath); 
+            File newFile = new File(newFilePath); 
+            return resFile.renameTo(newFile); 
+    }
+
+    /** 
+     * 读取文件或者目录的大小 
+     * 
+     * @param distFilePath 目标文件或者文件夹 
+     * @return 文件或者目录的大小，如果获取失败，则返回-1 
+     */ 
+    public static long genFileSize(String distFilePath) { 
+            File distFile = new File(distFilePath); 
+            if (distFile.isFile()) { 
+                    return distFile.length(); 
+            } else if (distFile.isDirectory()) { 
+                    return FileUtils.sizeOfDirectory(distFile); 
+            } 
+            return -1L; 
+    }
+
+    /** 
+     * 判断一个文件是否存在 
+     * 
+     * @param filePath 文件路径 
+     * @return 存在返回true，否则返回false 
+     */ 
+    public static boolean isExist(String filePath) { 
+            return new File(filePath).exists(); 
+    }
+
+    /** 
+     * 本地某个目录下的文件列表（不递归） 
+     * 
+     * @param folder ftp上的某个目录 
+     * @param suffix 文件的后缀名（比如.mov.xml) 
+     * @return 文件名称列表 
+     */ 
+    public static String[] listFilebySuffix(String folder, String suffix) { 
+            IOFileFilter fileFilter1 = new SuffixFileFilter(suffix); 
+            IOFileFilter fileFilter2 = new NotFileFilter(DirectoryFileFilter.INSTANCE); 
+            FilenameFilter filenameFilter = new AndFileFilter(fileFilter1, fileFilter2); 
+            return new File(folder).list(filenameFilter); 
+    }
+
+    /** 
+     * 将字符串写入指定文件(当指定的父路径中文件夹不存在时，会最大限度去创建，以保证保存成功！) 
+     * 
+     * @param res            原字符串 
+     * @param filePath 文件路径 
+     * @return 成功标记 
+     */ 
+    public static boolean string2File(String res, String filePath) { 
+            boolean flag = true; 
+            BufferedReader bufferedReader = null; 
+            BufferedWriter bufferedWriter = null; 
+            try { 
+                    File distFile = new File(filePath); 
+                    if (!distFile.getParentFile().exists()) distFile.getParentFile().mkdirs(); 
+                    bufferedReader = new BufferedReader(new StringReader(res)); 
+                    bufferedWriter = new BufferedWriter(new FileWriter(distFile)); 
+                    char buf[] = new char[1024];         //字符缓冲区 
+                    int len; 
+                    while ((len = bufferedReader.read(buf)) != -1) { 
+                            bufferedWriter.write(buf, 0, len); 
+                    } 
+                    bufferedWriter.flush(); 
+                    bufferedReader.close(); 
+                    bufferedWriter.close(); 
+            } catch (IOException e) { 
+                    flag = false; 
+                    e.printStackTrace(); 
+            } 
+            return flag; 
+    } 
+} 
+</code></pre></div>
+<hr>
+<div class="highlight"><pre><code class="language-text" data-lang="text">import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
+
+
+/**
+* 字符串工具箱
+*
+* @author leizhimin 2008-12-15 22:40:12
+*/
+public final class StringToolkit {
+  /**
+  * 将一个字符串的首字母改为大写或者小写
+  *
+  * @param srcString 源字符串
+  * @param flag     大小写标识，ture小写，false大些
+  * @return 改写后的新字符串
+  */
+  public static String toLowerCaseInitial(String srcString, boolean flag) {
+    StringBuilder sb = new StringBuilder();
+    if (flag) {
+        sb.append(Character.toLowerCase(srcString.charAt(0)));
+    } else {
+        sb.append(Character.toUpperCase(srcString.charAt(0)));
+    }
+    sb.append(srcString.substring(1));
+    return sb.toString();
+  }
+
+  /**
+  * 将一个字符串按照句点（.）分隔，返回最后一段
+  *
+  * @param clazzName 源字符串
+  * @return 句点（.）分隔后的最后一段字符串
+  */
+  public static String getLastName(String clazzName) {
+    String[] ls = clazzName.split(&quot;\\.&quot;);
+    return ls[ls.length - 1];
+  }
+
+  /**
+  * 格式化文件路径，将其中不规范的分隔转换为标准的分隔符,并且去掉末尾的&quot;/&quot;符号。
+  *
+  * @param path 文件路径
+  * @return 格式化后的文件路径
+  */
+  public static String formatPath(String path) {
+    String reg0 = &quot;\\\\＋&quot;;
+    String reg = &quot;\\\\＋|/＋&quot;;
+    String temp = path.trim().replaceAll(reg0, &quot;/&quot;);
+    temp = temp.replaceAll(reg, &quot;/&quot;);
+    if (temp.endsWith(&quot;/&quot;)) {
+        temp = temp.substring(0, temp.length() - 1);
+    }
+    if (System.getProperty(&quot;file.separator&quot;).equals(&quot;\\&quot;)) {
+      temp= temp.replace(&#39;/&#39;,&#39;\\&#39;);
+    }
+    return temp;
+  }
+
+  /**
+  * 格式化文件路径，将其中不规范的分隔转换为标准的分隔符,并且去掉末尾的&quot;/&quot;符号(适用于FTP远程文件路径或者Web资源的相对路径)。
+  *
+  * @param path 文件路径
+  * @return 格式化后的文件路径
+  */
+  public static String formatPath4Ftp(String path) {
+    String reg0 = &quot;\\\\＋&quot;;
+    String reg = &quot;\\\\＋|/＋&quot;;
+    String temp = path.trim().replaceAll(reg0, &quot;/&quot;);
+    temp = temp.replaceAll(reg, &quot;/&quot;);
+    if (temp.endsWith(&quot;/&quot;)) {
+        temp = temp.substring(0, temp.length() - 1);
+    }
+    return temp;
+  }
+
+  public static void main(String[] args) {
+    System.out.println(System.getProperty(&quot;file.separator&quot;));
+    Properties p = System.getProperties();
+    System.out.println(formatPath(&quot;C:///\\xxxx\\\\\\\\\\///\\\\R5555555.txt&quot;));
+
+//     List&lt;String&gt; result = series2List(&quot;asdf | sdf|siii|sapp|aaat| &quot;, &quot;\\|&quot;);
+//     System.out.println(result.size());
+//     for (String s : result) {
+//         System.out.println(s);
+//     }
+  }
+
+  /**
+  * 获取文件父路径
+  *
+  * @param path 文件路径
+  * @return 文件父路径
+  */
+  public static String getParentPath(String path) {
+    return new File(path).getParent();
+  }
+
+  /**
+  * 获取相对路径
+  *
+  * @param fullPath 全路径
+  * @param rootPath 根路径
+  * @return 相对根路径的相对路径
+  */
+  public static String getRelativeRootPath(String fullPath, String rootPath) {
+    String relativeRootPath = null;
+    String _fullPath = formatPath(fullPath);
+    String _rootPath = formatPath(rootPath);
+
+    if (_fullPath.startsWith(_rootPath)) {
+        relativeRootPath = fullPath.substring(_rootPath.length());
+    } else {
+        throw new RuntimeException(&quot;要处理的两个字符串没有包含关系，处理失败！&quot;);
+    }
+    if (relativeRootPath == null) return null;
+    else
+        return formatPath(relativeRootPath);
+  }
+
+  /**
+  * 获取当前系统换行符
+  *
+  * @return 系统换行符
+  */
+  public static String getSystemLineSeparator() {
+    return System.getProperty(&quot;line.separator&quot;);
+  }
+
+  /**
+  * 将用“|”分隔的字符串转换为字符串集合列表，剔除分隔后各个字符串前后的空格
+  *
+  * @param series 将用“|”分隔的字符串
+  * @return 字符串集合列表
+  */
+  public static List&lt;String&gt; series2List(String series) {
+    return series2List(series, &quot;\\|&quot;);
+  }
+
+  /**
+  * 将用正则表达式regex分隔的字符串转换为字符串集合列表，剔除分隔后各个字符串前后的空格
+  *
+  * @param series 用正则表达式分隔的字符串
+  * @param regex 分隔串联串的正则表达式
+  * @return 字符串集合列表
+  */
+  private static List&lt;String&gt; series2List(String series, String regex) {
+    List&lt;String&gt; result = new ArrayList&lt;String&gt;();
+    if (series != null &amp;&amp; regex != null) {
+        for (String s : series.split(regex)) {
+          if (s.trim() != null &amp;&amp; !s.trim().equals(&quot;&quot;)) result.add(s.trim());
+        }
+    }
+    return result;
+  }
+
+  /**
+  * @param strList 字符串集合列表
+  * @return 通过“|”串联为一个字符串
+  */
+  public static String list2series(List&lt;String&gt; strList) {
+    StringBuffer series = new StringBuffer();
+    for (String s : strList) {
+        series.append(s).append(&quot;|&quot;);
+    }
+    return series.toString();
+  }
+
+  /**
+  * 将字符串的首字母转为小写
+  *
+  * @param resStr 源字符串
+  * @return 首字母转为小写后的字符串
+  */
+  public static String firstToLowerCase(String resStr) {
+    if (resStr == null) {
+        return null;
+    } else if (&quot;&quot;.equals(resStr.trim())) {
+        return &quot;&quot;;
+    } else {
+        StringBuffer sb = new StringBuffer();
+        Character c = resStr.charAt(0);
+        if (Character.isLetter(c)) {
+          if (Character.isUpperCase(c))
+            c = Character.toLowerCase(c);
+          sb.append(resStr);
+          sb.setCharAt(0, c);
+          return sb.toString();
+        }
+    }
+    return resStr;
+  }
+
+  /**
+  * 将字符串的首字母转为大写
+  *
+  * @param resStr 源字符串
+  * @return 首字母转为大写后的字符串
+  */
+  public static String firstToUpperCase(String resStr) {
+    if (resStr == null) {
+        return null;
+    } else if (&quot;&quot;.equals(resStr.trim())) {
+        return &quot;&quot;;
+    } else {
+        StringBuffer sb = new StringBuffer();
+        Character c = resStr.charAt(0);
+        if (Character.isLetter(c)) {
+          if (Character.isLowerCase(c))
+            c = Character.toUpperCase(c);
+          sb.append(resStr);
+          sb.setCharAt(0, c);
+          return sb.toString();
+        }
+    }
+    return resStr;
+  }
+
+}
+</code></pre></div>
+<p>转载自：<a href="http://www.blogjava.net/alexprefect/articles/292937.html">博客园</a>。</p>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/others/2015/08/01/other-qizongzui/">
+            Others — 让你此生难成大器的七宗罪
+            <small>01 Aug 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/java/2015/08/01/other-PG-10jineng/">
+            Java — Java程序员应该掌握的十项技能
+            <small>01 Aug 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/jquery/2015/08/01/jQuery-caozuo-select/">
+            jQuery — jQuery操作select
+            <small>01 Aug 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+<div class="comments">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'testnaringu';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'testnaringu';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
+</div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+    <div align="center" class="footer">
+        Copyright © 2015 <br>
+    </div>
+  </body>
+</html>
+
