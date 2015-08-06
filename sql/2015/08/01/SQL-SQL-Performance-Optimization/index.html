@@ -140,9 +140,9 @@
 <h6>3.避免隐含类型转换</h6>
 
 <p>例：</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">select id from employee e where e.emp_id = &#39;8&#39;;
+<div class="highlight"><pre><code class="language-sql" data-lang="sql">    <span class="k">select</span> <span class="n">id</span> <span class="k">from</span> <span class="n">employee</span> <span class="n">e</span> <span class="k">where</span> <span class="n">e</span><span class="p">.</span><span class="n">emp_id</span> <span class="o">=</span> <span class="s1">&#39;8&#39;</span><span class="p">;</span>
 
-select id from employee e where e.emp_id = 8;
+    <span class="k">select</span> <span class="n">id</span> <span class="k">from</span> <span class="n">employee</span> <span class="n">e</span> <span class="k">where</span> <span class="n">e</span><span class="p">.</span><span class="n">emp_id</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
 </code></pre></div>
 <p>解释：emp_id是整数型，用&#39;8&#39;会默认启动类型转换，增加查询的开销。</p>
 
@@ -155,11 +155,11 @@ select id from employee e where e.emp_id = 8;
 <h6>5.使用关键字代替函数</h6>
 
 <p>例：</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">select id from employee where UPPER(dept) like &#39;TECH_DB&#39;；
+<div class="highlight"><pre><code class="language-sql" data-lang="sql">    <span class="k">select</span> <span class="n">id</span> <span class="k">from</span> <span class="n">employee</span> <span class="k">where</span> <span class="k">UPPER</span><span class="p">(</span><span class="n">dept</span><span class="p">)</span> <span class="k">like</span> <span class="s1">&#39;TECH_DB&#39;</span><span class="err">；</span>
 
-select id from employee where SUBSTR(dept,1,4)=&#39;TECH&#39;；
+    <span class="k">select</span> <span class="n">id</span> <span class="k">from</span> <span class="n">employee</span> <span class="k">where</span> <span class="n">SUBSTR</span><span class="p">(</span><span class="n">dept</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="o">=</span><span class="s1">&#39;TECH&#39;</span><span class="err">；</span>
 
-select id from employee where dept like &#39;TECH%&#39;；
+    <span class="k">select</span> <span class="n">id</span> <span class="k">from</span> <span class="n">employee</span> <span class="k">where</span> <span class="n">dept</span> <span class="k">like</span> <span class="s1">&#39;TECH%&#39;</span><span class="err">；</span>
 </code></pre></div>
 <p>这里还要说一点，除非业务硬性要求，模糊查询尽量使用前方一致。不要使用‘%%’这样的空字符串进行查询。</p>
 
@@ -168,25 +168,25 @@ select id from employee where dept like &#39;TECH%&#39;；
 <h6>6.不要在字段上使用转换函数，尽量在常量上使用</h6>
 
 <p>例：</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">select id from employee where to_char(create_date,&#39;yyyy-mm-dd&#39;)=&#39;2012-10-31&#39;；
+<div class="highlight"><pre><code class="language-sql" data-lang="sql">    <span class="k">select</span> <span class="n">id</span> <span class="k">from</span> <span class="n">employee</span> <span class="k">where</span> <span class="n">to_char</span><span class="p">(</span><span class="n">create_date</span><span class="p">,</span><span class="s1">&#39;yyyy-mm-dd&#39;</span><span class="p">)</span><span class="o">=</span><span class="s1">&#39;2012-10-31&#39;</span><span class="err">；</span>
 
-select id from employee where create_date=to_date(&#39;2012-10-31&#39;,&#39;yyyy-mm-dd&#39;)；
+    <span class="k">select</span> <span class="n">id</span> <span class="k">from</span> <span class="n">employee</span> <span class="k">where</span> <span class="n">create_date</span><span class="o">=</span><span class="n">to_date</span><span class="p">(</span><span class="s1">&#39;2012-10-31&#39;</span><span class="p">,</span><span class="s1">&#39;yyyy-mm-dd&#39;</span><span class="p">)</span><span class="err">；</span>
 </code></pre></div>
 <hr>
 
 <h6>7.不使用连接（||）做查询</h6>
 
 <p>例：  </p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">select id from employee where first_name || last_name like &#39;Jo%&#39;；
+<div class="highlight"><pre><code class="language-sql" data-lang="sql">    <span class="k">select</span> <span class="n">id</span> <span class="k">from</span> <span class="n">employee</span> <span class="k">where</span> <span class="n">first_name</span> <span class="o">||</span> <span class="n">last_name</span> <span class="k">like</span> <span class="s1">&#39;Jo%&#39;</span><span class="err">；</span>
 </code></pre></div>
 <hr>
 
 <h6>8.不要对字段进行运算</h6>
 
 <p>例：</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">select id from employee where creat_date-30&gt;to_date(&#39;2012-10-31&#39;,&#39;yyyy-mm-dd&#39;)；
+<div class="highlight"><pre><code class="language-sql" data-lang="sql">    <span class="k">select</span> <span class="n">id</span> <span class="k">from</span> <span class="n">employee</span> <span class="k">where</span> <span class="n">creat_date</span><span class="o">-</span><span class="mi">30</span><span class="o">&gt;</span><span class="n">to_date</span><span class="p">(</span><span class="s1">&#39;2012-10-31&#39;</span><span class="p">,</span><span class="s1">&#39;yyyy-mm-dd&#39;</span><span class="p">)</span><span class="err">；</span>
 
-select id from employee where creat_date &gt;to_date(&#39;2012-10-31&#39;,&#39;yyyy-mm-dd&#39;)+30;
+    <span class="k">select</span> <span class="n">id</span> <span class="k">from</span> <span class="n">employee</span> <span class="k">where</span> <span class="n">creat_date</span> <span class="o">&gt;</span><span class="n">to_date</span><span class="p">(</span><span class="s1">&#39;2012-10-31&#39;</span><span class="p">,</span><span class="s1">&#39;yyyy-mm-dd&#39;</span><span class="p">)</span><span class="o">+</span><span class="mi">30</span><span class="p">;</span>
 </code></pre></div>
 <p>另外强调一点：在WHERE 语句中，尽量避免对索引字段进行计算操作</p>
 
@@ -204,9 +204,9 @@ select id from employee where creat_date &gt;to_date(&#39;2012-10-31&#39;,&#39;y
 
 <p>推荐方案：用NOT EXISTS 或(外连接+判断为空)方案代替
 例：</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">select id from employee where salary in (select salary from emp_level where....)；
+<div class="highlight"><pre><code class="language-sql" data-lang="sql">    <span class="k">select</span> <span class="n">id</span> <span class="k">from</span> <span class="n">employee</span> <span class="k">where</span> <span class="n">salary</span> <span class="k">in</span> <span class="p">(</span><span class="k">select</span> <span class="n">salary</span> <span class="k">from</span> <span class="n">emp_level</span> <span class="k">where</span><span class="p">....)</span><span class="err">；</span>
 
-select id from employee where salary exists(select &#39;X&#39; from emp_level where ....)；
+    <span class="k">select</span> <span class="n">id</span> <span class="k">from</span> <span class="n">employee</span> <span class="k">where</span> <span class="n">salary</span> <span class="k">exists</span><span class="p">(</span><span class="k">select</span> <span class="s1">&#39;X&#39;</span> <span class="k">from</span> <span class="n">emp_level</span> <span class="k">where</span> <span class="p">....)</span><span class="err">；</span>
 </code></pre></div>
 <hr>
 
@@ -242,10 +242,10 @@ select id from employee where salary exists(select &#39;X&#39; from emp_level wh
 <h6>15.*是禁止的</h6>
 
 <p>在应用程序、包和过程中限制使用select * from table这种方式。看下面例子：</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">SELECT empno,ename,category FROM emp WHERE empno = &#39;7369&#39;
+<div class="highlight"><pre><code class="language-sql" data-lang="sql">    <span class="k">SELECT</span> <span class="n">empno</span><span class="p">,</span><span class="n">ename</span><span class="p">,</span><span class="n">category</span> <span class="k">FROM</span> <span class="n">emp</span> <span class="k">WHERE</span> <span class="n">empno</span> <span class="o">=</span> <span class="s1">&#39;7369&#39;</span>
 </code></pre></div>
 <p>不要使用：</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">SELECT * FROM emp WHERE empno = &#39;7369&#39;
+<div class="highlight"><pre><code class="language-sql" data-lang="sql">    <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">emp</span> <span class="k">WHERE</span> <span class="n">empno</span> <span class="o">=</span> <span class="s1">&#39;7369&#39;</span>
 </code></pre></div>
 <hr>
 
@@ -254,9 +254,9 @@ select id from employee where salary exists(select &#39;X&#39; from emp_level wh
 <p>不等于操作符是永远不会用到索引的，因此对它的处理只会产生全表扫描。</p>
 
 <p>推荐方案：用其它相同功能的操作运算代替，如</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">a&lt;&gt;0 改为 a&gt;0 or a&lt;0
+<div class="highlight"><pre><code class="language-sql" data-lang="sql">    <span class="n">a</span><span class="o">&lt;&gt;</span><span class="mi">0</span> <span class="err">改为</span> <span class="n">a</span><span class="o">&gt;</span><span class="mi">0</span> <span class="k">or</span> <span class="n">a</span><span class="o">&lt;</span><span class="mi">0</span>
 
-a&lt;&gt;&#39;&#39; 改为 a&gt;&#39;&#39;
+    <span class="n">a</span><span class="o">&lt;&gt;</span><span class="s1">&#39;&#39;</span> <span class="err">改为</span> <span class="n">a</span><span class="o">&gt;</span><span class="s1">&#39;&#39;</span>
 </code></pre></div>
 <hr>
 
@@ -267,7 +267,7 @@ a&lt;&gt;&#39;&#39; 改为 a&gt;&#39;&#39;
 <p>推荐方案：</p>
 
 <p>用其它相同功能的操作运算代替，如</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">a is not null 改为 a&gt;0 或a&gt;&#39;&#39;等。
+<div class="highlight"><pre><code class="language-sql" data-lang="sql">    <span class="n">a</span> <span class="k">is</span> <span class="k">not</span> <span class="k">null</span> <span class="err">改为</span> <span class="n">a</span><span class="o">&gt;</span><span class="mi">0</span> <span class="err">或</span><span class="n">a</span><span class="o">&gt;</span><span class="s1">&#39;&#39;</span><span class="err">等。</span>
 </code></pre></div>
 <p>不允许字段为空，而用一个缺省值代替空值，如业扩申请中状态字段不允许为空，缺省为申请。</p>
 
@@ -337,13 +337,13 @@ a&lt;&gt;&#39;&#39; 改为 a&gt;&#39;&#39;
 <h6>22.UPDATE</h6>
 
 <p>同一个表的修改在一个过程里出现好几十次，如：</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">update table1
-set col1=...
-where col2=...;
-update table1
-set col1=...
-where col2=...
-......
+<div class="highlight"><pre><code class="language-sql" data-lang="sql">    <span class="k">update</span> <span class="n">table1</span>
+    <span class="k">set</span> <span class="n">col1</span><span class="o">=</span><span class="p">...</span>
+    <span class="k">where</span> <span class="n">col2</span><span class="o">=</span><span class="p">...;</span>
+    <span class="k">update</span> <span class="n">table1</span>
+    <span class="k">set</span> <span class="n">col1</span><span class="o">=</span><span class="p">...</span>
+    <span class="k">where</span> <span class="n">col2</span><span class="o">=</span><span class="p">...</span>
+    <span class="p">......</span>
 </code></pre></div>
 <p>这类脚本可以整合在一个<code>UPDATE</code>语句来完成.</p>
 
@@ -366,16 +366,16 @@ where col2=...
 <p>可以使用表链接代替 <code>exist</code>。<code>Having</code>可以用<code>where</code>代替，如果无法代替可以分两步处理。</p>
 
 <p>例子：</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">SELECT *  FROM ORDERS WHERE CUSTOMER_NAME NOT IN (SELECT CUSTOMER_NAME FROM CUSTOMER)
+<div class="highlight"><pre><code class="language-sql" data-lang="sql">    <span class="k">SELECT</span> <span class="o">*</span>  <span class="k">FROM</span> <span class="n">ORDERS</span> <span class="k">WHERE</span> <span class="n">CUSTOMER_NAME</span> <span class="k">NOT</span> <span class="k">IN</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">CUSTOMER_NAME</span> <span class="k">FROM</span> <span class="n">CUSTOMER</span><span class="p">)</span>
 </code></pre></div>
 <p>优化：</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">SELECT *  FROM ORDERS WHERE CUSTOMER_NAME not exist (SELECT CUSTOMER_NAME FROM CUSTOMER)
+<div class="highlight"><pre><code class="language-sql" data-lang="sql">    <span class="k">SELECT</span> <span class="o">*</span>  <span class="k">FROM</span> <span class="n">ORDERS</span> <span class="k">WHERE</span> <span class="n">CUSTOMER_NAME</span> <span class="k">not</span> <span class="n">exist</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">CUSTOMER_NAME</span> <span class="k">FROM</span> <span class="n">CUSTOMER</span><span class="p">)</span>
 </code></pre></div>
 <h6>24.2.不要以字符格式声明数字，要以数字格式声明字符值。（日期同样）否则会使索引无效，产生全表扫描。</h6>
-<div class="highlight"><pre><code class="language-text" data-lang="text">SELECT emp.ename, emp.job FROM emp WHERE emp.empno = 7369;
+<div class="highlight"><pre><code class="language-sql" data-lang="sql">    <span class="k">SELECT</span> <span class="n">emp</span><span class="p">.</span><span class="n">ename</span><span class="p">,</span> <span class="n">emp</span><span class="p">.</span><span class="n">job</span> <span class="k">FROM</span> <span class="n">emp</span> <span class="k">WHERE</span> <span class="n">emp</span><span class="p">.</span><span class="n">empno</span> <span class="o">=</span> <span class="mi">7369</span><span class="p">;</span>
 </code></pre></div>
 <p>不要使用：</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">SELECT emp.ename, emp.job FROM emp WHERE emp.empno = &#39;7369&#39;
+<div class="highlight"><pre><code class="language-sql" data-lang="sql">    <span class="k">SELECT</span> <span class="n">emp</span><span class="p">.</span><span class="n">ename</span><span class="p">,</span> <span class="n">emp</span><span class="p">.</span><span class="n">job</span> <span class="k">FROM</span> <span class="n">emp</span> <span class="k">WHERE</span> <span class="n">emp</span><span class="p">.</span><span class="n">empno</span> <span class="o">=</span> <span class="s1">&#39;7369&#39;</span>
 </code></pre></div>
 <hr>
 
@@ -401,6 +401,15 @@ where col2=...
     
       <li>
         <h3>
+          <a href="/git/2015/08/06/Git-Git-command/">
+            Git — Git常用命令速查表
+            <small>06 Aug 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
           <a href="/others/2015/08/01/other-qizongzui/">
             Others — 让你此生难成大器的七宗罪
             <small>01 Aug 2015</small>
@@ -412,15 +421,6 @@ where col2=...
         <h3>
           <a href="/java/2015/08/01/other-PG-10jineng/">
             Java — Java程序员应该掌握的十项技能
-            <small>01 Aug 2015</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/jquery/2015/08/01/jQuery-caozuo-select/">
-            jQuery — jQuery操作select
             <small>01 Aug 2015</small>
           </a>
         </h3>

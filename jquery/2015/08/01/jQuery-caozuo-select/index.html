@@ -129,218 +129,227 @@
         <div class="post">
   <h1 class="post-title">jQuery — jQuery操作select</h1>
   <span class="post-date">01 Aug 2015</span>
-  <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">jQuery</span><span class="err">获取</span><span class="nx">Select</span><span class="err">选择的</span><span class="nx">Text</span><span class="err">和</span><span class="nx">Value</span><span class="o">:</span>
+  <div class="highlight"><pre><code class="language-text" data-lang="text">jQuery获取Select选择的Text和Value:
 
-<span class="err">语法解释：</span>
+语法解释：
 
-<span class="mi">1</span><span class="p">.</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#select_id&quot;</span><span class="p">).</span><span class="nx">change</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span><span class="c1">//code...});   //为Select添加事件，当选择其中一项时触发</span>
-<span class="mi">2</span><span class="p">.</span> <span class="kd">var</span> <span class="nx">checkText</span><span class="o">=</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#select_id&quot;</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s2">&quot;option:selected&quot;</span><span class="p">).</span><span class="nx">text</span><span class="p">();</span>  <span class="c1">//获取Select选择的Text</span>
-<span class="mi">3</span><span class="p">.</span> <span class="kd">var</span> <span class="nx">checkValue</span><span class="o">=</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#select_id&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span>  <span class="c1">//获取Select选择的Value</span>
-<span class="mi">4</span><span class="p">.</span> <span class="kd">var</span> <span class="nx">checkIndex</span><span class="o">=</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#select_id &quot;</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">selectedIndex</span><span class="p">;</span>  <span class="c1">//获取Select选择的索引值</span>
-<span class="mi">5</span><span class="p">.</span> <span class="kd">var</span> <span class="nx">maxIndex</span><span class="o">=</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#select_id option:last&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;index&quot;</span><span class="p">);</span>  <span class="c1">//获取Select最大的索引值</span>
-</code></pre></div><div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">jQuery</span><span class="err">设置</span><span class="nx">Select</span><span class="err">选择的</span> <span class="nx">Text</span><span class="err">和</span><span class="nx">Value</span><span class="o">:</span>
+1. $(&quot;#select_id&quot;).change(function(){//code...});   //为Select添加事件，当选择其中一项时触发
+2. var checkText=$(&quot;#select_id&quot;).find(&quot;option:selected&quot;).text();  //获取Select选择的Text
+3. var checkValue=$(&quot;#select_id&quot;).val();  //获取Select选择的Value
+4. var checkIndex=$(&quot;#select_id &quot;).get(0).selectedIndex;  //获取Select选择的索引值
+5. var maxIndex=$(&quot;#select_id option:last&quot;).attr(&quot;index&quot;);  //获取Select最大的索引值
+</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">jQuery设置Select选择的 Text和Value:
 
-<span class="err">语法解释：</span>
+语法解释：
 
-    <span class="mi">1</span><span class="p">.</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#select_id &quot;</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">selectedIndex</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>  <span class="c1">//设置Select索引值为1的项选中</span>
-    <span class="mi">2</span><span class="p">.</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#select_id &quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>   <span class="c1">// 设置Select的Value值为4的项选中</span>
-    <span class="mi">3</span><span class="p">.</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#select_id option[text=&#39;jQuery&#39;]&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;selected&quot;</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>   <span class="c1">//设置Select的Text值为jQuery的项选中</span>
-</code></pre></div><div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">jQuery</span><span class="err">添加</span><span class="o">/</span><span class="err">删除</span><span class="nx">Select</span><span class="err">的</span><span class="nx">Option</span><span class="err">项：</span>
+    1. $(&quot;#select_id &quot;).get(0).selectedIndex=1;  //设置Select索引值为1的项选中
+    2. $(&quot;#select_id &quot;).val(4);   // 设置Select的Value值为4的项选中
+    3. $(&quot;#select_id option[text=&#39;jQuery&#39;]&quot;).attr(&quot;selected&quot;, true);   //设置Select的Text值为jQuery的项选中
+</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">jQuery添加/删除Select的Option项：
 
-<span class="err">语法解释：</span>
+语法解释：
 
-    <span class="mi">1</span><span class="p">.</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#select_id&quot;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;&lt;option value=&#39;Value&#39;&gt;Text&lt;/option&gt;&quot;</span><span class="p">);</span>  <span class="c1">//为Select追加一个Option(下拉项)</span>
-    <span class="mi">2</span><span class="p">.</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#select_id&quot;</span><span class="p">).</span><span class="nx">prepend</span><span class="p">(</span><span class="s2">&quot;&lt;option value=&#39;0&#39;&gt;请选择&lt;/option&gt;&quot;</span><span class="p">);</span>  <span class="c1">//为Select插入一个Option(第一个位置)</span>
-    <span class="mi">3</span><span class="p">.</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#select_id option:last&quot;</span><span class="p">).</span><span class="nx">remove</span><span class="p">();</span>  <span class="c1">//删除Select中索引值最大Option(最后一个)</span>
-    <span class="mi">4</span><span class="p">.</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#select_id option[index=&#39;0&#39;]&quot;</span><span class="p">).</span><span class="nx">remove</span><span class="p">();</span>  <span class="c1">//删除Select中索引值为0的Option(第一个)</span>
-    <span class="mi">5</span><span class="p">.</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#select_id option[value=&#39;3&#39;]&quot;</span><span class="p">).</span><span class="nx">remove</span><span class="p">();</span>  <span class="c1">//删除Select中Value=&#39;3&#39;的Option</span>
-    <span class="mi">5</span><span class="p">.</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#select_id option[text=&#39;4&#39;]&quot;</span><span class="p">).</span><span class="nx">remove</span><span class="p">();</span>  <span class="c1">//删除Select中Text=&#39;4&#39;的Option</span>
-</code></pre></div><div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">jquery</span> <span class="nx">radio</span><span class="err">取值，</span><span class="nx">checkbox</span><span class="err">取值，</span><span class="nx">select</span><span class="err">取值，</span><span class="nx">radio</span><span class="err">选中，</span><span class="nx">checkbox</span><span class="err">选中，</span><span class="nx">select</span><span class="err">选中，及其相关获取一组</span><span class="nx">radio</span><span class="err">被选中项的值</span> 
+    1. $(&quot;#select_id&quot;).append(&quot;&lt;option value=&#39;Value&#39;&gt;Text&lt;/option&gt;&quot;);  //为Select追加一个Option(下拉项)
+    2. $(&quot;#select_id&quot;).prepend(&quot;&lt;option value=&#39;0&#39;&gt;请选择&lt;/option&gt;&quot;);  //为Select插入一个Option(第一个位置)
+    3. $(&quot;#select_id option:last&quot;).remove();  //删除Select中索引值最大Option(最后一个)
+    4. $(&quot;#select_id option[index=&#39;0&#39;]&quot;).remove();  //删除Select中索引值为0的Option(第一个)
+    5. $(&quot;#select_id option[value=&#39;3&#39;]&quot;).remove();  //删除Select中Value=&#39;3&#39;的Option
+    5. $(&quot;#select_id option[text=&#39;4&#39;]&quot;).remove();  //删除Select中Text=&#39;4&#39;的Option
+</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">jquery radio取值，checkbox取值，select取值，radio选中，checkbox选中，select选中，及其相关获取一组radio被选中项的值 
 
-    <span class="kd">var</span> <span class="nx">item</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;input[name=items][checked]&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span>
+    var item = $(&#39;input[name=items][checked]&#39;).val();
 
-<span class="err">获</span> <span class="err">取</span><span class="nx">select</span><span class="err">被选中项的文本</span> 
+获 取select被选中项的文本 
 
-    <span class="kd">var</span> <span class="nx">item</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;select[name=items] option[selected]&quot;</span><span class="p">).</span><span class="nx">text</span><span class="p">();</span> 
+    var item = $(&quot;select[name=items] option[selected]&quot;).text(); 
 
-<span class="nx">select</span><span class="err">下拉框的第二个元素为当前选中值</span> 
+select下拉框的第二个元素为当前选中值 
 
-    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#select_id&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">selectedIndex</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> 
+    $(&#39;#select_id&#39;)[0].selectedIndex = 1; 
 
-<span class="nx">radio</span><span class="err">单选组的第二个元素为当前选中值</span> 
+radio单选组的第二个元素为当前选中值 
 
-    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;input[name=items]&#39;</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nx">checked</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span> 
+    $(&#39;input[name=items]&#39;).get(1).checked = true; 
 
 
-<span class="err">获取值：</span> 
+获取值： 
 
-    <span class="err">文本框，文本区域：</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#txt&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">)</span><span class="err">；</span> 
-    <span class="err">多选框</span> <span class="nx">checkbox</span><span class="err">：</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#checkbox_id&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">)</span><span class="err">；</span> 
-    <span class="err">单选组</span><span class="nx">radio</span><span class="err">：</span>   <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;input[type=radio][checked]&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span> 
-    <span class="err">下拉框</span><span class="nx">select</span><span class="err">：</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#sel&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span>
+    文本框，文本区域：$(&quot;#txt&quot;).attr(&quot;value&quot;)； 
+    多选框 checkbox：$(&quot;#checkbox_id&quot;).attr(&quot;value&quot;)； 
+    单选组radio：   $(&quot;input[type=radio][checked]&quot;).val(); 
+    下拉框select： $(&#39;#sel&#39;).val();
 
-<span class="err">控制表单元素：</span> 
+控制表单元素： 
 
-    <span class="err">文本框，文本区域：</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#txt&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">);</span><span class="c1">//清空内容 </span>
-    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#txt&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">,</span><span class="s1">&#39;11&#39;</span><span class="p">);</span><span class="c1">//填充内容 </span>
-    <span class="err">多选框</span><span class="nx">checkbox</span><span class="err">：</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#chk1&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;checked&quot;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">);</span><span class="c1">//不打勾 </span>
-    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#chk2&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;checked&quot;</span><span class="p">,</span><span class="kc">true</span><span class="p">);</span><span class="c1">//打勾 </span>
-    <span class="k">if</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#chk1&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;checked&#39;</span><span class="p">)</span><span class="o">==</span><span class="kc">undefined</span><span class="p">)</span> <span class="c1">//判断是否已经打勾 </span>
-    <span class="err">单选组</span> <span class="nx">radio</span><span class="err">：</span>    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;input[type=radio]&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;checked&quot;</span><span class="p">,</span><span class="s1">&#39;2&#39;</span><span class="p">);</span><span class="c1">//设置value=2的项目为当前选中项 </span>
-    <span class="err">下拉框</span> <span class="nx">select</span><span class="err">：</span>   <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#sel&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">,</span><span class="s1">&#39;-sel3&#39;</span><span class="p">);</span><span class="c1">//设置value=-sel3的项目为当前选中项 </span>
-    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;&lt;option value=&#39;1&#39;&gt;1111&lt;/option&gt;&lt;option value=&#39;2&#39;&gt;2222&lt;/option&gt;&quot;</span><span class="p">).</span><span class="nx">appendTo</span><span class="p">(</span><span class="s2">&quot;#sel&quot;</span><span class="p">)</span><span class="c1">//添加下拉框的option </span>
-    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#sel&quot;</span><span class="p">).</span><span class="nx">empty</span><span class="p">()</span><span class="err">；</span><span class="c1">//清空下拉框</span>
+    文本框，文本区域：$(&quot;#txt&quot;).attr(&quot;value&quot;,&#39;&#39;);//清空内容 
+    $(&quot;#txt&quot;).attr(&quot;value&quot;,&#39;11&#39;);//填充内容 
+    多选框checkbox： $(&quot;#chk1&quot;).attr(&quot;checked&quot;,&#39;&#39;);//不打勾 
+    $(&quot;#chk2&quot;).attr(&quot;checked&quot;,true);//打勾 
+    if($(&quot;#chk1&quot;).attr(&#39;checked&#39;)==undefined) //判断是否已经打勾 
+    单选组 radio：    $(&quot;input[type=radio]&quot;).attr(&quot;checked&quot;,&#39;2&#39;);//设置value=2的项目为当前选中项 
+    下拉框 select：   $(&quot;#sel&quot;).attr(&quot;value&quot;,&#39;-sel3&#39;);//设置value=-sel3的项目为当前选中项 
+    $(&quot;&lt;option value=&#39;1&#39;&gt;1111&lt;/option&gt;&lt;option value=&#39;2&#39;&gt;2222&lt;/option&gt;&quot;).appendTo(&quot;#sel&quot;)//添加下拉框的option 
+    $(&quot;#sel&quot;).empty()；//清空下拉框
 </code></pre></div>
 <hr>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="c1">//遍历option和添加、移除option</span>
-    <span class="kd">function</span> <span class="nx">changeShipMethod</span><span class="p">(</span><span class="nx">shipping</span><span class="p">){</span>
-        <span class="kd">var</span> <span class="nx">len</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;select[name=ISHIPTYPE] option&quot;</span><span class="p">).</span><span class="nx">length</span>
-        <span class="k">if</span><span class="p">(</span><span class="nx">shipping</span><span class="p">.</span><span class="nx">value</span> <span class="o">!=</span> <span class="s2">&quot;CA&quot;</span><span class="p">){</span>
-            <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;select[name=ISHIPTYPE] option&quot;</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
-                <span class="k">if</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">val</span><span class="p">()</span> <span class="o">==</span> <span class="mi">111</span><span class="p">){</span>
-                    <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">remove</span><span class="p">();</span>
-                <span class="p">}</span>
-            <span class="p">});</span>
-        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-            <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;&lt;option value=&#39;111&#39;&gt;UPS Ground&lt;/option&gt;&quot;</span><span class="p">).</span><span class="nx">appendTo</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;select[name=ISHIPTYPE]&quot;</span><span class="p">));</span><span class="err">`</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-</code></pre></div><div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">//取得下拉選單的選取值</span>
+<div class="highlight"><pre><code class="language-text" data-lang="text">    //遍历option和添加、移除option
+    function changeShipMethod(shipping){
+        var len = $(&quot;select[name=ISHIPTYPE] option&quot;).length
+        if(shipping.value != &quot;CA&quot;){
+            $(&quot;select[name=ISHIPTYPE] option&quot;).each(function(){
+                if($(this).val() == 111){
+                    $(this).remove();
+                }
+            });
+        }else{
+            $(&quot;&lt;option value=&#39;111&#39;&gt;UPS Ground&lt;/option&gt;&quot;).appendTo($(&quot;select[name=ISHIPTYPE]&quot;));`
+        }
+    }
+</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">//取得下拉選單的選取值
 
-    <span class="nx">$</span><span class="p">(</span><span class="err">#</span><span class="nx">testSelect</span> <span class="nx">option</span><span class="o">:</span><span class="nx">selected</span><span class="s1">&#39;).text();</span>
-<span class="s1">或</span>
-<span class="s1">    $(&quot;#testSelect&quot;).find(&#39;</span><span class="nx">option</span><span class="o">:</span><span class="nx">selected</span><span class="s1">&#39;).text();</span>
-<span class="s1">或</span>
-<span class="s1">    $(&quot;#testSelect&quot;).val();</span>
+    $(#testSelect option:selected&#39;).text();
+或
+    $(&quot;#testSelect&quot;).find(&#39;option:selected&#39;).text();
+或
+    $(&quot;#testSelect&quot;).val();
 
-<span class="s1">1,下拉框:</span>
+1,下拉框:
 
-<span class="s1">    var cc1 = $(&quot;.formc select[name=&#39;</span><span class="nx">country</span><span class="s1">&#39;] option[selected]&quot;).text(); //得到下拉菜单的选中项的文本(注意中间有空格)</span>
-<span class="s1">    var cc2 = $(&#39;</span><span class="p">.</span><span class="nx">formc</span> <span class="nx">select</span><span class="p">[</span><span class="nx">name</span><span class="o">=</span><span class="s2">&quot;country&quot;</span><span class="p">]</span><span class="s1">&#39;).val(); //得到下拉菜单的选中项的值</span>
-<span class="s1">    var cc3 = $(&#39;</span><span class="p">.</span><span class="nx">formc</span> <span class="nx">select</span><span class="p">[</span><span class="nx">name</span><span class="o">=</span><span class="s2">&quot;country&quot;</span><span class="p">]</span><span class="s1">&#39;).attr(&quot;id&quot;); //得到下拉菜单的选中项的ID属性值</span>
-<span class="s1">    $(&quot;#select&quot;).empty();//清空下拉框 //$(&quot;#select&quot;).html(&#39;&#39;);</span>
-<span class="s1">    $(&quot;&lt;option value=&#39;</span><span class="mi">1</span><span class="s1">&#39;&gt;1111&lt;/option&gt;&quot;).appendTo(&quot;#select&quot;)//添加下拉框的option</span>
+    var cc1 = $(&quot;.formc select[name=&#39;country&#39;] option[selected]&quot;).text(); //得到下拉菜单的选中项的文本(注意中间有空格)
+    var cc2 = $(&#39;.formc select[name=&quot;country&quot;]&#39;).val(); //得到下拉菜单的选中项的值
+    var cc3 = $(&#39;.formc select[name=&quot;country&quot;]&#39;).attr(&quot;id&quot;); //得到下拉菜单的选中项的ID属性值
+    $(&quot;#select&quot;).empty();//清空下拉框 //$(&quot;#select&quot;).html(&#39;&#39;);
+    $(&quot;&lt;option value=&#39;1&#39;&gt;1111&lt;/option&gt;&quot;).appendTo(&quot;#select&quot;)//添加下拉框的option
 
-<span class="s1">解释:</span>
-<span class="s1">    1.select[name=&#39;</span><span class="nx">country</span><span class="s1">&#39;] option[selected] 表示具有name 属性，</span>
-<span class="s1">    并 且该属性值为&#39;</span><span class="nx">country</span><span class="s1">&#39; 的select元素 里面的具有selected 属性的option 元素；</span>
+解释:
+    1.select[name=&#39;country&#39;] option[selected] 表示具有name 属性，
+    并 且该属性值为&#39;country&#39; 的select元素 里面的具有selected 属性的option 元素；
 
-<span class="s1">2,单选框:</span>
-<span class="s1">    $(&quot;input[@type=radio][@checked]&quot;).val(); //得到单选框的 选中项的值(注意中间没有空格)</span>
-<span class="s1">    $(&quot;input[@type=radio][@value=2]&quot;).attr(&quot;checked&quot;,&#39;</span><span class="nx">checked</span><span class="s1">&#39;); //设置单选框value=2的为选中状态.(注意中间没有空格)</span>
+2,单选框:
+    $(&quot;input[@type=radio][@checked]&quot;).val(); //得到单选框的 选中项的值(注意中间没有空格)
+    $(&quot;input[@type=radio][@value=2]&quot;).attr(&quot;checked&quot;,&#39;checked&#39;); //设置单选框value=2的为选中状态.(注意中间没有空格)
 
-<span class="s1">3,复选框:</span>
-<span class="s1">    $(&quot;input[@type=checkbox][@checked]&quot;).val(); //得到复选框的选中的第一项的值</span>
-<span class="s1">    $(&quot;input[@type=checkbox][@checked]&quot;).each(function() { //由于复选框一般选中的是多个,所以可以循环输出</span>
-<span class="s1">        alert($(this).val());</span>
-<span class="s1">    });</span>
+3,复选框:
+    $(&quot;input[@type=checkbox][@checked]&quot;).val(); //得到复选框的选中的第一项的值
+    $(&quot;input[@type=checkbox][@checked]&quot;).each(function() { //由于复选框一般选中的是多个,所以可以循环输出
+        alert($(this).val());
+    });
 
-<span class="s1">    $(&quot;#chk1&quot;).attr(&quot;checked&quot;,&#39;&#39;);//不打勾</span>
-<span class="s1">    $(&quot;#chk2&quot;).attr(&quot;checked&quot;,true);// 打勾</span>
-<span class="s1">    if($(&quot;#chk1&quot;).attr(&#39;</span><span class="nx">checked</span><span class="err">&#39;</span><span class="p">)</span><span class="o">==</span><span class="kc">undefined</span><span class="p">){}</span> <span class="c1">//判断是否已经打勾</span>
-</code></pre></div><div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="err">当然</span><span class="nx">jquery</span><span class="err">的选择器是强大的</span><span class="p">.</span> <span class="err">还有很多方法</span><span class="p">.</span>
+    $(&quot;#chk1&quot;).attr(&quot;checked&quot;,&#39;&#39;);//不打勾
+    $(&quot;#chk2&quot;).attr(&quot;checked&quot;,true);// 打勾
+    if($(&quot;#chk1&quot;).attr(&#39;checked&#39;)==undefined){} //判断是否已经打勾
+</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">当然jquery的选择器是强大的. 还有很多方法.
 
-    <span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&quot;jquery-1.2.1.js&quot;</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
-    <span class="o">&lt;</span><span class="nx">script</span> <span class="nx">language</span><span class="o">=</span><span class="s2">&quot;javascript&quot;</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span><span class="o">&gt;</span>
-        <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
-            <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#selectTest&quot;</span><span class="p">).</span><span class="nx">change</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
-                <span class="c1">//alert(&quot;Hello&quot;);</span>
-                <span class="c1">//alert($(&quot;#selectTest&quot;).attr(&quot;name&quot;));</span>
-                <span class="c1">//$(&quot;a&quot;).attr(&quot;href&quot;,&quot;xx.html&quot;);</span>
-                <span class="c1">//window.location.href=&quot;xx.html&quot;;</span>
-                <span class="c1">//alert($(&quot;#selectTest&quot;).val());</span>
-                <span class="nx">alert</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#selectTest option[@selected]&quot;</span><span class="p">).</span><span class="nx">text</span><span class="p">());</span>
-                <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#selectTest&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">);</span>
-            <span class="p">});</span>
-        <span class="p">});</span>
-    <span class="o">&lt;</span><span class="err">/script&gt;`</span>
+    &lt;script src=&quot;jquery-1.2.1.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+    &lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;
+        $(document).ready(function(){
+            $(&quot;#selectTest&quot;).change(function(){
+                //alert(&quot;Hello&quot;);
+                //alert($(&quot;#selectTest&quot;).attr(&quot;name&quot;));
+                //$(&quot;a&quot;).attr(&quot;href&quot;,&quot;xx.html&quot;);
+                //window.location.href=&quot;xx.html&quot;;
+                //alert($(&quot;#selectTest&quot;).val());
+                alert($(&quot;#selectTest option[@selected]&quot;).text());
+                $(&quot;#selectTest&quot;).attr(&quot;value&quot;, &quot;2&quot;);
+            });
+        });
+    &lt;/script&gt;`
 
-    <span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s2">&quot;#&quot;</span><span class="o">&gt;</span><span class="nx">aaass</span><span class="o">&lt;</span><span class="err">/a&gt;</span>
+    &lt;a href=&quot;#&quot;&gt;aaass&lt;/a&gt;
 
-<span class="c">&lt;!--</span><span class="err">下拉框</span><span class="o">--&gt;</span>
-    <span class="o">&lt;</span><span class="nx">select</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&quot;selectTest&quot;</span> <span class="nx">name</span><span class="o">=</span><span class="s2">&quot;selectTest&quot;</span><span class="o">&gt;</span>
-        <span class="o">&lt;</span><span class="nx">option</span> <span class="nx">value</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="o">&gt;</span><span class="mi">11</span><span class="o">&lt;</span><span class="err">/option&gt;</span>
-        <span class="o">&lt;</span><span class="nx">option</span> <span class="nx">value</span><span class="o">=</span><span class="s2">&quot;2&quot;</span><span class="o">&gt;</span><span class="mi">22</span><span class="o">&lt;</span><span class="err">/option&gt;</span>
-        <span class="o">&lt;</span><span class="nx">option</span> <span class="nx">value</span><span class="o">=</span><span class="s2">&quot;3&quot;</span><span class="o">&gt;</span><span class="mi">33</span><span class="o">&lt;</span><span class="err">/option&gt;</span>
-        <span class="o">&lt;</span><span class="nx">option</span> <span class="nx">value</span><span class="o">=</span><span class="s2">&quot;4&quot;</span><span class="o">&gt;</span><span class="mi">44</span><span class="o">&lt;</span><span class="err">/option&gt;</span>
-        <span class="o">&lt;</span><span class="nx">option</span> <span class="nx">value</span><span class="o">=</span><span class="s2">&quot;5&quot;</span><span class="o">&gt;</span><span class="mi">55</span><span class="o">&lt;</span><span class="err">/option&gt;</span>
-        <span class="o">&lt;</span><span class="nx">option</span> <span class="nx">value</span><span class="o">=</span><span class="s2">&quot;6&quot;</span><span class="o">&gt;</span><span class="mi">66</span><span class="o">&lt;</span><span class="err">/option&gt;</span>
-    <span class="o">&lt;</span><span class="err">/select&gt;</span>
-</code></pre></div><div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">jquery</span> <span class="nx">radio</span><span class="err">取值，</span><span class="nx">checkbox</span><span class="err">取值，</span><span class="nx">select</span><span class="err">取值，</span><span class="nx">radio</span><span class="err">选中，</span><span class="nx">checkbox</span><span class="err">选中，</span><span class="nx">select</span><span class="err">选中，及其相关获取一组</span><span class="nx">radio</span><span class="err">被选中项的值</span>
+&lt;!--下拉框--&gt;
+    &lt;select id=&quot;selectTest&quot; name=&quot;selectTest&quot;&gt;
+        &lt;option value=&quot;1&quot;&gt;11&lt;/option&gt;
+        &lt;option value=&quot;2&quot;&gt;22&lt;/option&gt;
+        &lt;option value=&quot;3&quot;&gt;33&lt;/option&gt;
+        &lt;option value=&quot;4&quot;&gt;44&lt;/option&gt;
+        &lt;option value=&quot;5&quot;&gt;55&lt;/option&gt;
+        &lt;option value=&quot;6&quot;&gt;66&lt;/option&gt;
+    &lt;/select&gt;
+</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">jquery radio取值，checkbox取值，select取值，radio选中，checkbox选中，select选中，及其相关获取一组radio被选中项的值
 
-    <span class="kd">var</span> <span class="nx">item</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;input[@name=items][@checked]&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span>
+    var item = $(&#39;input[@name=items][@checked]&#39;).val();
 
-<span class="err">获取</span><span class="nx">select</span><span class="err">被选</span> <span class="err">中项的文本</span>
+获取select被选 中项的文本
 
-    <span class="kd">var</span> <span class="nx">item</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;select[@name=items] option[@selected]&quot;</span><span class="p">).</span><span class="nx">text</span><span class="p">();</span>
+    var item = $(&quot;select[@name=items] option[@selected]&quot;).text();
 
-<span class="nx">select</span> <span class="err">下拉框的第二个元素为当前选中值</span>
+select 下拉框的第二个元素为当前选中值
 
-    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#select_id&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">selectedIndex</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    $(&#39;#select_id&#39;)[0].selectedIndex = 1;
 
-<span class="nx">radio</span><span class="err">单选组的第二个</span> <span class="err">元素为当前选中值</span>
+radio单选组的第二个 元素为当前选中值
 
-    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;input[@name=items]&#39;</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nx">checked</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+    $(&#39;input[@name=items]&#39;).get(1).checked = true;
 
-<span class="err">获取值：</span>
+获取值：
 
-    <span class="err">文本</span> <span class="err">框，文本区域：</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#txt&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">)</span><span class="err">；</span>
-    <span class="err">多选框</span> <span class="nx">checkbox</span><span class="err">：</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#checkbox_id&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">)</span><span class="err">；</span>
-    <span class="err">单选组</span><span class="nx">radio</span><span class="err">：</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;input[@type=radio][@checked]&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span>
-    <span class="err">下拉框</span><span class="nx">select</span><span class="err">：</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#sel&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span>
+    文本 框，文本区域：$(&quot;#txt&quot;).attr(&quot;value&quot;)；
+    多选框 checkbox：$(&quot;#checkbox_id&quot;).attr(&quot;value&quot;)；
+    单选组radio： $(&quot;input[@type=radio][@checked]&quot;).val();
+    下拉框select： $(&#39;#sel&#39;).val();
 
-<span class="err">控</span> <span class="err">制表单元素：</span>
+控 制表单元素：
 
-    <span class="err">文本框，文本区域：</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#txt&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">);</span><span class="c1">//清空内容</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#txt&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">,</span><span class="s1">&#39;11&#39;</span><span class="p">);</span><span class="c1">// 填充内容</span>
-    <span class="err">多选框</span><span class="nx">checkbox</span><span class="err">：</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#chk1&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;checked&quot;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">);</span><span class="c1">//不打勾</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#chk2&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;checked&quot;</span><span class="p">,</span><span class="kc">true</span><span class="p">);</span><span class="c1">// 打勾</span>
-    <span class="k">if</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#chk1&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;checked&#39;</span><span class="p">)</span><span class="o">==</span><span class="kc">undefined</span><span class="p">)</span> <span class="c1">//判断是否已经打勾</span>
-    <span class="err">单选组</span><span class="nx">radio</span><span class="err">：</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;input[@type=radio]&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;checked&quot;</span><span class="p">,</span><span class="s1">&#39;2&#39;</span><span class="p">);</span><span class="c1">//设置value=2的项目为当前选中项</span>
-    <span class="err">下拉框</span> <span class="nx">select</span><span class="err">：</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#sel&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">,</span><span class="s1">&#39;-sel3&#39;</span><span class="p">);</span><span class="c1">//设置value=-sel3的项目为当前选中项</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;&lt;optionvalue=&#39;1&#39;&amp; gt;1111&lt;/option&gt;&lt;optionvalue=&#39;2&#39;&gt;2222&lt;/option&amp; gt;&quot;</span><span class="p">).</span><span class="nx">appendTo</span><span class="p">(</span><span class="s2">&quot;#sel&quot;</span><span class="p">)</span><span class="c1">//添加下拉框的option</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#sel&quot;</span><span class="p">).</span><span class="nx">empty</span><span class="p">()</span><span class="err">；</span><span class="c1">// 清空下拉框</span>
+    文本框，文本区域：$(&quot;#txt&quot;).attr(&quot;value&quot;,&#39;&#39;);//清空内容
+    $(&quot;#txt&quot;).attr(&quot;value&quot;,&#39;11&#39;);// 填充内容
+    多选框checkbox： $(&quot;#chk1&quot;).attr(&quot;checked&quot;,&#39;&#39;);//不打勾
+    $(&quot;#chk2&quot;).attr(&quot;checked&quot;,true);// 打勾
+    if($(&quot;#chk1&quot;).attr(&#39;checked&#39;)==undefined) //判断是否已经打勾
+    单选组radio： $(&quot;input[@type=radio]&quot;).attr(&quot;checked&quot;,&#39;2&#39;);//设置value=2的项目为当前选中项
+    下拉框 select： $(&quot;#sel&quot;).attr(&quot;value&quot;,&#39;-sel3&#39;);//设置value=-sel3的项目为当前选中项
+    $(&quot;&lt;optionvalue=&#39;1&#39;&amp; gt;1111&lt;/option&gt;&lt;optionvalue=&#39;2&#39;&gt;2222&lt;/option&amp; gt;&quot;).appendTo(&quot;#sel&quot;)//添加下拉框的option
+    $(&quot;#sel&quot;).empty()；// 清空下拉框
 
-<span class="err">获取一组</span><span class="nx">radio</span><span class="err">被选中项的值</span>
+获取一组radio被选中项的值
 
-    <span class="kd">var</span> <span class="nx">item</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;input[@name=items][@checked]&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span>
+    var item = $(&#39;input[@name=items][@checked]&#39;).val();
 
-<span class="err">获取</span><span class="nx">select</span><span class="err">被选中项的文本</span>
+获取select被选中项的文本
 
-    <span class="kd">var</span> <span class="nx">item</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;select[@name=items] option[@selected]&quot;</span><span class="p">).</span><span class="nx">text</span><span class="p">();</span>
+    var item = $(&quot;select[@name=items] option[@selected]&quot;).text();
 
-<span class="nx">select</span><span class="err">下拉框的第二个元素为当</span> <span class="err">前选中值</span>
+select下拉框的第二个元素为当 前选中值
 
-    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#select_id&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">selectedIndex</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    $(&#39;#select_id&#39;)[0].selectedIndex = 1;
 
-<span class="nx">radio</span><span class="err">单选组的第二个元素为当前选中值</span>
+radio单选组的第二个元素为当前选中值
 
-    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;input[@name=items]&#39;</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nx">checked</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+    $(&#39;input[@name=items]&#39;).get(1).checked = true;
 
-<span class="err">获取值：</span>
+获取值：
 
-    <span class="err">文本框，文本区域：</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#txt&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">)</span><span class="err">；</span>
-    <span class="err">多选框</span> <span class="nx">checkbox</span><span class="err">：</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#checkbox_id&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">)</span><span class="err">；</span>
-    <span class="err">单选组</span><span class="nx">radio</span><span class="err">：</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;input[@type=radio][@checked]&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span>
-    <span class="err">下拉框</span><span class="nx">select</span><span class="err">：</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#sel&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span>
+    文本框，文本区域：$(&quot;#txt&quot;).attr(&quot;value&quot;)；
+    多选框 checkbox：$(&quot;#checkbox_id&quot;).attr(&quot;value&quot;)；
+    单选组radio： $(&quot;input[@type=radio][@checked]&quot;).val();
+    下拉框select： $(&#39;#sel&#39;).val();
 
-<span class="err">控</span> <span class="err">制表单元素：</span>
+控 制表单元素：
 
-    <span class="err">文本框，文本区域：</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#txt&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">);</span><span class="c1">//清空内容</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#txt&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">,</span><span class="s1">&#39;11&#39;</span><span class="p">);</span><span class="c1">// 填充内容</span>
-    <span class="err">多选框</span><span class="nx">checkbox</span><span class="err">：</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#chk1&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;checked&quot;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">);</span><span class="c1">//不打勾</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#chk2&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;checked&quot;</span><span class="p">,</span><span class="kc">true</span><span class="p">);</span><span class="c1">// 打勾</span>
-    <span class="k">if</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#chk1&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;checked&#39;</span><span class="p">)</span><span class="o">==</span><span class="kc">undefined</span><span class="p">)</span> <span class="c1">//判断是否已经打勾</span>
-    <span class="err">单选组</span><span class="nx">radio</span><span class="err">：</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;input[@type=radio]&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;checked&quot;</span><span class="p">,</span><span class="s1">&#39;2&#39;</span><span class="p">);</span><span class="c1">//设置value=2的项目为当前选中项</span>
-    <span class="err">下拉框</span> <span class="nx">select</span><span class="err">：</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#sel&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">,</span><span class="s1">&#39;-sel3&#39;</span><span class="p">);</span><span class="c1">//设置value=-sel3的项目为当前选中项</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;&lt;option value=&#39;1&#39;&gt;1111&lt;/option&gt;&lt;option value=&#39;2&#39;&gt;2222&lt;/option&gt;&quot;</span><span class="p">).</span><span class="nx">appendTo</span><span class="p">(</span><span class="s2">&quot;#sel&quot;</span><span class="p">)</span><span class="c1">//添加下拉框的option</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#sel&quot;</span><span class="p">).</span><span class="nx">empty</span><span class="p">()</span><span class="err">；</span><span class="c1">// 清空下拉框</span>
+    文本框，文本区域：$(&quot;#txt&quot;).attr(&quot;value&quot;,&#39;&#39;);//清空内容
+    $(&quot;#txt&quot;).attr(&quot;value&quot;,&#39;11&#39;);// 填充内容
+    多选框checkbox： $(&quot;#chk1&quot;).attr(&quot;checked&quot;,&#39;&#39;);//不打勾
+    $(&quot;#chk2&quot;).attr(&quot;checked&quot;,true);// 打勾
+    if($(&quot;#chk1&quot;).attr(&#39;checked&#39;)==undefined) //判断是否已经打勾
+    单选组radio： $(&quot;input[@type=radio]&quot;).attr(&quot;checked&quot;,&#39;2&#39;);//设置value=2的项目为当前选中项
+    下拉框 select： $(&quot;#sel&quot;).attr(&quot;value&quot;,&#39;-sel3&#39;);//设置value=-sel3的项目为当前选中项
+    $(&quot;&lt;option value=&#39;1&#39;&gt;1111&lt;/option&gt;&lt;option value=&#39;2&#39;&gt;2222&lt;/option&gt;&quot;).appendTo(&quot;#sel&quot;)//添加下拉框的option
+    $(&quot;#sel&quot;).empty()；// 清空下拉框
 </code></pre></div>
 </div>
 
 <div class="related">
   <h2>Related Posts</h2>
   <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/git/2015/08/06/Git-Git-command/">
+            Git — Git常用命令速查表
+            <small>06 Aug 2015</small>
+          </a>
+        </h3>
+      </li>
     
       <li>
         <h3>
@@ -355,15 +364,6 @@
         <h3>
           <a href="/java/2015/08/01/other-PG-10jineng/">
             Java — Java程序员应该掌握的十项技能
-            <small>01 Aug 2015</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/sql/2015/08/01/SQL-SQL-Performance-Optimization/">
-            SQL — SQL性能优化
             <small>01 Aug 2015</small>
           </a>
         </h3>

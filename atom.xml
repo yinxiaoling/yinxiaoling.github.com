@@ -4,13 +4,79 @@
  <title>尹枭凌</title>
  <link href="http://yinxiaoling.github.io/atom.xml" rel="self"/>
  <link href="http://yinxiaoling.github.io/"/>
- <updated>2015-08-01T02:54:13+08:00</updated>
+ <updated>2015-08-07T00:13:00+08:00</updated>
  <id>http://yinxiaoling.github.io</id>
  <author>
    <name>尹枭凌</name>
    <email>350231275@qq.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Git — Git常用命令速查表</title>
+   <link href="http://yinxiaoling.github.io/git/2015/08/06/Git-Git-command/"/>
+   <updated>2015-08-06T00:00:00+08:00</updated>
+   <id>http://yinxiaoling.github.io/git/2015/08/06/Git-Git-command</id>
+   <content type="html">&lt;h4&gt;master: 默认开发分支&lt;/h4&gt;
+
+&lt;h4&gt;origin: 默认远程版本库&lt;/h4&gt;
+
+&lt;h4&gt;Head: 默认开发分支&lt;/h4&gt;
+
+&lt;h4&gt;Head^: Head的父提交&lt;/h4&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;创建版本库&lt;/h2&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-Nginx&quot; data-lang=&quot;Nginx&quot;&gt;    &lt;span class=&quot;k&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;clone&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;lt;url&amp;gt;&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;#克隆远程版本库&lt;/span&gt;
+    $ &lt;span class=&quot;s&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;init&lt;/span&gt;          &lt;span class=&quot;c1&quot;&gt;#初始化本地版本库&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;修改和提交&lt;/h2&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-Nginx&quot; data-lang=&quot;Nginx&quot;&gt;    &lt;span class=&quot;k&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;status&lt;/span&gt;        &lt;span class=&quot;c1&quot;&gt;#查看状态&lt;/span&gt;
+    $ &lt;span class=&quot;s&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;diff&lt;/span&gt;          &lt;span class=&quot;c1&quot;&gt;#查看变更内容&lt;/span&gt;
+    $ &lt;span class=&quot;s&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;add&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;.&lt;/span&gt;         &lt;span class=&quot;c1&quot;&gt;#跟踪所有改动过的文件&lt;/span&gt;
+    $ &lt;span class=&quot;s&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;add&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;lt;file&amp;gt;&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;#跟踪指定的文件&lt;/span&gt;
+    $ &lt;span class=&quot;s&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;mv&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;lt;old&amp;gt;&amp;lt;new&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#文件改名&lt;/span&gt;
+    $ &lt;span class=&quot;s&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;rm&amp;lt;file&amp;gt;&lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;#删除文件&lt;/span&gt;
+    $ &lt;span class=&quot;s&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;--cached&amp;lt;file&amp;gt;&lt;/span&gt;            &lt;span class=&quot;c1&quot;&gt;#停止跟踪文件但不删除&lt;/span&gt;
+    $ &lt;span class=&quot;s&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;commit&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;-m&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;commit&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;messages&amp;quot;&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;#提交所有更新过的文件&lt;/span&gt;
+    $ &lt;span class=&quot;s&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;commit&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;--amend&lt;/span&gt;               &lt;span class=&quot;c1&quot;&gt;#修改最后一次改动&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;查看提交历史&lt;/h2&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-Nginx&quot; data-lang=&quot;Nginx&quot;&gt;    &lt;span class=&quot;k&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;log&lt;/span&gt;                    &lt;span class=&quot;c1&quot;&gt;#查看提交历史&lt;/span&gt;
+    $ &lt;span class=&quot;s&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;log&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;-p&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;lt;file&amp;gt;&lt;/span&gt;          &lt;span class=&quot;c1&quot;&gt;#查看指定文件的提交历史&lt;/span&gt;
+    $ &lt;span class=&quot;s&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;blame&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;lt;file&amp;gt;&lt;/span&gt;           &lt;span class=&quot;c1&quot;&gt;#以列表方式查看指定文件的提交历史&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;撤销&lt;/h2&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-Nginx&quot; data-lang=&quot;Nginx&quot;&gt;    &lt;span class=&quot;k&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;reset&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;--hard&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;HEAD&lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;#撤销工作目录中所有未提交文件的修改内容&lt;/span&gt;
+    $ &lt;span class=&quot;s&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;checkout&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;HEAD&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;lt;file&amp;gt;&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;#撤销指定的未提交文件的修改内容&lt;/span&gt;
+    $ &lt;span class=&quot;s&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;revert&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;lt;commit&amp;gt;&lt;/span&gt;        &lt;span class=&quot;c1&quot;&gt;#撤销指定的提交&lt;/span&gt;
+    $ &lt;span class=&quot;s&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;log&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;--before=&amp;quot;1&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;days&amp;quot;&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;#退回到之前1天的版本&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;分支与标签&lt;/h2&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-Nginx&quot; data-lang=&quot;Nginx&quot;&gt;    &lt;span class=&quot;k&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;branch&lt;/span&gt;                   &lt;span class=&quot;c1&quot;&gt;#显示所有本地分支&lt;/span&gt;
+    $ &lt;span class=&quot;s&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;checkout&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;lt;branch/tag&amp;gt;&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;#切换到指定分支和标签&lt;/span&gt;
+    $ &lt;span class=&quot;s&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;branch&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;lt;new-branch&amp;gt;&lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;#创建新分支&lt;/span&gt;
+    $ &lt;span class=&quot;s&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;branch&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;-d&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;lt;branch&amp;gt;&lt;/span&gt;       &lt;span class=&quot;c1&quot;&gt;#删除本地分支&lt;/span&gt;
+    $ &lt;span class=&quot;s&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;tag&lt;/span&gt;                      &lt;span class=&quot;c1&quot;&gt;#列出所有本地标签&lt;/span&gt;
+    $ &lt;span class=&quot;s&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;tag&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;lt;tagname&amp;gt;&lt;/span&gt;            &lt;span class=&quot;c1&quot;&gt;#基于最新提交创建标签&lt;/span&gt;
+    $ &lt;span class=&quot;s&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;tag&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;-d&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;lt;tagname&amp;gt;&lt;/span&gt;         &lt;span class=&quot;c1&quot;&gt;#删除标签&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;合并与衍合&lt;/h2&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-Nginx&quot; data-lang=&quot;Nginx&quot;&gt;    &lt;span class=&quot;k&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;merge&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;lt;branch&amp;gt;&lt;/span&gt;        &lt;span class=&quot;c1&quot;&gt;#合并指定分支到当前分支&lt;/span&gt;
+    $ &lt;span class=&quot;s&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;rebase&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;lt;branch&amp;gt;&lt;/span&gt;       &lt;span class=&quot;c1&quot;&gt;#衍合指定分支到当前分支&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;远程操作&lt;/h2&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-Nginx&quot; data-lang=&quot;Nginx&quot;&gt;    &lt;span class=&quot;k&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;remote&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;-v&lt;/span&gt;                   &lt;span class=&quot;c1&quot;&gt;#查看远程版本库信息&lt;/span&gt;
+    $ &lt;span class=&quot;s&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;remote&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;show&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;lt;remote&amp;gt;&lt;/span&gt;        &lt;span class=&quot;c1&quot;&gt;#查看指定远程版本库信息&lt;/span&gt;
+    $ &lt;span class=&quot;s&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;remote&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;add&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;lt;remote&amp;gt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;lt;url&amp;gt;&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;#添加远程版本库&lt;/span&gt;
+    $ &lt;span class=&quot;s&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;fetch&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;lt;remote&amp;gt;&lt;/span&gt;              &lt;span class=&quot;c1&quot;&gt;#从远程库获取代码&lt;/span&gt;
+    $ &lt;span class=&quot;s&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;pull&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;lt;remote&amp;gt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;lt;branch&amp;gt;&lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;#下载代码及快速合并&lt;/span&gt;
+    $ &lt;span class=&quot;s&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;push&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;lt;remote&amp;gt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;lt;branch&amp;gt;&lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;#上传代码及快速合并&lt;/span&gt;
+    $ &lt;span class=&quot;s&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;push&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;lt;remote&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;lt;branch/tag-name&amp;gt;&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;#删除远程分支或标签&lt;/span&gt;
+    $ &lt;span class=&quot;s&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;push&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;--tags&lt;/span&gt;                       &lt;span class=&quot;c1&quot;&gt;#上传所有标签&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
+ </entry>
  
  <entry>
    <title>Others — 让你此生难成大器的七宗罪</title>
@@ -223,212 +289,212 @@
    <link href="http://yinxiaoling.github.io/jquery/2015/08/01/jQuery-caozuo-select/"/>
    <updated>2015-08-01T00:00:00+08:00</updated>
    <id>http://yinxiaoling.github.io/jquery/2015/08/01/jQuery-caozuo-select</id>
-   <content type="html">&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;jQuery&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;获取&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Select&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选择的&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Text&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;和&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+   <content type="html">&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;jQuery获取Select选择的Text和Value:
 
-&lt;span class=&quot;err&quot;&gt;语法解释：&lt;/span&gt;
+语法解释：
 
-&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#select_id&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;change&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//code...});   //为Select添加事件，当选择其中一项时触发&lt;/span&gt;
-&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;checkText&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#select_id&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;option:selected&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;//获取Select选择的Text&lt;/span&gt;
-&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;checkValue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#select_id&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;//获取Select选择的Value&lt;/span&gt;
-&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;checkIndex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#select_id &amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;selectedIndex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;//获取Select选择的索引值&lt;/span&gt;
-&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;maxIndex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#select_id option:last&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;index&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;//获取Select最大的索引值&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;jQuery&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;设置&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Select&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选择的&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Text&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;和&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+1. $(&amp;quot;#select_id&amp;quot;).change(function(){//code...});   //为Select添加事件，当选择其中一项时触发
+2. var checkText=$(&amp;quot;#select_id&amp;quot;).find(&amp;quot;option:selected&amp;quot;).text();  //获取Select选择的Text
+3. var checkValue=$(&amp;quot;#select_id&amp;quot;).val();  //获取Select选择的Value
+4. var checkIndex=$(&amp;quot;#select_id &amp;quot;).get(0).selectedIndex;  //获取Select选择的索引值
+5. var maxIndex=$(&amp;quot;#select_id option:last&amp;quot;).attr(&amp;quot;index&amp;quot;);  //获取Select最大的索引值
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;jQuery设置Select选择的 Text和Value:
 
-&lt;span class=&quot;err&quot;&gt;语法解释：&lt;/span&gt;
+语法解释：
 
-    &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#select_id &amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;selectedIndex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;//设置Select索引值为1的项选中&lt;/span&gt;
-    &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#select_id &amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;// 设置Select的Value值为4的项选中&lt;/span&gt;
-    &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#select_id option[text=&amp;#39;jQuery&amp;#39;]&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;selected&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;//设置Select的Text值为jQuery的项选中&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;jQuery&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;添加&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;删除&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Select&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;的&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Option&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;项：&lt;/span&gt;
+    1. $(&amp;quot;#select_id &amp;quot;).get(0).selectedIndex=1;  //设置Select索引值为1的项选中
+    2. $(&amp;quot;#select_id &amp;quot;).val(4);   // 设置Select的Value值为4的项选中
+    3. $(&amp;quot;#select_id option[text=&amp;#39;jQuery&amp;#39;]&amp;quot;).attr(&amp;quot;selected&amp;quot;, true);   //设置Select的Text值为jQuery的项选中
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;jQuery添加/删除Select的Option项：
 
-&lt;span class=&quot;err&quot;&gt;语法解释：&lt;/span&gt;
+语法解释：
 
-    &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#select_id&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;lt;option value=&amp;#39;Value&amp;#39;&amp;gt;Text&amp;lt;/option&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;//为Select追加一个Option(下拉项)&lt;/span&gt;
-    &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#select_id&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prepend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;lt;option value=&amp;#39;0&amp;#39;&amp;gt;请选择&amp;lt;/option&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;//为Select插入一个Option(第一个位置)&lt;/span&gt;
-    &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#select_id option:last&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;remove&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;//删除Select中索引值最大Option(最后一个)&lt;/span&gt;
-    &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#select_id option[index=&amp;#39;0&amp;#39;]&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;remove&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;//删除Select中索引值为0的Option(第一个)&lt;/span&gt;
-    &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#select_id option[value=&amp;#39;3&amp;#39;]&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;remove&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;//删除Select中Value=&amp;#39;3&amp;#39;的Option&lt;/span&gt;
-    &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#select_id option[text=&amp;#39;4&amp;#39;]&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;remove&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;//删除Select中Text=&amp;#39;4&amp;#39;的Option&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;jquery&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;radio&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;取值，&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;checkbox&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;取值，&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;取值，&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;radio&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选中，&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;checkbox&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选中，&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选中，及其相关获取一组&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;radio&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;被选中项的值&lt;/span&gt; 
+    1. $(&amp;quot;#select_id&amp;quot;).append(&amp;quot;&amp;lt;option value=&amp;#39;Value&amp;#39;&amp;gt;Text&amp;lt;/option&amp;gt;&amp;quot;);  //为Select追加一个Option(下拉项)
+    2. $(&amp;quot;#select_id&amp;quot;).prepend(&amp;quot;&amp;lt;option value=&amp;#39;0&amp;#39;&amp;gt;请选择&amp;lt;/option&amp;gt;&amp;quot;);  //为Select插入一个Option(第一个位置)
+    3. $(&amp;quot;#select_id option:last&amp;quot;).remove();  //删除Select中索引值最大Option(最后一个)
+    4. $(&amp;quot;#select_id option[index=&amp;#39;0&amp;#39;]&amp;quot;).remove();  //删除Select中索引值为0的Option(第一个)
+    5. $(&amp;quot;#select_id option[value=&amp;#39;3&amp;#39;]&amp;quot;).remove();  //删除Select中Value=&amp;#39;3&amp;#39;的Option
+    5. $(&amp;quot;#select_id option[text=&amp;#39;4&amp;#39;]&amp;quot;).remove();  //删除Select中Text=&amp;#39;4&amp;#39;的Option
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;jquery radio取值，checkbox取值，select取值，radio选中，checkbox选中，select选中，及其相关获取一组radio被选中项的值 
 
-    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;input[name=items][checked]&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    var item = $(&amp;#39;input[name=items][checked]&amp;#39;).val();
 
-&lt;span class=&quot;err&quot;&gt;获&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;取&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;被选中项的文本&lt;/span&gt; 
+获 取select被选中项的文本 
 
-    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;select[name=items] option[selected]&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; 
+    var item = $(&amp;quot;select[name=items] option[selected]&amp;quot;).text(); 
 
-&lt;span class=&quot;nx&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;下拉框的第二个元素为当前选中值&lt;/span&gt; 
+select下拉框的第二个元素为当前选中值 
 
-    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;#select_id&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;selectedIndex&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; 
+    $(&amp;#39;#select_id&amp;#39;)[0].selectedIndex = 1; 
 
-&lt;span class=&quot;nx&quot;&gt;radio&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;单选组的第二个元素为当前选中值&lt;/span&gt; 
+radio单选组的第二个元素为当前选中值 
 
-    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;input[name=items]&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;checked&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; 
+    $(&amp;#39;input[name=items]&amp;#39;).get(1).checked = true; 
 
 
-&lt;span class=&quot;err&quot;&gt;获取值：&lt;/span&gt; 
+获取值： 
 
-    &lt;span class=&quot;err&quot;&gt;文本框，文本区域：&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#txt&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;value&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;；&lt;/span&gt; 
-    &lt;span class=&quot;err&quot;&gt;多选框&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;checkbox&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;：&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#checkbox_id&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;value&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;；&lt;/span&gt; 
-    &lt;span class=&quot;err&quot;&gt;单选组&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;radio&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;：&lt;/span&gt;   &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;input[type=radio][checked]&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; 
-    &lt;span class=&quot;err&quot;&gt;下拉框&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;：&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;#sel&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    文本框，文本区域：$(&amp;quot;#txt&amp;quot;).attr(&amp;quot;value&amp;quot;)； 
+    多选框 checkbox：$(&amp;quot;#checkbox_id&amp;quot;).attr(&amp;quot;value&amp;quot;)； 
+    单选组radio：   $(&amp;quot;input[type=radio][checked]&amp;quot;).val(); 
+    下拉框select： $(&amp;#39;#sel&amp;#39;).val();
 
-&lt;span class=&quot;err&quot;&gt;控制表单元素：&lt;/span&gt; 
+控制表单元素： 
 
-    &lt;span class=&quot;err&quot;&gt;文本框，文本区域：&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#txt&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;value&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//清空内容 &lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#txt&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;value&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;11&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//填充内容 &lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;多选框&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;checkbox&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;：&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#chk1&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;checked&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//不打勾 &lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#chk2&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;checked&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//打勾 &lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#chk1&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;checked&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;undefined&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//判断是否已经打勾 &lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;单选组&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;radio&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;：&lt;/span&gt;    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;input[type=radio]&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;checked&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;2&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//设置value=2的项目为当前选中项 &lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;下拉框&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;：&lt;/span&gt;   &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#sel&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;value&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;-sel3&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//设置value=-sel3的项目为当前选中项 &lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;lt;option value=&amp;#39;1&amp;#39;&amp;gt;1111&amp;lt;/option&amp;gt;&amp;lt;option value=&amp;#39;2&amp;#39;&amp;gt;2222&amp;lt;/option&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;appendTo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#sel&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//添加下拉框的option &lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#sel&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;empty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;；&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//清空下拉框&lt;/span&gt;
+    文本框，文本区域：$(&amp;quot;#txt&amp;quot;).attr(&amp;quot;value&amp;quot;,&amp;#39;&amp;#39;);//清空内容 
+    $(&amp;quot;#txt&amp;quot;).attr(&amp;quot;value&amp;quot;,&amp;#39;11&amp;#39;);//填充内容 
+    多选框checkbox： $(&amp;quot;#chk1&amp;quot;).attr(&amp;quot;checked&amp;quot;,&amp;#39;&amp;#39;);//不打勾 
+    $(&amp;quot;#chk2&amp;quot;).attr(&amp;quot;checked&amp;quot;,true);//打勾 
+    if($(&amp;quot;#chk1&amp;quot;).attr(&amp;#39;checked&amp;#39;)==undefined) //判断是否已经打勾 
+    单选组 radio：    $(&amp;quot;input[type=radio]&amp;quot;).attr(&amp;quot;checked&amp;quot;,&amp;#39;2&amp;#39;);//设置value=2的项目为当前选中项 
+    下拉框 select：   $(&amp;quot;#sel&amp;quot;).attr(&amp;quot;value&amp;quot;,&amp;#39;-sel3&amp;#39;);//设置value=-sel3的项目为当前选中项 
+    $(&amp;quot;&amp;lt;option value=&amp;#39;1&amp;#39;&amp;gt;1111&amp;lt;/option&amp;gt;&amp;lt;option value=&amp;#39;2&amp;#39;&amp;gt;2222&amp;lt;/option&amp;gt;&amp;quot;).appendTo(&amp;quot;#sel&amp;quot;)//添加下拉框的option 
+    $(&amp;quot;#sel&amp;quot;).empty()；//清空下拉框
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;hr&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;    &lt;span class=&quot;c1&quot;&gt;//遍历option和添加、移除option&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;changeShipMethod&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;shipping&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-        &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;len&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;select[name=ISHIPTYPE] option&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;shipping&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;CA&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-            &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;select[name=ISHIPTYPE] option&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;each&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-                &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;111&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-                    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;remove&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-                &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;lt;option value=&amp;#39;111&amp;#39;&amp;gt;UPS Ground&amp;lt;/option&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;appendTo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;select[name=ISHIPTYPE]&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;//取得下拉選單的選取值&lt;/span&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;    //遍历option和添加、移除option
+    function changeShipMethod(shipping){
+        var len = $(&amp;quot;select[name=ISHIPTYPE] option&amp;quot;).length
+        if(shipping.value != &amp;quot;CA&amp;quot;){
+            $(&amp;quot;select[name=ISHIPTYPE] option&amp;quot;).each(function(){
+                if($(this).val() == 111){
+                    $(this).remove();
+                }
+            });
+        }else{
+            $(&amp;quot;&amp;lt;option value=&amp;#39;111&amp;#39;&amp;gt;UPS Ground&amp;lt;/option&amp;gt;&amp;quot;).appendTo($(&amp;quot;select[name=ISHIPTYPE]&amp;quot;));`
+        }
+    }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;//取得下拉選單的選取值
 
-    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;testSelect&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;option&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;selected&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;).text();&lt;/span&gt;
-&lt;span class=&quot;s1&quot;&gt;或&lt;/span&gt;
-&lt;span class=&quot;s1&quot;&gt;    $(&amp;quot;#testSelect&amp;quot;).find(&amp;#39;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;option&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;selected&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;).text();&lt;/span&gt;
-&lt;span class=&quot;s1&quot;&gt;或&lt;/span&gt;
-&lt;span class=&quot;s1&quot;&gt;    $(&amp;quot;#testSelect&amp;quot;).val();&lt;/span&gt;
+    $(#testSelect option:selected&amp;#39;).text();
+或
+    $(&amp;quot;#testSelect&amp;quot;).find(&amp;#39;option:selected&amp;#39;).text();
+或
+    $(&amp;quot;#testSelect&amp;quot;).val();
 
-&lt;span class=&quot;s1&quot;&gt;1,下拉框:&lt;/span&gt;
+1,下拉框:
 
-&lt;span class=&quot;s1&quot;&gt;    var cc1 = $(&amp;quot;.formc select[name=&amp;#39;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;country&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;] option[selected]&amp;quot;).text(); //得到下拉菜单的选中项的文本(注意中间有空格)&lt;/span&gt;
-&lt;span class=&quot;s1&quot;&gt;    var cc2 = $(&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;formc&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;country&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;).val(); //得到下拉菜单的选中项的值&lt;/span&gt;
-&lt;span class=&quot;s1&quot;&gt;    var cc3 = $(&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;formc&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;country&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;).attr(&amp;quot;id&amp;quot;); //得到下拉菜单的选中项的ID属性值&lt;/span&gt;
-&lt;span class=&quot;s1&quot;&gt;    $(&amp;quot;#select&amp;quot;).empty();//清空下拉框 //$(&amp;quot;#select&amp;quot;).html(&amp;#39;&amp;#39;);&lt;/span&gt;
-&lt;span class=&quot;s1&quot;&gt;    $(&amp;quot;&amp;lt;option value=&amp;#39;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;gt;1111&amp;lt;/option&amp;gt;&amp;quot;).appendTo(&amp;quot;#select&amp;quot;)//添加下拉框的option&lt;/span&gt;
+    var cc1 = $(&amp;quot;.formc select[name=&amp;#39;country&amp;#39;] option[selected]&amp;quot;).text(); //得到下拉菜单的选中项的文本(注意中间有空格)
+    var cc2 = $(&amp;#39;.formc select[name=&amp;quot;country&amp;quot;]&amp;#39;).val(); //得到下拉菜单的选中项的值
+    var cc3 = $(&amp;#39;.formc select[name=&amp;quot;country&amp;quot;]&amp;#39;).attr(&amp;quot;id&amp;quot;); //得到下拉菜单的选中项的ID属性值
+    $(&amp;quot;#select&amp;quot;).empty();//清空下拉框 //$(&amp;quot;#select&amp;quot;).html(&amp;#39;&amp;#39;);
+    $(&amp;quot;&amp;lt;option value=&amp;#39;1&amp;#39;&amp;gt;1111&amp;lt;/option&amp;gt;&amp;quot;).appendTo(&amp;quot;#select&amp;quot;)//添加下拉框的option
 
-&lt;span class=&quot;s1&quot;&gt;解释:&lt;/span&gt;
-&lt;span class=&quot;s1&quot;&gt;    1.select[name=&amp;#39;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;country&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;] option[selected] 表示具有name 属性，&lt;/span&gt;
-&lt;span class=&quot;s1&quot;&gt;    并 且该属性值为&amp;#39;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;country&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39; 的select元素 里面的具有selected 属性的option 元素；&lt;/span&gt;
+解释:
+    1.select[name=&amp;#39;country&amp;#39;] option[selected] 表示具有name 属性，
+    并 且该属性值为&amp;#39;country&amp;#39; 的select元素 里面的具有selected 属性的option 元素；
 
-&lt;span class=&quot;s1&quot;&gt;2,单选框:&lt;/span&gt;
-&lt;span class=&quot;s1&quot;&gt;    $(&amp;quot;input[@type=radio][@checked]&amp;quot;).val(); //得到单选框的 选中项的值(注意中间没有空格)&lt;/span&gt;
-&lt;span class=&quot;s1&quot;&gt;    $(&amp;quot;input[@type=radio][@value=2]&amp;quot;).attr(&amp;quot;checked&amp;quot;,&amp;#39;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;checked&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;); //设置单选框value=2的为选中状态.(注意中间没有空格)&lt;/span&gt;
+2,单选框:
+    $(&amp;quot;input[@type=radio][@checked]&amp;quot;).val(); //得到单选框的 选中项的值(注意中间没有空格)
+    $(&amp;quot;input[@type=radio][@value=2]&amp;quot;).attr(&amp;quot;checked&amp;quot;,&amp;#39;checked&amp;#39;); //设置单选框value=2的为选中状态.(注意中间没有空格)
 
-&lt;span class=&quot;s1&quot;&gt;3,复选框:&lt;/span&gt;
-&lt;span class=&quot;s1&quot;&gt;    $(&amp;quot;input[@type=checkbox][@checked]&amp;quot;).val(); //得到复选框的选中的第一项的值&lt;/span&gt;
-&lt;span class=&quot;s1&quot;&gt;    $(&amp;quot;input[@type=checkbox][@checked]&amp;quot;).each(function() { //由于复选框一般选中的是多个,所以可以循环输出&lt;/span&gt;
-&lt;span class=&quot;s1&quot;&gt;        alert($(this).val());&lt;/span&gt;
-&lt;span class=&quot;s1&quot;&gt;    });&lt;/span&gt;
+3,复选框:
+    $(&amp;quot;input[@type=checkbox][@checked]&amp;quot;).val(); //得到复选框的选中的第一项的值
+    $(&amp;quot;input[@type=checkbox][@checked]&amp;quot;).each(function() { //由于复选框一般选中的是多个,所以可以循环输出
+        alert($(this).val());
+    });
 
-&lt;span class=&quot;s1&quot;&gt;    $(&amp;quot;#chk1&amp;quot;).attr(&amp;quot;checked&amp;quot;,&amp;#39;&amp;#39;);//不打勾&lt;/span&gt;
-&lt;span class=&quot;s1&quot;&gt;    $(&amp;quot;#chk2&amp;quot;).attr(&amp;quot;checked&amp;quot;,true);// 打勾&lt;/span&gt;
-&lt;span class=&quot;s1&quot;&gt;    if($(&amp;quot;#chk1&amp;quot;).attr(&amp;#39;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;checked&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;undefined&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){}&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//判断是否已经打勾&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;err&quot;&gt;当然&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;jquery&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;的选择器是强大的&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;还有很多方法&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
+    $(&amp;quot;#chk1&amp;quot;).attr(&amp;quot;checked&amp;quot;,&amp;#39;&amp;#39;);//不打勾
+    $(&amp;quot;#chk2&amp;quot;).attr(&amp;quot;checked&amp;quot;,true);// 打勾
+    if($(&amp;quot;#chk1&amp;quot;).attr(&amp;#39;checked&amp;#39;)==undefined){} //判断是否已经打勾
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;当然jquery的选择器是强大的. 还有很多方法.
 
-    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;jquery-1.2.1.js&amp;quot;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;text/javascript&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/script&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;language&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;javascript&amp;quot;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;text/javascript&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ready&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-            &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#selectTest&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;change&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-                &lt;span class=&quot;c1&quot;&gt;//alert(&amp;quot;Hello&amp;quot;);&lt;/span&gt;
-                &lt;span class=&quot;c1&quot;&gt;//alert($(&amp;quot;#selectTest&amp;quot;).attr(&amp;quot;name&amp;quot;));&lt;/span&gt;
-                &lt;span class=&quot;c1&quot;&gt;//$(&amp;quot;a&amp;quot;).attr(&amp;quot;href&amp;quot;,&amp;quot;xx.html&amp;quot;);&lt;/span&gt;
-                &lt;span class=&quot;c1&quot;&gt;//window.location.href=&amp;quot;xx.html&amp;quot;;&lt;/span&gt;
-                &lt;span class=&quot;c1&quot;&gt;//alert($(&amp;quot;#selectTest&amp;quot;).val());&lt;/span&gt;
-                &lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#selectTest option[@selected]&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
-                &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#selectTest&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;value&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;2&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/script&amp;gt;`&lt;/span&gt;
+    &amp;lt;script src=&amp;quot;jquery-1.2.1.js&amp;quot; type=&amp;quot;text/javascript&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;script language=&amp;quot;javascript&amp;quot; type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+        $(document).ready(function(){
+            $(&amp;quot;#selectTest&amp;quot;).change(function(){
+                //alert(&amp;quot;Hello&amp;quot;);
+                //alert($(&amp;quot;#selectTest&amp;quot;).attr(&amp;quot;name&amp;quot;));
+                //$(&amp;quot;a&amp;quot;).attr(&amp;quot;href&amp;quot;,&amp;quot;xx.html&amp;quot;);
+                //window.location.href=&amp;quot;xx.html&amp;quot;;
+                //alert($(&amp;quot;#selectTest&amp;quot;).val());
+                alert($(&amp;quot;#selectTest option[@selected]&amp;quot;).text());
+                $(&amp;quot;#selectTest&amp;quot;).attr(&amp;quot;value&amp;quot;, &amp;quot;2&amp;quot;);
+            });
+        });
+    &amp;lt;/script&amp;gt;`
 
-    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;href&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;aaass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/a&amp;gt;&lt;/span&gt;
+    &amp;lt;a href=&amp;quot;#&amp;quot;&amp;gt;aaass&amp;lt;/a&amp;gt;
 
-&lt;span class=&quot;c&quot;&gt;&amp;lt;!--&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;下拉框&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;selectTest&amp;quot;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;selectTest&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;option&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;1&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;11&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/option&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;option&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;2&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/option&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;option&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;3&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;33&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/option&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;option&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;4&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;44&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/option&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;option&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;5&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;55&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/option&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;option&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;6&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;66&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/option&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/select&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;jquery&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;radio&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;取值，&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;checkbox&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;取值，&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;取值，&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;radio&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选中，&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;checkbox&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选中，&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选中，及其相关获取一组&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;radio&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;被选中项的值&lt;/span&gt;
+&amp;lt;!--下拉框--&amp;gt;
+    &amp;lt;select id=&amp;quot;selectTest&amp;quot; name=&amp;quot;selectTest&amp;quot;&amp;gt;
+        &amp;lt;option value=&amp;quot;1&amp;quot;&amp;gt;11&amp;lt;/option&amp;gt;
+        &amp;lt;option value=&amp;quot;2&amp;quot;&amp;gt;22&amp;lt;/option&amp;gt;
+        &amp;lt;option value=&amp;quot;3&amp;quot;&amp;gt;33&amp;lt;/option&amp;gt;
+        &amp;lt;option value=&amp;quot;4&amp;quot;&amp;gt;44&amp;lt;/option&amp;gt;
+        &amp;lt;option value=&amp;quot;5&amp;quot;&amp;gt;55&amp;lt;/option&amp;gt;
+        &amp;lt;option value=&amp;quot;6&amp;quot;&amp;gt;66&amp;lt;/option&amp;gt;
+    &amp;lt;/select&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;jquery radio取值，checkbox取值，select取值，radio选中，checkbox选中，select选中，及其相关获取一组radio被选中项的值
 
-    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;input[@name=items][@checked]&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    var item = $(&amp;#39;input[@name=items][@checked]&amp;#39;).val();
 
-&lt;span class=&quot;err&quot;&gt;获取&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;被选&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;中项的文本&lt;/span&gt;
+获取select被选 中项的文本
 
-    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;select[@name=items] option[@selected]&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    var item = $(&amp;quot;select[@name=items] option[@selected]&amp;quot;).text();
 
-&lt;span class=&quot;nx&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;下拉框的第二个元素为当前选中值&lt;/span&gt;
+select 下拉框的第二个元素为当前选中值
 
-    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;#select_id&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;selectedIndex&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    $(&amp;#39;#select_id&amp;#39;)[0].selectedIndex = 1;
 
-&lt;span class=&quot;nx&quot;&gt;radio&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;单选组的第二个&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;元素为当前选中值&lt;/span&gt;
+radio单选组的第二个 元素为当前选中值
 
-    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;input[@name=items]&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;checked&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    $(&amp;#39;input[@name=items]&amp;#39;).get(1).checked = true;
 
-&lt;span class=&quot;err&quot;&gt;获取值：&lt;/span&gt;
+获取值：
 
-    &lt;span class=&quot;err&quot;&gt;文本&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;框，文本区域：&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#txt&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;value&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;；&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;多选框&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;checkbox&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;：&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#checkbox_id&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;value&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;；&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;单选组&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;radio&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;：&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;input[@type=radio][@checked]&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;下拉框&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;：&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;#sel&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    文本 框，文本区域：$(&amp;quot;#txt&amp;quot;).attr(&amp;quot;value&amp;quot;)；
+    多选框 checkbox：$(&amp;quot;#checkbox_id&amp;quot;).attr(&amp;quot;value&amp;quot;)；
+    单选组radio： $(&amp;quot;input[@type=radio][@checked]&amp;quot;).val();
+    下拉框select： $(&amp;#39;#sel&amp;#39;).val();
 
-&lt;span class=&quot;err&quot;&gt;控&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;制表单元素：&lt;/span&gt;
+控 制表单元素：
 
-    &lt;span class=&quot;err&quot;&gt;文本框，文本区域：&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#txt&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;value&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//清空内容&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#txt&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;value&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;11&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;// 填充内容&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;多选框&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;checkbox&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;：&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#chk1&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;checked&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//不打勾&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#chk2&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;checked&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;// 打勾&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#chk1&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;checked&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;undefined&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//判断是否已经打勾&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;单选组&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;radio&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;：&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;input[@type=radio]&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;checked&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;2&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//设置value=2的项目为当前选中项&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;下拉框&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;：&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#sel&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;value&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;-sel3&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//设置value=-sel3的项目为当前选中项&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;lt;optionvalue=&amp;#39;1&amp;#39;&amp;amp; gt;1111&amp;lt;/option&amp;gt;&amp;lt;optionvalue=&amp;#39;2&amp;#39;&amp;gt;2222&amp;lt;/option&amp;amp; gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;appendTo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#sel&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//添加下拉框的option&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#sel&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;empty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;；&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;// 清空下拉框&lt;/span&gt;
+    文本框，文本区域：$(&amp;quot;#txt&amp;quot;).attr(&amp;quot;value&amp;quot;,&amp;#39;&amp;#39;);//清空内容
+    $(&amp;quot;#txt&amp;quot;).attr(&amp;quot;value&amp;quot;,&amp;#39;11&amp;#39;);// 填充内容
+    多选框checkbox： $(&amp;quot;#chk1&amp;quot;).attr(&amp;quot;checked&amp;quot;,&amp;#39;&amp;#39;);//不打勾
+    $(&amp;quot;#chk2&amp;quot;).attr(&amp;quot;checked&amp;quot;,true);// 打勾
+    if($(&amp;quot;#chk1&amp;quot;).attr(&amp;#39;checked&amp;#39;)==undefined) //判断是否已经打勾
+    单选组radio： $(&amp;quot;input[@type=radio]&amp;quot;).attr(&amp;quot;checked&amp;quot;,&amp;#39;2&amp;#39;);//设置value=2的项目为当前选中项
+    下拉框 select： $(&amp;quot;#sel&amp;quot;).attr(&amp;quot;value&amp;quot;,&amp;#39;-sel3&amp;#39;);//设置value=-sel3的项目为当前选中项
+    $(&amp;quot;&amp;lt;optionvalue=&amp;#39;1&amp;#39;&amp;amp; gt;1111&amp;lt;/option&amp;gt;&amp;lt;optionvalue=&amp;#39;2&amp;#39;&amp;gt;2222&amp;lt;/option&amp;amp; gt;&amp;quot;).appendTo(&amp;quot;#sel&amp;quot;)//添加下拉框的option
+    $(&amp;quot;#sel&amp;quot;).empty()；// 清空下拉框
 
-&lt;span class=&quot;err&quot;&gt;获取一组&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;radio&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;被选中项的值&lt;/span&gt;
+获取一组radio被选中项的值
 
-    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;input[@name=items][@checked]&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    var item = $(&amp;#39;input[@name=items][@checked]&amp;#39;).val();
 
-&lt;span class=&quot;err&quot;&gt;获取&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;被选中项的文本&lt;/span&gt;
+获取select被选中项的文本
 
-    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;select[@name=items] option[@selected]&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    var item = $(&amp;quot;select[@name=items] option[@selected]&amp;quot;).text();
 
-&lt;span class=&quot;nx&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;下拉框的第二个元素为当&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;前选中值&lt;/span&gt;
+select下拉框的第二个元素为当 前选中值
 
-    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;#select_id&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;selectedIndex&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    $(&amp;#39;#select_id&amp;#39;)[0].selectedIndex = 1;
 
-&lt;span class=&quot;nx&quot;&gt;radio&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;单选组的第二个元素为当前选中值&lt;/span&gt;
+radio单选组的第二个元素为当前选中值
 
-    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;input[@name=items]&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;checked&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    $(&amp;#39;input[@name=items]&amp;#39;).get(1).checked = true;
 
-&lt;span class=&quot;err&quot;&gt;获取值：&lt;/span&gt;
+获取值：
 
-    &lt;span class=&quot;err&quot;&gt;文本框，文本区域：&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#txt&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;value&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;；&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;多选框&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;checkbox&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;：&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#checkbox_id&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;value&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;；&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;单选组&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;radio&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;：&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;input[@type=radio][@checked]&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;下拉框&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;：&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;#sel&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    文本框，文本区域：$(&amp;quot;#txt&amp;quot;).attr(&amp;quot;value&amp;quot;)；
+    多选框 checkbox：$(&amp;quot;#checkbox_id&amp;quot;).attr(&amp;quot;value&amp;quot;)；
+    单选组radio： $(&amp;quot;input[@type=radio][@checked]&amp;quot;).val();
+    下拉框select： $(&amp;#39;#sel&amp;#39;).val();
 
-&lt;span class=&quot;err&quot;&gt;控&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;制表单元素：&lt;/span&gt;
+控 制表单元素：
 
-    &lt;span class=&quot;err&quot;&gt;文本框，文本区域：&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#txt&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;value&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//清空内容&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#txt&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;value&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;11&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;// 填充内容&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;多选框&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;checkbox&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;：&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#chk1&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;checked&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//不打勾&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#chk2&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;checked&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;// 打勾&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#chk1&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;checked&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;undefined&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//判断是否已经打勾&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;单选组&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;radio&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;：&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;input[@type=radio]&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;checked&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;2&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//设置value=2的项目为当前选中项&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;下拉框&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;：&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#sel&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;value&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;-sel3&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//设置value=-sel3的项目为当前选中项&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;lt;option value=&amp;#39;1&amp;#39;&amp;gt;1111&amp;lt;/option&amp;gt;&amp;lt;option value=&amp;#39;2&amp;#39;&amp;gt;2222&amp;lt;/option&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;appendTo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#sel&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//添加下拉框的option&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#sel&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;empty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;；&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;// 清空下拉框&lt;/span&gt;
+    文本框，文本区域：$(&amp;quot;#txt&amp;quot;).attr(&amp;quot;value&amp;quot;,&amp;#39;&amp;#39;);//清空内容
+    $(&amp;quot;#txt&amp;quot;).attr(&amp;quot;value&amp;quot;,&amp;#39;11&amp;#39;);// 填充内容
+    多选框checkbox： $(&amp;quot;#chk1&amp;quot;).attr(&amp;quot;checked&amp;quot;,&amp;#39;&amp;#39;);//不打勾
+    $(&amp;quot;#chk2&amp;quot;).attr(&amp;quot;checked&amp;quot;,true);// 打勾
+    if($(&amp;quot;#chk1&amp;quot;).attr(&amp;#39;checked&amp;#39;)==undefined) //判断是否已经打勾
+    单选组radio： $(&amp;quot;input[@type=radio]&amp;quot;).attr(&amp;quot;checked&amp;quot;,&amp;#39;2&amp;#39;);//设置value=2的项目为当前选中项
+    下拉框 select： $(&amp;quot;#sel&amp;quot;).attr(&amp;quot;value&amp;quot;,&amp;#39;-sel3&amp;#39;);//设置value=-sel3的项目为当前选中项
+    $(&amp;quot;&amp;lt;option value=&amp;#39;1&amp;#39;&amp;gt;1111&amp;lt;/option&amp;gt;&amp;lt;option value=&amp;#39;2&amp;#39;&amp;gt;2222&amp;lt;/option&amp;gt;&amp;quot;).appendTo(&amp;quot;#sel&amp;quot;)//添加下拉框的option
+    $(&amp;quot;#sel&amp;quot;).empty()；// 清空下拉框
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
  </entry>
  
@@ -448,9 +514,9 @@
 &lt;h6&gt;3.避免隐含类型转换&lt;/h6&gt;
 
 &lt;p&gt;例：&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;select id from employee e where e.emp_id = &amp;#39;8&amp;#39;;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;    &lt;span class=&quot;k&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;employee&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;where&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;emp_id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;8&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
-select id from employee e where e.emp_id = 8;
+    &lt;span class=&quot;k&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;employee&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;where&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;emp_id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;解释：emp_id是整数型，用&amp;#39;8&amp;#39;会默认启动类型转换，增加查询的开销。&lt;/p&gt;
 
@@ -463,11 +529,11 @@ select id from employee e where e.emp_id = 8;
 &lt;h6&gt;5.使用关键字代替函数&lt;/h6&gt;
 
 &lt;p&gt;例：&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;select id from employee where UPPER(dept) like &amp;#39;TECH_DB&amp;#39;；
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;    &lt;span class=&quot;k&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;employee&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;where&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;UPPER&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dept&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;like&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;TECH_DB&amp;#39;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;；&lt;/span&gt;
 
-select id from employee where SUBSTR(dept,1,4)=&amp;#39;TECH&amp;#39;；
+    &lt;span class=&quot;k&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;employee&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;where&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SUBSTR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dept&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;TECH&amp;#39;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;；&lt;/span&gt;
 
-select id from employee where dept like &amp;#39;TECH%&amp;#39;；
+    &lt;span class=&quot;k&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;employee&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;where&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dept&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;like&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;TECH%&amp;#39;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;；&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;这里还要说一点，除非业务硬性要求，模糊查询尽量使用前方一致。不要使用‘%%’这样的空字符串进行查询。&lt;/p&gt;
 
@@ -476,25 +542,25 @@ select id from employee where dept like &amp;#39;TECH%&amp;#39;；
 &lt;h6&gt;6.不要在字段上使用转换函数，尽量在常量上使用&lt;/h6&gt;
 
 &lt;p&gt;例：&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;select id from employee where to_char(create_date,&amp;#39;yyyy-mm-dd&amp;#39;)=&amp;#39;2012-10-31&amp;#39;；
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;    &lt;span class=&quot;k&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;employee&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;where&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to_char&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create_date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;yyyy-mm-dd&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;2012-10-31&amp;#39;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;；&lt;/span&gt;
 
-select id from employee where create_date=to_date(&amp;#39;2012-10-31&amp;#39;,&amp;#39;yyyy-mm-dd&amp;#39;)；
+    &lt;span class=&quot;k&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;employee&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;where&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;create_date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;2012-10-31&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;yyyy-mm-dd&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;；&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;hr&gt;
 
 &lt;h6&gt;7.不使用连接（||）做查询&lt;/h6&gt;
 
 &lt;p&gt;例：  &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;select id from employee where first_name || last_name like &amp;#39;Jo%&amp;#39;；
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;    &lt;span class=&quot;k&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;employee&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;where&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;first_name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;last_name&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;like&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Jo%&amp;#39;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;；&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;hr&gt;
 
 &lt;h6&gt;8.不要对字段进行运算&lt;/h6&gt;
 
 &lt;p&gt;例：&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;select id from employee where creat_date-30&amp;gt;to_date(&amp;#39;2012-10-31&amp;#39;,&amp;#39;yyyy-mm-dd&amp;#39;)；
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;    &lt;span class=&quot;k&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;employee&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;where&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;creat_date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;2012-10-31&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;yyyy-mm-dd&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;；&lt;/span&gt;
 
-select id from employee where creat_date &amp;gt;to_date(&amp;#39;2012-10-31&amp;#39;,&amp;#39;yyyy-mm-dd&amp;#39;)+30;
+    &lt;span class=&quot;k&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;employee&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;where&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;creat_date&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;2012-10-31&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;yyyy-mm-dd&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;另外强调一点：在WHERE 语句中，尽量避免对索引字段进行计算操作&lt;/p&gt;
 
@@ -512,9 +578,9 @@ select id from employee where creat_date &amp;gt;to_date(&amp;#39;2012-10-31&amp
 
 &lt;p&gt;推荐方案：用NOT EXISTS 或(外连接+判断为空)方案代替
 例：&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;select id from employee where salary in (select salary from emp_level where....)；
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;    &lt;span class=&quot;k&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;employee&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;where&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;salary&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;salary&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;emp_level&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;where&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;....)&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;；&lt;/span&gt;
 
-select id from employee where salary exists(select &amp;#39;X&amp;#39; from emp_level where ....)；
+    &lt;span class=&quot;k&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;employee&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;where&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;salary&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;exists&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;X&amp;#39;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;emp_level&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;where&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;....)&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;；&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;hr&gt;
 
@@ -550,10 +616,10 @@ select id from employee where salary exists(select &amp;#39;X&amp;#39; from emp_
 &lt;h6&gt;15.*是禁止的&lt;/h6&gt;
 
 &lt;p&gt;在应用程序、包和过程中限制使用select * from table这种方式。看下面例子：&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;SELECT empno,ename,category FROM emp WHERE empno = &amp;#39;7369&amp;#39;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;    &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;empno&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;category&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;emp&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;empno&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;7369&amp;#39;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;不要使用：&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;SELECT * FROM emp WHERE empno = &amp;#39;7369&amp;#39;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;    &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;emp&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;empno&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;7369&amp;#39;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;hr&gt;
 
@@ -562,9 +628,9 @@ select id from employee where salary exists(select &amp;#39;X&amp;#39; from emp_
 &lt;p&gt;不等于操作符是永远不会用到索引的，因此对它的处理只会产生全表扫描。&lt;/p&gt;
 
 &lt;p&gt;推荐方案：用其它相同功能的操作运算代替，如&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;a&amp;lt;&amp;gt;0 改为 a&amp;gt;0 or a&amp;lt;0
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;    &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;改为&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
 
-a&amp;lt;&amp;gt;&amp;#39;&amp;#39; 改为 a&amp;gt;&amp;#39;&amp;#39;
+    &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;改为&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;hr&gt;
 
@@ -575,7 +641,7 @@ a&amp;lt;&amp;gt;&amp;#39;&amp;#39; 改为 a&amp;gt;&amp;#39;&amp;#39;
 &lt;p&gt;推荐方案：&lt;/p&gt;
 
 &lt;p&gt;用其它相同功能的操作运算代替，如&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;a is not null 改为 a&amp;gt;0 或a&amp;gt;&amp;#39;&amp;#39;等。
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;    &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;null&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;改为&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;或&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;等。&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;不允许字段为空，而用一个缺省值代替空值，如业扩申请中状态字段不允许为空，缺省为申请。&lt;/p&gt;
 
@@ -645,13 +711,13 @@ a&amp;lt;&amp;gt;&amp;#39;&amp;#39; 改为 a&amp;gt;&amp;#39;&amp;#39;
 &lt;h6&gt;22.UPDATE&lt;/h6&gt;
 
 &lt;p&gt;同一个表的修改在一个过程里出现好几十次，如：&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;update table1
-set col1=...
-where col2=...;
-update table1
-set col1=...
-where col2=...
-......
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;    &lt;span class=&quot;k&quot;&gt;update&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;table1&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;col1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;where&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;col2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;...;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;update&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;table1&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;col1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;where&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;col2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;......&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;这类脚本可以整合在一个&lt;code&gt;UPDATE&lt;/code&gt;语句来完成.&lt;/p&gt;
 
@@ -674,16 +740,16 @@ where col2=...
 &lt;p&gt;可以使用表链接代替 &lt;code&gt;exist&lt;/code&gt;。&lt;code&gt;Having&lt;/code&gt;可以用&lt;code&gt;where&lt;/code&gt;代替，如果无法代替可以分两步处理。&lt;/p&gt;
 
 &lt;p&gt;例子：&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;SELECT *  FROM ORDERS WHERE CUSTOMER_NAME NOT IN (SELECT CUSTOMER_NAME FROM CUSTOMER)
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;    &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;  &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ORDERS&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CUSTOMER_NAME&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;IN&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CUSTOMER_NAME&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CUSTOMER&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;优化：&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;SELECT *  FROM ORDERS WHERE CUSTOMER_NAME not exist (SELECT CUSTOMER_NAME FROM CUSTOMER)
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;    &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;  &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ORDERS&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CUSTOMER_NAME&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;exist&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CUSTOMER_NAME&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CUSTOMER&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h6&gt;24.2.不要以字符格式声明数字，要以数字格式声明字符值。（日期同样）否则会使索引无效，产生全表扫描。&lt;/h6&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;SELECT emp.ename, emp.job FROM emp WHERE emp.empno = 7369;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;    &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;emp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;emp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;job&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;emp&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;emp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;empno&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7369&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;不要使用：&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;SELECT emp.ename, emp.job FROM emp WHERE emp.empno = &amp;#39;7369&amp;#39;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;    &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;emp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;emp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;job&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;emp&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;emp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;empno&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;7369&amp;#39;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;hr&gt;
 
