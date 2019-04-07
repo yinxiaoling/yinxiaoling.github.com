@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>玩转 EFK 之小试牛刀 | Hsiao Lin</title>
+    <meta name="description" content="Programer &amp; WOWER">
+    <link rel="icon" href="/pig32.png">
+    
+    <link rel="preload" href="/assets/css/0.styles.78c36931.css" as="style"><link rel="preload" href="/assets/js/app.5747588d.js" as="script"><link rel="preload" href="/assets/js/33.f04b3a0b.js" as="script"><link rel="prefetch" href="/assets/js/10.ddf3c1e1.js"><link rel="prefetch" href="/assets/js/11.4a613803.js"><link rel="prefetch" href="/assets/js/12.2150fbf6.js"><link rel="prefetch" href="/assets/js/13.bae1cdb7.js"><link rel="prefetch" href="/assets/js/14.22570454.js"><link rel="prefetch" href="/assets/js/15.b3a92972.js"><link rel="prefetch" href="/assets/js/16.bc6a56f4.js"><link rel="prefetch" href="/assets/js/17.45830d2d.js"><link rel="prefetch" href="/assets/js/18.f118e123.js"><link rel="prefetch" href="/assets/js/19.55870ab2.js"><link rel="prefetch" href="/assets/js/2.1740a20d.js"><link rel="prefetch" href="/assets/js/20.faf1b2ca.js"><link rel="prefetch" href="/assets/js/21.6438e59f.js"><link rel="prefetch" href="/assets/js/22.e5783bce.js"><link rel="prefetch" href="/assets/js/23.0416ab32.js"><link rel="prefetch" href="/assets/js/24.8b80babf.js"><link rel="prefetch" href="/assets/js/25.0976f645.js"><link rel="prefetch" href="/assets/js/26.70348fe6.js"><link rel="prefetch" href="/assets/js/27.a4332e0f.js"><link rel="prefetch" href="/assets/js/28.2651aa73.js"><link rel="prefetch" href="/assets/js/29.eeec3390.js"><link rel="prefetch" href="/assets/js/3.9c895735.js"><link rel="prefetch" href="/assets/js/30.65fcfd10.js"><link rel="prefetch" href="/assets/js/31.34031f2d.js"><link rel="prefetch" href="/assets/js/32.7baa1b9b.js"><link rel="prefetch" href="/assets/js/34.f31687b6.js"><link rel="prefetch" href="/assets/js/35.d267a990.js"><link rel="prefetch" href="/assets/js/36.28868b70.js"><link rel="prefetch" href="/assets/js/37.3994c10b.js"><link rel="prefetch" href="/assets/js/38.6c84a9cd.js"><link rel="prefetch" href="/assets/js/39.6d6010ec.js"><link rel="prefetch" href="/assets/js/4.f828ee46.js"><link rel="prefetch" href="/assets/js/40.c8ac4272.js"><link rel="prefetch" href="/assets/js/41.697306cd.js"><link rel="prefetch" href="/assets/js/42.931e7371.js"><link rel="prefetch" href="/assets/js/43.6c7f8cb9.js"><link rel="prefetch" href="/assets/js/44.8cd62ac9.js"><link rel="prefetch" href="/assets/js/45.a12aac7e.js"><link rel="prefetch" href="/assets/js/46.41c7dd1e.js"><link rel="prefetch" href="/assets/js/47.a082ea8c.js"><link rel="prefetch" href="/assets/js/48.f9b08363.js"><link rel="prefetch" href="/assets/js/49.514396bc.js"><link rel="prefetch" href="/assets/js/5.8d4fff67.js"><link rel="prefetch" href="/assets/js/50.2cd1eb92.js"><link rel="prefetch" href="/assets/js/51.941ff4ba.js"><link rel="prefetch" href="/assets/js/52.bce8dc3c.js"><link rel="prefetch" href="/assets/js/53.558d03e9.js"><link rel="prefetch" href="/assets/js/54.aa838e71.js"><link rel="prefetch" href="/assets/js/55.6911947c.js"><link rel="prefetch" href="/assets/js/56.dd8ebcab.js"><link rel="prefetch" href="/assets/js/57.5c6a288d.js"><link rel="prefetch" href="/assets/js/58.fa4865de.js"><link rel="prefetch" href="/assets/js/59.f0ec1ba6.js"><link rel="prefetch" href="/assets/js/6.56e05218.js"><link rel="prefetch" href="/assets/js/60.e1e88011.js"><link rel="prefetch" href="/assets/js/61.e085e697.js"><link rel="prefetch" href="/assets/js/62.ff1bfc45.js"><link rel="prefetch" href="/assets/js/63.4987100b.js"><link rel="prefetch" href="/assets/js/64.d9662951.js"><link rel="prefetch" href="/assets/js/65.fc4e4a80.js"><link rel="prefetch" href="/assets/js/66.e25fee29.js"><link rel="prefetch" href="/assets/js/67.f2dd7002.js"><link rel="prefetch" href="/assets/js/68.5bfcc86c.js"><link rel="prefetch" href="/assets/js/69.3cce463a.js"><link rel="prefetch" href="/assets/js/7.7fc02c55.js"><link rel="prefetch" href="/assets/js/8.6b4dfd4a.js"><link rel="prefetch" href="/assets/js/9.41b03f35.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.78c36931.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Hsiao Lin</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Java</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Architect</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Java/architect/ELK/" class="nav-link router-link-exact-active router-link-active">ELK</a></li><li class="dropdown-subitem"><a href="/Java/architect/OAuth2/" class="nav-link">OAuth2</a></li></ul></li><li class="dropdown-item"><h4>Algorithm</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Java/algorithm/" class="nav-link">河内之塔（汉诺塔）</a></li><li class="dropdown-subitem"><a href="/Java/algorithm/" class="nav-link">费式数列</a></li></ul></li><li class="dropdown-item"><h4>Java</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Java/Java/" class="nav-link">Data Structure</a></li><li class="dropdown-subitem"><a href="/Java/Java/" class="nav-link">Java Base</a></li></ul></li><li class="dropdown-item"><h4>Spring</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Java/Spring/" class="nav-link">DI</a></li><li class="dropdown-subitem"><a href="/Java/Spring/" class="nav-link">AOP</a></li></ul></li><li class="dropdown-item"><h4>SpringBoot</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Java/SpringBoot/" class="nav-link">DataSource</a></li><li class="dropdown-subitem"><a href="/Java/SpringBoot/" class="nav-link">LOG</a></li></ul></li><li class="dropdown-item"><h4>SpringCloud</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Java/SpringCloud/" class="nav-link">Nacos</a></li><li class="dropdown-subitem"><a href="/Java/SpringCloud/" class="nav-link">RocketMQ</a></li></ul></li><li class="dropdown-item"><h4>MyBatis</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Java/MyBatis/" class="nav-link">MyBatis</a></li><li class="dropdown-subitem"><a href="/Java/MyBatis/" class="nav-link">MyBatis-Plus</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">JavaScript</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Fromework</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/JavaScript/React/" class="nav-link">React</a></li><li class="dropdown-subitem"><a href="/JavaScript/Vue/" class="nav-link">Vue</a></li><li class="dropdown-subitem"><a href="/JavaScript/Angular/" class="nav-link">Angular</a></li></ul></li><li class="dropdown-item"><h4>JavaScript</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/JavaScript/JavaScript/ES5/" class="nav-link">ES5</a></li><li class="dropdown-subitem"><a href="/JavaScript/JavaScript/ES6/" class="nav-link">ES6</a></li></ul></li><li class="dropdown-item"><h4>Superset</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/JavaScript/TypeScript/" class="nav-link">TypeScript</a></li></ul></li><li class="dropdown-item"><h4>Platform</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/JavaScript/Nodejs/" class="nav-link">Node.js</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Popular Technique</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/cloud/Docker/" class="nav-link">Docker</a></li><li class="dropdown-item"><!----> <a href="/cloud/Kubernetes/" class="nav-link">Kubernetes</a></li><li class="dropdown-item"><!----> <a href="/BigData/" class="nav-link">BigData</a></li><li class="dropdown-item"><!----> <a href="/Ceph/" class="nav-link">Ceph</a></li><li class="dropdown-item"><!----> <a href="/AI/" class="nav-link">AI</a></li><li class="dropdown-item"><!----> <a href="/AI/" class="nav-link">区块链</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Book Club</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/cloud/Docker/" class="nav-link">从 0 到 1</a></li><li class="dropdown-item"><!----> <a href="/cloud/Docker/" class="nav-link">统计学</a></li><li class="dropdown-item"><!----> <a href="/cloud/Docker/" class="nav-link">区块链</a></li><li class="dropdown-item"><!----> <a href="/cloud/Docker/" class="nav-link">曾国藩家书</a></li><li class="dropdown-item"><!----> <a href="/cloud/Docker/" class="nav-link">四书五经</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Cosmosource</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>公司产品</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Cosmosource/Component/fwp/" class="nav-link">自由网页</a></li><li class="dropdown-subitem"><a href="/Cosmosource/Component/glm/" class="nav-link">逻辑建模</a></li><li class="dropdown-subitem"><a href="/Cosmosource/Component/bpm/" class="nav-link">业务协同</a></li><li class="dropdown-subitem"><a href="/Cosmosource/Component/cmc/" class="nav-link">消息中心</a></li><li class="dropdown-subitem"><a href="/Cosmosource/Component/mmc/" class="nav-link">监控中心</a></li><li class="dropdown-subitem"><a href="/Cosmosource/Component/lmc/" class="nav-link">日志中心</a></li></ul></li><li class="dropdown-item"><h4>创研中心</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Cosmosource/Manager/build/" class="nav-link">部门建设</a></li><li class="dropdown-subitem"><a href="/Cosmosource/Manager/efficiency/" class="nav-link">团队效能</a></li><li class="dropdown-subitem"><a href="/Cosmosource/Manager/kpi/" class="nav-link">目标量化</a></li><li class="dropdown-subitem"><a href="/Cosmosource/Manager/CodeStyle/" class="nav-link">代码规范</a></li></ul></li></ul></div></div><div class="nav-item"><a href="https://github.com/yinxiaoling" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Java</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Architect</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Java/architect/ELK/" class="nav-link router-link-exact-active router-link-active">ELK</a></li><li class="dropdown-subitem"><a href="/Java/architect/OAuth2/" class="nav-link">OAuth2</a></li></ul></li><li class="dropdown-item"><h4>Algorithm</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Java/algorithm/" class="nav-link">河内之塔（汉诺塔）</a></li><li class="dropdown-subitem"><a href="/Java/algorithm/" class="nav-link">费式数列</a></li></ul></li><li class="dropdown-item"><h4>Java</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Java/Java/" class="nav-link">Data Structure</a></li><li class="dropdown-subitem"><a href="/Java/Java/" class="nav-link">Java Base</a></li></ul></li><li class="dropdown-item"><h4>Spring</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Java/Spring/" class="nav-link">DI</a></li><li class="dropdown-subitem"><a href="/Java/Spring/" class="nav-link">AOP</a></li></ul></li><li class="dropdown-item"><h4>SpringBoot</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Java/SpringBoot/" class="nav-link">DataSource</a></li><li class="dropdown-subitem"><a href="/Java/SpringBoot/" class="nav-link">LOG</a></li></ul></li><li class="dropdown-item"><h4>SpringCloud</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Java/SpringCloud/" class="nav-link">Nacos</a></li><li class="dropdown-subitem"><a href="/Java/SpringCloud/" class="nav-link">RocketMQ</a></li></ul></li><li class="dropdown-item"><h4>MyBatis</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Java/MyBatis/" class="nav-link">MyBatis</a></li><li class="dropdown-subitem"><a href="/Java/MyBatis/" class="nav-link">MyBatis-Plus</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">JavaScript</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Fromework</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/JavaScript/React/" class="nav-link">React</a></li><li class="dropdown-subitem"><a href="/JavaScript/Vue/" class="nav-link">Vue</a></li><li class="dropdown-subitem"><a href="/JavaScript/Angular/" class="nav-link">Angular</a></li></ul></li><li class="dropdown-item"><h4>JavaScript</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/JavaScript/JavaScript/ES5/" class="nav-link">ES5</a></li><li class="dropdown-subitem"><a href="/JavaScript/JavaScript/ES6/" class="nav-link">ES6</a></li></ul></li><li class="dropdown-item"><h4>Superset</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/JavaScript/TypeScript/" class="nav-link">TypeScript</a></li></ul></li><li class="dropdown-item"><h4>Platform</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/JavaScript/Nodejs/" class="nav-link">Node.js</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Popular Technique</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/cloud/Docker/" class="nav-link">Docker</a></li><li class="dropdown-item"><!----> <a href="/cloud/Kubernetes/" class="nav-link">Kubernetes</a></li><li class="dropdown-item"><!----> <a href="/BigData/" class="nav-link">BigData</a></li><li class="dropdown-item"><!----> <a href="/Ceph/" class="nav-link">Ceph</a></li><li class="dropdown-item"><!----> <a href="/AI/" class="nav-link">AI</a></li><li class="dropdown-item"><!----> <a href="/AI/" class="nav-link">区块链</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Book Club</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/cloud/Docker/" class="nav-link">从 0 到 1</a></li><li class="dropdown-item"><!----> <a href="/cloud/Docker/" class="nav-link">统计学</a></li><li class="dropdown-item"><!----> <a href="/cloud/Docker/" class="nav-link">区块链</a></li><li class="dropdown-item"><!----> <a href="/cloud/Docker/" class="nav-link">曾国藩家书</a></li><li class="dropdown-item"><!----> <a href="/cloud/Docker/" class="nav-link">四书五经</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Cosmosource</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>公司产品</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Cosmosource/Component/fwp/" class="nav-link">自由网页</a></li><li class="dropdown-subitem"><a href="/Cosmosource/Component/glm/" class="nav-link">逻辑建模</a></li><li class="dropdown-subitem"><a href="/Cosmosource/Component/bpm/" class="nav-link">业务协同</a></li><li class="dropdown-subitem"><a href="/Cosmosource/Component/cmc/" class="nav-link">消息中心</a></li><li class="dropdown-subitem"><a href="/Cosmosource/Component/mmc/" class="nav-link">监控中心</a></li><li class="dropdown-subitem"><a href="/Cosmosource/Component/lmc/" class="nav-link">日志中心</a></li></ul></li><li class="dropdown-item"><h4>创研中心</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Cosmosource/Manager/build/" class="nav-link">部门建设</a></li><li class="dropdown-subitem"><a href="/Cosmosource/Manager/efficiency/" class="nav-link">团队效能</a></li><li class="dropdown-subitem"><a href="/Cosmosource/Manager/kpi/" class="nav-link">目标量化</a></li><li class="dropdown-subitem"><a href="/Cosmosource/Manager/CodeStyle/" class="nav-link">代码规范</a></li></ul></li></ul></div></div><div class="nav-item"><a href="https://github.com/yinxiaoling" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/Java/architect/ELK/" class="active sidebar-link">玩转 EFK 之小试牛刀</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Java/architect/ELK/#环境" class="sidebar-link">环境</a></li><li class="sidebar-sub-header"><a href="/Java/architect/ELK/#elasticsearch" class="sidebar-link">Elasticsearch</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Java/architect/ELK/#用户" class="sidebar-link">用户</a></li><li class="sidebar-sub-header"><a href="/Java/architect/ELK/#解压" class="sidebar-link">解压</a></li><li class="sidebar-sub-header"><a href="/Java/architect/ELK/#授权" class="sidebar-link">授权</a></li><li class="sidebar-sub-header"><a href="/Java/architect/ELK/#配置" class="sidebar-link">配置</a></li><li class="sidebar-sub-header"><a href="/Java/architect/ELK/#运行" class="sidebar-link">运行</a></li><li class="sidebar-sub-header"><a href="/Java/architect/ELK/#访问" class="sidebar-link">访问</a></li></ul></li><li class="sidebar-sub-header"><a href="/Java/architect/ELK/#kibana" class="sidebar-link">Kibana</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Java/architect/ELK/#解压-2" class="sidebar-link">解压</a></li><li class="sidebar-sub-header"><a href="/Java/architect/ELK/#配置-2" class="sidebar-link">配置</a></li><li class="sidebar-sub-header"><a href="/Java/architect/ELK/#启动" class="sidebar-link">启动</a></li></ul></li><li class="sidebar-sub-header"><a href="/Java/architect/ELK/#kafka" class="sidebar-link">Kafka</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Java/architect/ELK/#解压-3" class="sidebar-link">解压</a></li><li class="sidebar-sub-header"><a href="/Java/architect/ELK/#配置zookeeper-集群" class="sidebar-link">配置Zookeeper 集群</a></li><li class="sidebar-sub-header"><a href="/Java/architect/ELK/#启动-zookeeper-集群" class="sidebar-link">启动 Zookeeper 集群</a></li><li class="sidebar-sub-header"><a href="/Java/architect/ELK/#配置-kafka-集群" class="sidebar-link">配置 Kafka 集群</a></li><li class="sidebar-sub-header"><a href="/Java/architect/ELK/#启动-kafka-集群" class="sidebar-link">启动 Kafka 集群</a></li></ul></li><li class="sidebar-sub-header"><a href="/Java/architect/ELK/#logstash" class="sidebar-link">Logstash</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Java/architect/ELK/#解压-4" class="sidebar-link">解压</a></li><li class="sidebar-sub-header"><a href="/Java/architect/ELK/#配置-3" class="sidebar-link">配置</a></li><li class="sidebar-sub-header"><a href="/Java/architect/ELK/#启动-2" class="sidebar-link">启动</a></li></ul></li><li class="sidebar-sub-header"><a href="/Java/architect/ELK/#filebeat" class="sidebar-link">FileBeat</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Java/architect/ELK/#解压-5" class="sidebar-link">解压</a></li><li class="sidebar-sub-header"><a href="/Java/architect/ELK/#配置-4" class="sidebar-link">配置</a></li><li class="sidebar-sub-header"><a href="/Java/architect/ELK/#启动-3" class="sidebar-link">启动</a></li></ul></li><li class="sidebar-sub-header"><a href="/Java/architect/ELK/#优化" class="sidebar-link">优化</a></li></ul></li><li><a href="/Java/architect/ELK/elk-efk.html" class="sidebar-link">从 ELK 到 EFK 演进</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Java/architect/ELK/elk-efk.html#背景" class="sidebar-link">背景</a></li><li class="sidebar-sub-header"><a href="/Java/architect/ELK/elk-efk.html#为什么做日志系统" class="sidebar-link">为什么做日志系统</a></li><li class="sidebar-sub-header"><a href="/Java/architect/ELK/elk-efk.html#简单版架构" class="sidebar-link">简单版架构</a></li><li class="sidebar-sub-header"><a href="/Java/architect/ELK/elk-efk.html#集群版架构" class="sidebar-link">集群版架构</a></li><li class="sidebar-sub-header"><a href="/Java/architect/ELK/elk-efk.html#引入消息队列" class="sidebar-link">引入消息队列</a></li><li class="sidebar-sub-header"><a href="/Java/architect/ELK/elk-efk.html#多机房部署" class="sidebar-link">多机房部署</a></li><li class="sidebar-sub-header"><a href="/Java/architect/ELK/elk-efk.html#引入filebeat" class="sidebar-link">引入Filebeat</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Java/architect/ELK/elk-efk.html#压测环境" class="sidebar-link">压测环境</a></li><li class="sidebar-sub-header"><a href="/Java/architect/ELK/elk-efk.html#压测方案" class="sidebar-link">压测方案</a></li><li class="sidebar-sub-header"><a href="/Java/architect/ELK/elk-efk.html#压测结果" class="sidebar-link">压测结果</a></li></ul></li><li class="sidebar-sub-header"><a href="/Java/architect/ELK/elk-efk.html#总结" class="sidebar-link">总结</a></li><li class="sidebar-sub-header"><a href="/Java/architect/ELK/elk-efk.html#参考资料" class="sidebar-link">参考资料</a></li></ul></li><li><a href="/Java/architect/ELK/practice.html" class="sidebar-link">亿级 ELK 日志平台构建实践</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Java/architect/ELK/practice.html#整体架构" class="sidebar-link">整体架构</a></li><li class="sidebar-sub-header"><a href="/Java/architect/ELK/practice.html#版本说明" class="sidebar-link">版本说明</a></li><li class="sidebar-sub-header"><a href="/Java/architect/ELK/practice.html#具体实践" class="sidebar-link">具体实践</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Java/architect/ELK/practice.html#filebeat" class="sidebar-link">Filebeat</a></li><li class="sidebar-sub-header"><a href="/Java/architect/ELK/practice.html#kafka" class="sidebar-link">Kafka</a></li><li class="sidebar-sub-header"><a href="/Java/architect/ELK/practice.html#logstash" class="sidebar-link">Logstash</a></li><li class="sidebar-sub-header"><a href="/Java/architect/ELK/practice.html#elasticsearch" class="sidebar-link">Elasticsearch</a></li><li class="sidebar-sub-header"><a href="/Java/architect/ELK/practice.html#kibana" class="sidebar-link">kibana</a></li></ul></li><li class="sidebar-sub-header"><a href="/Java/architect/ELK/practice.html#总结" class="sidebar-link">总结</a></li></ul></li></ul> </div> <div class="page"> <div class="content"><h1 id="玩转-efk-之小试牛刀"><a href="#玩转-efk-之小试牛刀" aria-hidden="true" class="header-anchor">#</a> 玩转 EFK 之小试牛刀</h1> <p>原创文章，转载请注明出处，违者必追究其法律责任。</p> <p>本文只是最初级的安装，不涉及任何安全策略和高级应用，后续会添加关于最后优化部分的详细配置以及生产级的日志配置。</p> <h2 id="环境"><a href="#环境" aria-hidden="true" class="header-anchor">#</a> 环境</h2> <p>从<a href="https://www.elastic.co/cn/downloads" target="_blank" rel="noopener noreferrer">Elastic公司官网<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>下载安装包，安装遇到问题以及配置详情参考官网文档,：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 安装包准备</span>
+elasticsearch-6.5.4.tar.gz                <span class="token comment"># Elasticsearch</span>
+filebeat-6.5.4-linux-x86_64.tar.gz        <span class="token comment"># Filebeat</span>
+kibana-6.5.4-linux-x86_64.tar.gz          <span class="token comment"># Kibana</span>
+logstash-6.5.4.tar.gz                     <span class="token comment"># Logstash</span>
+
+jdk-8u191-linux-x64.tar.gz                <span class="token comment"># ES、Losstash、Kibana依赖</span>
+kafka_2.11-2.0.0.tgz                      <span class="token comment"># kafka</span>
+zookeeper-3.4.13.tar.gz                   <span class="token comment"># kafka依赖注册中心</span>
+
+<span class="token comment"># 服务器列表</span>
+192.168.0.188  CentOS7.5   4C    8G    
+192.168.0.189  CentOS7.5   4C    4G
+192.168.0.191  CentOS7.5   4C    4G
+</code></pre></div><h2 id="elasticsearch"><a href="#elasticsearch" aria-hidden="true" class="header-anchor">#</a> Elasticsearch</h2> <h3 id="用户"><a href="#用户" aria-hidden="true" class="header-anchor">#</a> 用户</h3> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">groupadd</span> es          <span class="token comment"># 添加用户组</span>
+<span class="token function">useradd</span> -g es es     <span class="token comment"># 添加用户到指定用户组</span>
+<span class="token function">passwd</span> es            <span class="token comment"># 为指定用户设置密码</span>
+</code></pre></div><h3 id="解压"><a href="#解压" aria-hidden="true" class="header-anchor">#</a> 解压</h3> <p><code>tar zxvf elasticsearch-2.3.4.tar.gz -C /opt</code></p> <h3 id="授权"><a href="#授权" aria-hidden="true" class="header-anchor">#</a> 授权</h3> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 把文件夹赋予给es用户</span>
+<span class="token punctuation">[</span>root@vm-centos75-0188 opt<span class="token punctuation">]</span><span class="token comment"># chown -R es:es /opt/elasticsearch-6.5.4</span>
+<span class="token punctuation">[</span>root@vm-centos75-0188 opt<span class="token punctuation">]</span><span class="token comment"># chown -R es:es /opt/data/es</span>
+<span class="token comment"># 把文件夹设置所有用户可读写</span>
+<span class="token punctuation">[</span>root@vm-centos75-0188 opt<span class="token punctuation">]</span><span class="token comment"># chown -R 777 /opt/data</span>
+</code></pre></div><h3 id="配置"><a href="#配置" aria-hidden="true" class="header-anchor">#</a> 配置</h3> <p><code>vim /opt/elasticsearch-6.5.4/config/elasticsearch.yml</code></p> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token comment"># ======================== Elasticsearch Configuration =========================</span>
+<span class="token comment">#</span>
+<span class="token comment"># NOTE: Elasticsearch comes with reasonable defaults for most settings.</span>
+<span class="token comment">#       Before you set out to tweak and tune the configuration, make sure you</span>
+<span class="token comment">#       understand what are you trying to accomplish and the consequences.</span>
+<span class="token comment">#</span>
+<span class="token comment"># The primary way of configuring a node is via this file. This template lists</span>
+<span class="token comment"># the most important settings you may want to configure for a production cluster.</span>
+<span class="token comment">#</span>
+<span class="token comment"># Please consult the documentation for further information on configuration options:</span>
+<span class="token comment"># https://www.elastic.co/guide/en/elasticsearch/reference/index.html</span>
+<span class="token comment">#</span>
+<span class="token comment"># ---------------------------------- Cluster -----------------------------------</span>
+<span class="token comment">#</span>
+<span class="token comment"># Use a descriptive name for your cluster:</span>
+<span class="token comment">#</span>
+<span class="token key atrule">cluster.name</span><span class="token punctuation">:</span> cosmo<span class="token punctuation">-</span>efk
+<span class="token comment">#</span>
+<span class="token comment"># ------------------------------------ Node ------------------------------------</span>
+<span class="token comment">#</span>
+<span class="token comment"># Use a descriptive name for the node:</span>
+<span class="token comment">#</span>
+<span class="token key atrule">node.name</span><span class="token punctuation">:</span> cosmo<span class="token punctuation">-</span>node<span class="token punctuation">-</span><span class="token number">188</span>
+<span class="token comment">#</span>
+<span class="token comment"># Add custom attributes to the node:</span>
+<span class="token comment">#</span>
+<span class="token key atrule">node.attr.rack</span><span class="token punctuation">:</span> r1
+<span class="token comment">#</span>
+<span class="token comment"># ----------------------------------- Memory -----------------------------------</span>
+<span class="token comment">#</span>
+<span class="token comment"># Lock the memory on startup:</span>
+<span class="token comment">#</span>
+<span class="token comment">#bootstrap.memory_lock: true</span>
+<span class="token comment">#</span>
+<span class="token comment"># Make sure that the heap size is set to about half the memory available</span>
+<span class="token comment"># on the system and that the owner of the process is allowed to use this</span>
+<span class="token comment"># limit.</span>
+<span class="token comment">#</span>
+<span class="token comment"># Elasticsearch performs poorly when the system is swapping the memory.</span>
+<span class="token comment">#</span>
+<span class="token comment"># ----------------------------------- Paths ------------------------------------</span>
+<span class="token comment">#</span>
+<span class="token comment"># Path to directory where to store the data (separate multiple locations by comma):</span>
+<span class="token comment">#</span>
+<span class="token key atrule">path.data</span><span class="token punctuation">:</span> /opt/data/es/data
+<span class="token comment">#</span>
+<span class="token comment"># Path to log files:</span>
+<span class="token comment">#</span>
+<span class="token key atrule">path.logs</span><span class="token punctuation">:</span> /opt/data/es/logs
+<span class="token comment">#</span>
+<span class="token comment"># ----------------------------------- Memory -----------------------------------</span>
+<span class="token comment">#</span>
+<span class="token comment"># Lock the memory on startup:</span>
+<span class="token comment">#</span>
+<span class="token comment">#bootstrap.memory_lock: true</span>
+<span class="token comment">#</span>
+<span class="token comment"># Make sure that the heap size is set to about half the memory available</span>
+<span class="token comment"># on the system and that the owner of the process is allowed to use this</span>
+<span class="token comment"># limit.</span>
+<span class="token comment">#</span>
+<span class="token comment"># Elasticsearch performs poorly when the system is swapping the memory.</span>
+<span class="token comment">#</span>
+<span class="token comment"># ---------------------------------- Network -----------------------------------</span>
+<span class="token comment">#</span>
+<span class="token comment"># Set the bind address to a specific IP (IPv4 or IPv6):</span>
+<span class="token comment">#</span>
+<span class="token key atrule">network.host</span><span class="token punctuation">:</span> 192.168.0.188
+<span class="token comment">#</span>
+<span class="token comment"># Set a custom port for HTTP:</span>
+<span class="token comment">#</span>
+<span class="token key atrule">http.port</span><span class="token punctuation">:</span> <span class="token number">9200</span>
+<span class="token comment">#</span>
+<span class="token comment"># For more information, consult the network module documentation.</span>
+<span class="token comment">#</span>
+<span class="token comment"># --------------------------------- Discovery ----------------------------------</span>
+<span class="token comment">#</span>
+<span class="token comment"># Pass an initial list of hosts to perform discovery when new node is started:</span>
+<span class="token comment"># The default list of hosts is [&quot;127.0.0.1&quot;, &quot;[::1]&quot;]</span>
+<span class="token comment">#</span>
+<span class="token comment">#discovery.zen.ping.unicast.hosts: [&quot;192.168.0.188&quot;, &quot;192.168.0.189&quot;, &quot;192.168.0.190&quot;]</span>
+<span class="token comment">#</span>
+<span class="token comment"># Prevent the &quot;split brain&quot; by configuring the majority of nodes (total number of master-eligible nodes / 2 + 1):</span>
+<span class="token comment">#</span>
+<span class="token comment">#discovery.zen.minimum_master_nodes:</span>
+<span class="token comment">#</span>
+<span class="token comment"># For more information, consult the zen discovery module documentation.</span>
+<span class="token comment">#</span>
+<span class="token comment"># ---------------------------------- Gateway -----------------------------------</span>
+<span class="token comment">#</span>
+<span class="token comment"># Block initial recovery after a full cluster restart until N nodes are started:</span>
+<span class="token comment">#</span>
+<span class="token comment">#gateway.recover_after_nodes: 3</span>
+<span class="token comment">#</span>
+<span class="token comment"># For more information, consult the gateway module documentation.</span>
+<span class="token comment">#</span>
+<span class="token comment"># ---------------------------------- Various -----------------------------------</span>
+<span class="token comment">#</span>
+<span class="token comment"># Require explicit names when deleting indices:</span>
+<span class="token comment">#</span>
+<span class="token comment">#action.destructive_requires_name: true</span>
+</code></pre></div><p>另外启动遇到了几个错误，需要修改如下文件：</p> <div class="language-powershell extra-class"><pre class="language-powershell"><code><span class="token comment"># ERROR: max file descriptors [4096] for elasticsearch process likely too low, increase to at least [65536]</span>
+vi <span class="token operator">/</span>etc<span class="token operator">/</span>security<span class="token operator">/</span>limits<span class="token punctuation">.</span>conf 
+
+<span class="token comment"># 添加如下内容:</span>
+
+<span class="token operator">*</span> soft nofile 65536
+
+<span class="token operator">*</span> hard nofile 131072
+
+<span class="token operator">*</span> soft nproc 2048
+
+<span class="token operator">*</span> hard nproc 4096
+
+
+<span class="token comment"># ERROR:max number of threads [2048] for user [lish] likely too low, increase to at least [4096]</span>
+vi <span class="token operator">/</span>etc<span class="token operator">/</span>security<span class="token operator">/</span>limits<span class="token punctuation">.</span>d<span class="token operator">/</span>90<span class="token operator">-</span>nproc<span class="token punctuation">.</span>conf 
+
+<span class="token comment"># 修改如下内容：</span>
+<span class="token operator">*</span> soft nproc 1024
+
+<span class="token comment"># 修改为</span>
+<span class="token operator">*</span> soft nproc 4096
+
+
+<span class="token comment"># ERROR:max virtual memory areas vm.max_map_count [65530] likely too low, increase to at least [262144]</span>
+
+vi <span class="token operator">/</span>etc<span class="token operator">/</span>sysctl<span class="token punctuation">.</span>conf 
+<span class="token comment"># 添加下面配置：</span>
+vm<span class="token punctuation">.</span>max_map_count=655360
+
+<span class="token comment"># 并执行命令：</span>
+sysctl <span class="token operator">-</span>p
+</code></pre></div><h3 id="运行"><a href="#运行" aria-hidden="true" class="header-anchor">#</a> 运行</h3> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 安装Java环境（一般服务器自带openjdk需先卸载，openjdk和oracle jdk有何区别自行百度）</span>
+<span class="token punctuation">[</span>root@vm-centos75-0188 packages<span class="token punctuation">]</span><span class="token comment"># /opt/elasticsearch-6.5.4/bin/elasticsearch</span>
+which: no java <span class="token keyword">in</span> <span class="token punctuation">(</span>/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin<span class="token punctuation">)</span>
+could not <span class="token function">find</span> java<span class="token punctuation">;</span> <span class="token keyword">set</span> JAVA_HOME or ensure java is <span class="token keyword">in</span> PATH
+
+<span class="token punctuation">[</span>root@vm-centos75-0188 packages<span class="token punctuation">]</span><span class="token comment"># java -version</span>
+-bash: java: 未找到命令
+
+<span class="token comment"># 查看JDK版本</span>
+<span class="token punctuation">[</span>root@vm-centos75-0188 packages<span class="token punctuation">]</span><span class="token comment"># java -version</span>
+-bash: java: 未找到命令
+
+<span class="token comment"># 查看包含java字符串的文件，其中删除类似下面这四个文件（不一定是四个）</span>
+<span class="token punctuation">[</span>root@vm-centos75-0188 packages<span class="token punctuation">]</span><span class="token comment"># rpm -qa | grep java</span>
+java-1.7.0-openjdk-1.7.0.111-2.6.7.8.el7.x86_64
+java-1.8.0-openjdk-1.8.0.102-4.b14.el7.x86_64
+java-1.8.0-openjdk-headless-1.8.0.102-4.b14.el7.x86_64
+java-1.7.0-openjdk-headless-1.7.0.111-2.6.7.8.el7.x86_64
+
+<span class="token comment"># 包含noarch的文件不必删除，如下：</span>
+python-javapackages-3.4.1-11.el7.noarch
+tzdata-java-2016g-2.el7.noarch
+javapackages-tools-3.4.1-11.el7.noarch
+
+<span class="token comment"># 查询出来带openjdk的全部使用下面的命令卸载</span>
+<span class="token punctuation">[</span>root@vm-centos75-0188 packages<span class="token punctuation">]</span><span class="token comment"># yum -y remove java java-x.x.x-gcj-compat-x.x.x.x-xxjpp.xxx</span>
+<span class="token punctuation">[</span>root@vm-centos75-0188 packages<span class="token punctuation">]</span><span class="token comment"># yum -y remove java java-x.x.x-openjdk-x.x.x.x-x.x.bxx.exx</span>
+
+<span class="token comment"># 文件最后添加如下内容</span>
+<span class="token punctuation">[</span>root@vm-centos75-0188 opt<span class="token punctuation">]</span><span class="token comment"># vi /etc/profile</span>
+<span class="token function">export</span> JAVA_HOME<span class="token operator">=</span>/opt/jdk1.8.0_191
+<span class="token function">export</span> CLASSPATH<span class="token operator">=</span>.:<span class="token variable">$JAVA_HOME</span>/jre/lib/rt.jar:<span class="token variable">$JAVA_HOME</span>/lib/dt.jar:<span class="token variable">$JAVA_HOME</span>/lib/tools.jar
+<span class="token function">export</span> PATH<span class="token operator">=</span><span class="token variable">$PATH</span><span class="token keyword">:</span><span class="token variable">$JAVA_HOME</span>/bin
+
+<span class="token comment"># 生效环境变量</span>
+<span class="token punctuation">[</span>root@vm-centos75-0188 opt<span class="token punctuation">]</span><span class="token comment"># source /etc/profile</span>
+
+<span class="token comment"># 检查是否配置成功</span>
+<span class="token punctuation">[</span>root@vm-centos75-0188 opt<span class="token punctuation">]</span><span class="token comment"># java -version</span>
+java version <span class="token string">&quot;1.8.0_191&quot;</span>
+Java<span class="token punctuation">(</span>TM<span class="token punctuation">)</span> SE Runtime Environment <span class="token punctuation">(</span>build 1.8.0_191-b12<span class="token punctuation">)</span>
+Java HotSpot<span class="token punctuation">(</span>TM<span class="token punctuation">)</span> 64-Bit Server VM <span class="token punctuation">(</span>build 25.191-b12, mixed mode<span class="token punctuation">)</span>
+
+<span class="token comment"># 切换到es用户然后运行下面的命令</span>
+<span class="token comment"># 直接运行会打印log日志在控制台，关闭服务即刻关闭</span>
+$ /opt/elasticsearch-6.5.4/bin/elasticsearch
+<span class="token comment"># 加-d参数后台启动</span>
+$ /opt/elasticsearch-6.5.4/bin/elasticsearch -d
+</code></pre></div><h3 id="访问"><a href="#访问" aria-hidden="true" class="header-anchor">#</a> 访问</h3> <p><code>http://192.168.0.188:9200/</code>返回如下内容表示安装成功</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;name&quot;</span> <span class="token operator">:</span> <span class="token string">&quot;cosmo-node-188&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;cluster_name&quot;</span> <span class="token operator">:</span> <span class="token string">&quot;cosmo-efk&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;cluster_uuid&quot;</span> <span class="token operator">:</span> <span class="token string">&quot;UgyoS_kMQjKJCxsVUmh-Rw&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;version&quot;</span> <span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;number&quot;</span> <span class="token operator">:</span> <span class="token string">&quot;6.5.4&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;build_flavor&quot;</span> <span class="token operator">:</span> <span class="token string">&quot;default&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;build_type&quot;</span> <span class="token operator">:</span> <span class="token string">&quot;tar&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;build_hash&quot;</span> <span class="token operator">:</span> <span class="token string">&quot;d2ef93d&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;build_date&quot;</span> <span class="token operator">:</span> <span class="token string">&quot;2018-12-17T21:17:40.758843Z&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;build_snapshot&quot;</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;lucene_version&quot;</span> <span class="token operator">:</span> <span class="token string">&quot;7.5.0&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;minimum_wire_compatibility_version&quot;</span> <span class="token operator">:</span> <span class="token string">&quot;5.6.0&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;minimum_index_compatibility_version&quot;</span> <span class="token operator">:</span> <span class="token string">&quot;5.0.0&quot;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;tagline&quot;</span> <span class="token operator">:</span> <span class="token string">&quot;You Know, for Search&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="kibana"><a href="#kibana" aria-hidden="true" class="header-anchor">#</a> Kibana</h2> <h3 id="解压-2"><a href="#解压-2" aria-hidden="true" class="header-anchor">#</a> 解压</h3> <div class="language-powershell extra-class"><pre class="language-powershell"><code><span class="token namespace">[root@vm-centos75-0189 opt]</span><span class="token comment"># tar zxvf kibana-6.5.4-linux-x86_64.tar.gz -C /opt</span>
+<span class="token namespace">[root@vm-centos75-0189 opt]</span><span class="token comment"># mv /opt/kibana-6.5.4-linux-x86_64 /opt/kibana</span>
+</code></pre></div><h3 id="配置-2"><a href="#配置-2" aria-hidden="true" class="header-anchor">#</a> 配置</h3> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token punctuation">[</span>root@vm-centos75-0189 opt<span class="token punctuation">]</span><span class="token comment"># vi kibana/config/kibana.yml </span>
+<span class="token comment"># Kibana is served by a back end server. This setting specifies the port to use.</span>
+server.port: 5601
+
+<span class="token comment"># Specifies the address to which the Kibana server will bind. IP addresses and host names are both valid values.</span>
+<span class="token comment"># The default is 'localhost', which usually means remote machines will not be able to connect.</span>
+<span class="token comment"># To allow connections from remote users, set this parameter to a non-loopback address.</span>
+server.host: <span class="token string">&quot;192.168.0.189&quot;</span>
+
+<span class="token comment"># Enables you to specify a path to mount Kibana at if you are running behind a proxy.</span>
+<span class="token comment"># Use the `server.rewriteBasePath` setting to tell Kibana if it should remove the basePath</span>
+<span class="token comment"># from requests it receives, and to prevent a deprecation warning at startup.</span>
+<span class="token comment"># This setting cannot end in a slash.</span>
+<span class="token comment">#server.basePath: &quot;&quot;</span>
+
+<span class="token comment"># Specifies whether Kibana should rewrite requests that are prefixed with</span>
+<span class="token comment"># `server.basePath` or require that they are rewritten by your reverse proxy.</span>
+<span class="token comment"># This setting was effectively always `false` before Kibana 6.3 and will</span>
+<span class="token comment"># default to `true` starting in Kibana 7.0.</span>
+<span class="token comment">#server.rewriteBasePath: false</span>
+
+<span class="token comment"># The maximum payload size in bytes for incoming server requests.</span>
+<span class="token comment">#server.maxPayloadBytes: 1048576</span>
+
+<span class="token comment"># The Kibana server's name.  This is used for display purposes.</span>
+server.name: <span class="token string">&quot;cosmo-kibana-189&quot;</span>
+
+<span class="token comment"># The URL of the Elasticsearch instance to use for all your queries.</span>
+elasticsearch.url: <span class="token string">&quot;http://192.168.0.188:9200&quot;</span>
+</code></pre></div><h3 id="启动"><a href="#启动" aria-hidden="true" class="header-anchor">#</a> 启动</h3> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 直接启动</span>
+$ /opt/kibana/bin/kibana
+<span class="token comment"># 后台启动</span>
+$ /opt/kibana/bin/kibana -d
+<span class="token comment"># 浏览器访问下面地址</span>
+http://192.168.0.189:5601
+</code></pre></div><h2 id="kafka"><a href="#kafka" aria-hidden="true" class="header-anchor">#</a> Kafka</h2> <p>生产环境中 Kafka 集群中节点数量建议为（2N + 1 ）个，这边就以 3 个节点举例</p> <h3 id="解压-3"><a href="#解压-3" aria-hidden="true" class="header-anchor">#</a> 解压</h3> <div class="language- extra-class"><pre class="language-text"><code>tar -zxvf kafka_2.11-1.0.0.tgz
+mv kafka_2.11-1.0.0 kafka
+tar -zxvf zookeeper-3.4.13.tar.gz -C /opt
+mv zookeeper-3.4.13 zookeeper
+</code></pre></div><h3 id="配置zookeeper-集群"><a href="#配置zookeeper-集群" aria-hidden="true" class="header-anchor">#</a> 配置Zookeeper 集群</h3> <p>修改 Zookeeper 配置，搭建 Zookeeper 集群，数量 ( 2N + 1 ) 个,复制下面的配置文件到另外2台服务器</p> <div class="language-shell extra-class"><pre class="language-shell"><code>$ <span class="token function">cd</span> /opt/zookeeper/conf <span class="token operator">&amp;&amp;</span> <span class="token function">cp</span> zoo_sample.cfg zoo.cfg <span class="token operator">&amp;&amp;</span> <span class="token function">vi</span> zoo.cfg
+$ <span class="token function">cat</span> zoo.cfg
+
+<span class="token comment"># The number of milliseconds of each tick</span>
+tickTime<span class="token operator">=</span>2000
+<span class="token comment"># The number of ticks that the initial </span>
+<span class="token comment"># synchronization phase can take</span>
+initLimit<span class="token operator">=</span>10
+<span class="token comment"># The number of ticks that can pass between </span>
+<span class="token comment"># sending a request and getting an acknowledgement</span>
+syncLimit<span class="token operator">=</span>5
+<span class="token comment"># the directory where the snapshot is stored.</span>
+<span class="token comment"># do not use /tmp for storage, /tmp here is just </span>
+<span class="token comment"># example sakes.</span>
+dataDir<span class="token operator">=</span>/opt/data/zookeeper/data
+dataLogDir<span class="token operator">=</span>/opt/data/zookeeper/logs
+<span class="token comment"># the port at which the clients will connect</span>
+clientPort<span class="token operator">=</span>2181
+<span class="token comment"># the maximum number of client connections.</span>
+<span class="token comment"># increase this if you need to handle more clients</span>
+maxClientCnxns<span class="token operator">=</span>60
+<span class="token comment">#</span>
+<span class="token comment"># Be sure to read the maintenance section of the </span>
+<span class="token comment"># administrator guide before turning on autopurge.</span>
+<span class="token comment">#</span>
+<span class="token comment"># http://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_maintenance</span>
+<span class="token comment">#</span>
+<span class="token comment"># The number of snapshots to retain in dataDir</span>
+<span class="token comment">#autopurge.snapRetainCount=3</span>
+<span class="token comment"># Purge task interval in hours</span>
+<span class="token comment"># Set to &quot;0&quot; to disable auto purge feature</span>
+<span class="token comment">#autopurge.purgeInterval=1</span>
+server.1<span class="token operator">=</span>192.168.0.188:2888:3888
+server.2<span class="token operator">=</span>192.168.0.189:2888:3888
+server.3<span class="token operator">=</span>192.168.0.191:2888:3888
+</code></pre></div><p>Zookeeper data 目录下面添加 myid 文件，内容为代表 Zooekeeper 节点 id （1，2，3），并保证不重复</p> <div class="language-shell extra-class"><pre class="language-shell"><code>$ <span class="token keyword">echo</span> <span class="token string">&quot;1&quot;</span> <span class="token operator">&gt;</span> /opt/data/zookeeper/data/myid         <span class="token comment"># 192.168.0.188</span>
+$ <span class="token keyword">echo</span> <span class="token string">&quot;2&quot;</span> <span class="token operator">&gt;</span> /opt/data/zookeeper/data/myid         <span class="token comment"># 192.168.0.189</span>
+$ <span class="token keyword">echo</span> <span class="token string">&quot;3&quot;</span> <span class="token operator">&gt;</span> /opt/data/zookeeper/data/myid         <span class="token comment"># 192.168.0.191</span>
+</code></pre></div><h3 id="启动-zookeeper-集群"><a href="#启动-zookeeper-集群" aria-hidden="true" class="header-anchor">#</a> 启动 Zookeeper 集群</h3> <p>分别启动 3 台 Zookeeper 节点，保证集群的高可用</p> <div class="language-shell extra-class"><pre class="language-shell"><code>$ ./zkServer.sh -start        <span class="token comment"># 启动</span>
+$ ./zkServer.sh -stop         <span class="token comment"># 停止</span>
+$ ./zkServer.sh -status       <span class="token comment"># 状态</span>
+</code></pre></div><h3 id="配置-kafka-集群"><a href="#配置-kafka-集群" aria-hidden="true" class="header-anchor">#</a> 配置 Kafka 集群</h3> <p>kafka 集群这边搭建为 3 台，可以逐个修改 Kafka 配置，需要注意其中 broker.id 分别 （1，2，3）</p> <div class="language-shell extra-class"><pre class="language-shell"><code>$ <span class="token function">vi</span> /opt/kafka/config/server.properties
+<span class="token comment"># Licensed to the Apache Software Foundation (ASF) under one or more</span>
+<span class="token comment"># contributor license agreements.  See the NOTICE file distributed with</span>
+<span class="token comment"># this work for additional information regarding copyright ownership.</span>
+<span class="token comment"># The ASF licenses this file to You under the Apache License, Version 2.0</span>
+<span class="token comment"># (the &quot;License&quot;); you may not use this file except in compliance with</span>
+<span class="token comment"># the License.  You may obtain a copy of the License at</span>
+<span class="token comment">#</span>
+<span class="token comment">#    http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="token comment">#</span>
+<span class="token comment"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="token comment"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="token comment"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="token comment"># See the License for the specific language governing permissions and</span>
+<span class="token comment"># limitations under the License.</span>
+
+<span class="token comment"># see kafka.server.KafkaConfig for additional details and defaults</span>
+
+<span class="token comment">############################# Server Basics #############################</span>
+
+<span class="token comment"># The id of the broker. This must be set to a unique integer for each broker.</span>
+broker.id<span class="token operator">=</span>188
+
+<span class="token comment">############################# Socket Server Settings #############################</span>
+
+<span class="token comment"># The address the socket server listens on. It will get the value returned from </span>
+<span class="token comment"># java.net.InetAddress.getCanonicalHostName() if not configured.</span>
+<span class="token comment">#   FORMAT:</span>
+<span class="token comment">#     listeners = listener_name://host_name:port</span>
+<span class="token comment">#   EXAMPLE:</span>
+<span class="token comment">#     listeners = PLAINTEXT://your.host.name:9092</span>
+listeners<span class="token operator">=</span>PLAINTEXT://192.168.0.188:9092
+
+<span class="token comment"># Hostname and port the broker will advertise to producers and consumers. If not set, </span>
+<span class="token comment"># it uses the value for &quot;listeners&quot; if configured.  Otherwise, it will use the value</span>
+<span class="token comment"># returned from java.net.InetAddress.getCanonicalHostName().</span>
+advertised.listeners<span class="token operator">=</span>PLAINTEXT://192.168.0.188:9092
+
+<span class="token comment"># Maps listener names to security protocols, the default is for them to be the same. See the config documentation for more details</span>
+<span class="token comment">#listener.security.protocol.map=PLAINTEXT:PLAINTEXT,SSL:SSL,SASL_PLAINTEXT:SASL_PLAINTEXT,SASL_SSL:SASL_SSL</span>
+
+<span class="token comment"># The number of threads that the server uses for receiving requests from the network and sending responses to the network</span>
+num.network.threads<span class="token operator">=</span>8
+
+<span class="token comment"># The number of threads that the server uses for processing requests, which may include disk I/O</span>
+num.io.threads<span class="token operator">=</span>8
+
+<span class="token comment"># The send buffer (SO_SNDBUF) used by the socket server</span>
+socket.send.buffer.bytes<span class="token operator">=</span>102400
+
+<span class="token comment"># The receive buffer (SO_RCVBUF) used by the socket server</span>
+socket.receive.buffer.bytes<span class="token operator">=</span>102400
+
+<span class="token comment"># The maximum size of a request that the socket server will accept (protection against OOM)</span>
+socket.request.max.bytes<span class="token operator">=</span>104857600
+
+
+<span class="token comment">############################# Log Basics #############################</span>
+
+<span class="token comment"># A comma separated list of directories under which to store log files</span>
+log.dirs<span class="token operator">=</span>/opt/data/kafka/logs
+
+<span class="token comment"># The default number of log partitions per topic. More partitions allow greater</span>
+<span class="token comment"># parallelism for consumption, but this will also result in more files across</span>
+<span class="token comment"># the brokers.</span>
+num.partitions<span class="token operator">=</span>3
+
+<span class="token comment"># The number of threads per data directory to be used for log recovery at startup and flushing at shutdown.</span>
+<span class="token comment"># This value is recommended to be increased for installations with data dirs located in RAID array.</span>
+num.recovery.threads.per.data.dir<span class="token operator">=</span>1
+
+<span class="token comment">############################# Internal Topic Settings  #############################</span>
+<span class="token comment"># The replication factor for the group metadata internal topics &quot;__consumer_offsets&quot; and &quot;__transaction_state&quot;</span>
+<span class="token comment"># For anything other than development testing, a value greater than 1 is recommended for to ensure availability such as 3.</span>
+offsets.topic.replication.factor<span class="token operator">=</span>1
+transaction.state.log.replication.factor<span class="token operator">=</span>1
+transaction.state.log.min.isr<span class="token operator">=</span>1
+
+<span class="token comment">############################# Log Flush Policy #############################</span>
+
+<span class="token comment"># Messages are immediately written to the filesystem but by default we only fsync() to sync</span>
+<span class="token comment"># the OS cache lazily. The following configurations control the flush of data to disk.</span>
+<span class="token comment"># There are a few important trade-offs here:</span>
+<span class="token comment">#    1. Durability: Unflushed data may be lost if you are not using replication.</span>
+<span class="token comment">#    2. Latency: Very large flush intervals may lead to latency spikes when the flush does occur as there will be a lot of data to flush.</span>
+<span class="token comment">#    3. Throughput: The flush is generally the most expensive operation, and a small flush interval may lead to excessive seeks.</span>
+<span class="token comment"># The settings below allow one to configure the flush policy to flush data after a period of time or</span>
+<span class="token comment"># every N messages (or both). This can be done globally and overridden on a per-topic basis.</span>
+
+<span class="token comment"># The number of messages to accept before forcing a flush of data to disk</span>
+<span class="token comment">#log.flush.interval.messages=10000</span>
+
+<span class="token comment"># The maximum amount of time a message can sit in a log before we force a flush</span>
+<span class="token comment">#log.flush.interval.ms=1000</span>
+
+<span class="token comment">############################# Log Retention Policy #############################</span>
+
+<span class="token comment"># The following configurations control the disposal of log segments. The policy can</span>
+<span class="token comment"># be set to delete segments after a period of time, or after a given size has accumulated.</span>
+<span class="token comment"># A segment will be deleted whenever *either* of these criteria are met. Deletion always happens</span>
+<span class="token comment"># from the end of the log.</span>
+
+<span class="token comment"># The minimum age of a log file to be eligible for deletion due to age</span>
+log.retention.hours<span class="token operator">=</span>168
+
+<span class="token comment"># A size-based retention policy for logs. Segments are pruned from the log unless the remaining</span>
+<span class="token comment"># segments drop below log.retention.bytes. Functions independently of log.retention.hours.</span>
+<span class="token comment">#log.retention.bytes=1073741824</span>
+
+<span class="token comment"># The maximum size of a log segment file. When this size is reached a new log segment will be created.</span>
+log.segment.bytes<span class="token operator">=</span>1073741824
+
+<span class="token comment"># The interval at which log segments are checked to see if they can be deleted according</span>
+<span class="token comment"># to the retention policies</span>
+log.retention.check.interval.ms<span class="token operator">=</span>300000
+
+<span class="token comment">############################# Zookeeper #############################</span>
+
+<span class="token comment"># Zookeeper connection string (see zookeeper docs for details).</span>
+<span class="token comment"># This is a comma separated host:port pairs, each corresponding to a zk</span>
+<span class="token comment"># server. e.g. &quot;127.0.0.1:3000,127.0.0.1:3001,127.0.0.1:3002&quot;.</span>
+<span class="token comment"># You can also append an optional chroot string to the urls to specify the</span>
+<span class="token comment"># root directory for all kafka znodes.</span>
+zookeeper.connect<span class="token operator">=</span>192.168.0.188:2181,192.168.0.189:2181,192.168.0.191:2181
+
+<span class="token comment"># Timeout in ms for connecting to zookeeper</span>
+zookeeper.connection.timeout.ms<span class="token operator">=</span>6000
+
+<span class="token comment">############################# Group Coordinator Settings #############################</span>
+
+<span class="token comment"># The following configuration specifies the time, in milliseconds, that the GroupCoordinator will delay the initial consumer rebalance.</span>
+<span class="token comment"># The rebalance will be further delayed by the value of group.initial.rebalance.delay.ms as new members join the group, up to a maximum of max.poll.interval.ms.</span>
+<span class="token comment"># The default value for this is 3 seconds.</span>
+<span class="token comment"># We override this to 0 here as it makes for a better out-of-the-box experience for development and testing.</span>
+<span class="token comment"># However, in production environments the default value of 3 seconds is more suitable as this will help to avoid unnecessary, and potentially expensive, rebalances during application startup.</span>
+group.initial.rebalance.delay.ms<span class="token operator">=</span>0
+</code></pre></div><h3 id="启动-kafka-集群"><a href="#启动-kafka-集群" aria-hidden="true" class="header-anchor">#</a> 启动 Kafka 集群</h3> <p>分别启动 3 台 Kafka 节点，保证集群的高可用</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 启动</span>
+$ /opt/kafka/bin/kafka-server-start.sh -daemon /opt/kafka/config/server.properties
+<span class="token comment"># 查看 topic 是否创建成功</span>
+$ /opt/kafka/bin/kafka-topics.sh --list --zookeeper 192.168.0.188:2181
+</code></pre></div><h2 id="logstash"><a href="#logstash" aria-hidden="true" class="header-anchor">#</a> Logstash</h2> <h3 id="解压-4"><a href="#解压-4" aria-hidden="true" class="header-anchor">#</a> 解压</h3> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token punctuation">[</span>root@vm-centos75-0191 opt<span class="token punctuation">]</span><span class="token comment"># tar zxvf logstash-6.5.4.tar.gz -C /opt</span>
+<span class="token punctuation">[</span>root@vm-centos75-0191 opt<span class="token punctuation">]</span><span class="token comment"># mv /opt/logstash-6.5.4 /opt/logstash</span>
+</code></pre></div><h3 id="配置-3"><a href="#配置-3" aria-hidden="true" class="header-anchor">#</a> 配置</h3> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token punctuation">[</span>root@vm-centos75-0191 config<span class="token punctuation">]</span><span class="token comment"># cd /opt/logstash/config</span>
+<span class="token punctuation">[</span>root@vm-centos75-0191 config<span class="token punctuation">]</span><span class="token comment"># cp logstash-sample.conf logstash.conf</span>
+<span class="token punctuation">[</span>root@vm-centos75-0191 config<span class="token punctuation">]</span><span class="token comment"># vi logstash.conf </span>
+<span class="token punctuation">[</span>root@vm-centos75-0191 config<span class="token punctuation">]</span><span class="token comment"># cat logstash.conf </span>
+input <span class="token punctuation">{</span>
+  kafka <span class="token punctuation">{</span>
+    bootstrap_servers <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;192.168.0.188:9092&quot;</span>
+    topics <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;idp-bpm&quot;</span>
+    <span class="token comment">#topics_pattern =&gt; &quot;^idp\\-.*&quot;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+output <span class="token punctuation">{</span>
+  elasticsearch <span class="token punctuation">{</span>
+    hosts <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">[</span><span class="token string">&quot;http://192.168.0.188:9200&quot;</span><span class="token punctuation">]</span>
+    index <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;idp-%{+YYYY.MM.dd}&quot;</span>
+    <span class="token comment">#user =&gt; &quot;elastic&quot;</span>
+    <span class="token comment">#password =&gt; &quot;changeme&quot;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="启动-2"><a href="#启动-2" aria-hidden="true" class="header-anchor">#</a> 启动</h3> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 直接启动</span>
+<span class="token punctuation">[</span>root@vm-centos75-0191 bin<span class="token punctuation">]</span><span class="token comment"># ./logstash -f ../config/logstash.conf</span>
+<span class="token comment"># 后台启动</span>
+<span class="token punctuation">[</span>root@vm-centos75-0191 bin<span class="token punctuation">]</span><span class="token comment"># cd /opt/logstash/</span>
+<span class="token punctuation">[</span>root@vm-centos75-0191 logstash<span class="token punctuation">]</span><span class="token comment"># nohup bin/logstash -f config/logstash.conf --config.reload.automatic &gt;&amp; /opt/data/logstash/logs/logstash &amp;</span>
+</code></pre></div><h2 id="filebeat"><a href="#filebeat" aria-hidden="true" class="header-anchor">#</a> FileBeat</h2> <h3 id="解压-5"><a href="#解压-5" aria-hidden="true" class="header-anchor">#</a> 解压</h3> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token punctuation">[</span>root@vm-centos75-0191 opt<span class="token punctuation">]</span><span class="token comment"># tar zxvf filebeat-6.5.4-linux-x86_64.tar.gz -C /opt</span>
+<span class="token punctuation">[</span>root@vm-centos75-0191 opt<span class="token punctuation">]</span><span class="token comment"># mv /opt/filebeat-6.5.4-linux-x86_64 /opt/filebeat</span>
+</code></pre></div><h3 id="配置-4"><a href="#配置-4" aria-hidden="true" class="header-anchor">#</a> 配置</h3> <p><code>vi /opt/filebeat/filebeat.yml</code></p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">###################### Filebeat Configuration Example #########################</span>
+
+<span class="token comment"># This file is an example configuration file highlighting only the most common</span>
+<span class="token comment"># options. The filebeat.reference.yml file from the same directory contains all the</span>
+<span class="token comment"># supported options with more comments. You can use it as a reference.</span>
+<span class="token comment">#</span>
+<span class="token comment"># You can find the full configuration reference here:</span>
+<span class="token comment"># https://www.elastic.co/guide/en/beats/filebeat/index.html</span>
+
+<span class="token comment"># For more available modules and options, please see the filebeat.reference.yml sample</span>
+<span class="token comment"># configuration file.</span>
+
+<span class="token comment">#=========================== Filebeat inputs =============================</span>
+
+filebeat.inputs:
+
+<span class="token comment"># Each - is an input. Most options can be set at the input level, so</span>
+<span class="token comment"># you can use different inputs for various configurations.</span>
+<span class="token comment"># Below are the input specific configurations.</span>
+
+- type: log
+
+  <span class="token comment"># Change to true to enable this input configuration.</span>
+  enabled: <span class="token boolean">true</span>
+
+  <span class="token comment"># Paths that should be crawled and fetched. Glob based paths.</span>
+  paths:
+    <span class="token comment">#- /var/log/*.log</span>
+    - E:\idp\logs\bpm\bpm.log
+
+  <span class="token comment"># Exclude lines. A list of regular expressions to match. It drops the lines that are</span>
+  <span class="token comment"># matching any regular expression from the list.</span>
+  <span class="token comment">#exclude_lines: ['^DBG']</span>
+
+  <span class="token comment"># Include lines. A list of regular expressions to match. It exports the lines that are</span>
+  <span class="token comment"># matching any regular expression from the list.</span>
+  <span class="token comment">#include_lines: ['^ERR', '^WARN']</span>
+
+  <span class="token comment"># Exclude files. A list of regular expressions to match. Filebeat drops the files that</span>
+  <span class="token comment"># are matching any regular expression from the list. By default, no files are dropped.</span>
+  <span class="token comment">#exclude_files: ['.gz$']</span>
+
+  <span class="token comment"># Optional additional fields. These fields can be freely picked</span>
+  <span class="token comment"># to add additional information to the crawled log files for filtering</span>
+  <span class="token comment">#fields:</span>
+  <span class="token comment">#  level: debug</span>
+  <span class="token comment">#  review: 1</span>
+
+  <span class="token comment">### Multiline options</span>
+
+  <span class="token comment"># Multiline can be used for log messages spanning multiple lines. This is common</span>
+  <span class="token comment"># for Java Stack Traces or C-Line Continuation</span>
+
+  <span class="token comment"># The regexp Pattern that has to be matched. The example pattern matches all lines starting with [</span>
+  <span class="token comment">#multiline.pattern: ^\[</span>
+
+  <span class="token comment"># Defines if the pattern set under pattern should be negated or not. Default is false.</span>
+  <span class="token comment">#multiline.negate: false</span>
+
+  <span class="token comment"># Match can be set to &quot;after&quot; or &quot;before&quot;. It is used to define if lines should be append to a pattern</span>
+  <span class="token comment"># that was (not) matched before or after or as long as a pattern is not matched based on negate.</span>
+  <span class="token comment"># Note: After is the equivalent to previous and before is the equivalent to to next in Logstash</span>
+  <span class="token comment">#multiline.match: after</span>
+
+
+<span class="token comment">#============================= Filebeat modules ===============================</span>
+
+filebeat.config.modules:
+  <span class="token comment"># Glob pattern for configuration loading</span>
+  path: <span class="token variable">${path.config}</span>/modules.d/*.yml
+
+  <span class="token comment"># Set to true to enable config reloading</span>
+  reload.enabled: <span class="token boolean">false</span>
+
+  <span class="token comment"># Period on which files under path should be checked for changes</span>
+  <span class="token comment">#reload.period: 10s</span>
+
+<span class="token comment">#==================== Elasticsearch template setting ==========================</span>
+
+setup.template.settings:
+  index.number_of_shards: 3
+  <span class="token comment">#index.codec: best_compression</span>
+  <span class="token comment">#_source.enabled: false</span>
+
+<span class="token comment">#================================ General =====================================</span>
+
+<span class="token comment"># The name of the shipper that publishes the network data. It can be used to group</span>
+<span class="token comment"># all the transactions sent by a single shipper in the web interface.</span>
+<span class="token comment">#name:</span>
+
+<span class="token comment"># The tags of the shipper are included in their own field with each</span>
+<span class="token comment"># transaction published.</span>
+<span class="token comment">#tags: [&quot;service-X&quot;, &quot;web-tier&quot;]</span>
+
+<span class="token comment"># Optional fields that you can specify to add additional information to the</span>
+<span class="token comment"># output.</span>
+<span class="token comment">#fields:</span>
+<span class="token comment">#  env: staging</span>
+
+
+<span class="token comment">#============================== Dashboards =====================================</span>
+<span class="token comment"># These settings control loading the sample dashboards to the Kibana index. Loading</span>
+<span class="token comment"># the dashboards is disabled by default and can be enabled either by setting the</span>
+<span class="token comment"># options here, or by using the `-setup` CLI flag or the `setup` command.</span>
+<span class="token comment">#setup.dashboards.enabled: false</span>
+
+<span class="token comment"># The URL from where to download the dashboards archive. By default this URL</span>
+<span class="token comment"># has a value which is computed based on the Beat name and version. For released</span>
+<span class="token comment"># versions, this URL points to the dashboard archive on the artifacts.elastic.co</span>
+<span class="token comment"># website.</span>
+<span class="token comment">#setup.dashboards.url:</span>
+
+<span class="token comment">#============================== Kibana =====================================</span>
+
+<span class="token comment"># Starting with Beats version 6.0.0, the dashboards are loaded via the Kibana API.</span>
+<span class="token comment"># This requires a Kibana endpoint configuration.</span>
+setup.kibana:
+
+  <span class="token comment"># Kibana Host</span>
+  <span class="token comment"># Scheme and port can be left out and will be set to the default (http and 5601)</span>
+  <span class="token comment"># In case you specify and additional path, the scheme is required: http://localhost:5601/path</span>
+  <span class="token comment"># IPv6 addresses should always be defined as: https://[2001:db8::1]:5601</span>
+  <span class="token comment">#host: &quot;localhost:5601&quot;</span>
+
+  <span class="token comment"># Kibana Space ID</span>
+  <span class="token comment"># ID of the Kibana Space into which the dashboards should be loaded. By default,</span>
+  <span class="token comment"># the Default Space will be used.</span>
+  <span class="token comment">#space.id:</span>
+
+<span class="token comment">#============================= Elastic Cloud ==================================</span>
+
+<span class="token comment"># These settings simplify using filebeat with the Elastic Cloud (https://cloud.elastic.co/).</span>
+
+<span class="token comment"># The cloud.id setting overwrites the `output.elasticsearch.hosts` and</span>
+<span class="token comment"># `setup.kibana.host` options.</span>
+<span class="token comment"># You can find the `cloud.id` in the Elastic Cloud web UI.</span>
+<span class="token comment">#cloud.id:</span>
+
+<span class="token comment"># The cloud.auth setting overwrites the `output.elasticsearch.username` and</span>
+<span class="token comment"># `output.elasticsearch.password` settings. The format is `&lt;user&gt;:&lt;pass&gt;`.</span>
+<span class="token comment">#cloud.auth:</span>
+
+<span class="token comment">#================================ Outputs =====================================</span>
+
+<span class="token comment"># Configure what output to use when sending the data collected by the beat.</span>
+
+
+<span class="token comment">#------------------------------ Kafka output ----------------------------------</span>
+output.kafka:   
+  hosts: <span class="token punctuation">[</span><span class="token string">&quot;192.168.0.188:9092&quot;</span><span class="token punctuation">]</span>
+  topic: idp-bpm
+  required_acks: 1
+
+<span class="token comment">#-------------------------- Elasticsearch output ------------------------------</span>
+<span class="token comment">#output.elasticsearch:</span>
+  <span class="token comment"># Array of hosts to connect to.</span>
+  <span class="token comment">#hosts: [&quot;localhost:9200&quot;]</span>
+
+  <span class="token comment"># Optional protocol and basic auth credentials.</span>
+  <span class="token comment">#protocol: &quot;https&quot;</span>
+  <span class="token comment">#username: &quot;elastic&quot;</span>
+  <span class="token comment">#password: &quot;changeme&quot;</span>
+
+<span class="token comment">#----------------------------- Logstash output --------------------------------</span>
+<span class="token comment">#output.logstash:</span>
+  <span class="token comment"># The Logstash hosts</span>
+  <span class="token comment">#hosts: [&quot;localhost:5044&quot;]</span>
+
+  <span class="token comment"># Optional SSL. By default is off.</span>
+  <span class="token comment"># List of root certificates for HTTPS server verifications</span>
+  <span class="token comment">#ssl.certificate_authorities: [&quot;/etc/pki/root/ca.pem&quot;]</span>
+
+  <span class="token comment"># Certificate for SSL client authentication</span>
+  <span class="token comment">#ssl.certificate: &quot;/etc/pki/client/cert.pem&quot;</span>
+
+  <span class="token comment"># Client Certificate Key</span>
+  <span class="token comment">#ssl.key: &quot;/etc/pki/client/cert.key&quot;</span>
+
+<span class="token comment">#================================ Procesors =====================================</span>
+
+<span class="token comment"># Configure processors to enhance or manipulate events generated by the beat.</span>
+
+processors:
+  - add_host_metadata: ~
+  - add_cloud_metadata: ~
+
+<span class="token comment">#================================ Logging =====================================</span>
+
+<span class="token comment"># Sets log level. The default log level is info.</span>
+<span class="token comment"># Available log levels are: error, warning, info, debug</span>
+<span class="token comment">#logging.level: debug</span>
+
+<span class="token comment"># At debug level, you can selectively enable logging only for some components.</span>
+<span class="token comment"># To enable all selectors use [&quot;*&quot;]. Examples of other selectors are &quot;beat&quot;,</span>
+<span class="token comment"># &quot;publish&quot;, &quot;service&quot;.</span>
+<span class="token comment">#logging.selectors: [&quot;*&quot;]</span>
+
+<span class="token comment">#============================== Xpack Monitoring ===============================</span>
+<span class="token comment"># filebeat can export internal metrics to a central Elasticsearch monitoring</span>
+<span class="token comment"># cluster.  This requires xpack monitoring to be enabled in Elasticsearch.  The</span>
+<span class="token comment"># reporting is disabled by default.</span>
+
+<span class="token comment"># Set to true to enable the monitoring reporter.</span>
+<span class="token comment">#xpack.monitoring.enabled: false</span>
+
+<span class="token comment"># Uncomment to send the metrics to Elasticsearch. Most settings from the</span>
+<span class="token comment"># Elasticsearch output are accepted here as well. Any setting that is not set is</span>
+<span class="token comment"># automatically inherited from the Elasticsearch output configuration, so if you</span>
+<span class="token comment"># have the Elasticsearch output configured, you can simply uncomment the</span>
+<span class="token comment"># following line.</span>
+<span class="token comment">#xpack.monitoring.elasticsearch:</span>
+
+</code></pre></div><h3 id="启动-3"><a href="#启动-3" aria-hidden="true" class="header-anchor">#</a> 启动</h3> <p>Windows  设置为服务启动</p> <p>Linux         设置为服务启动</p> <h2 id="优化"><a href="#优化" aria-hidden="true" class="header-anchor">#</a> 优化</h2> <ul><li>所有组件作为服务启动</li> <li>所有组件集群一键启动、停止、查看状态</li> <li>所有组件监控插件、第三方程序的研究</li> <li>所有组件一键安装配置的研究</li> <li>所有组件安全设置的研究</li> <li>所有组件高级设置的研究</li> <li>Logstash 输入、输出、过滤以及消费kafka topic正则表达式设置的研究</li> <li>Kibana 图表、仪表、各项目指标归纳设置的研究</li> <li>用户足迹、业务日志、系统日志分类等归纳设置的研究</li></ul></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/Java/architect/ELK/elk-efk.html">
+          从 ELK 到 EFK 演进
+        </a>
+        →
+      </span></p></div> </div> <!----></div></div>
+    <script src="/assets/js/app.5747588d.js" defer></script><script src="/assets/js/33.f04b3a0b.js" defer></script>
+  </body>
+</html>
